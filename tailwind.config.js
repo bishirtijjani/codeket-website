@@ -11,7 +11,7 @@ module.exports = {
           electricBlue: "#007AFF",
           midnightNavy: "#0A182E",
           neonCyan: "#00E6E6",
-          ai: "#8A2BE2",
+          ai: "#1B1E7A",
           silver: "#E0E0E0",
         },
       },
@@ -31,7 +31,7 @@ module.exports = {
         codeketdark: {
           primary: "#007AFF", // Electric Blue
           secondary: "#00E6E6", // Neon Cyan
-          accent: "#8A2BE2", // AI Purple
+          accent: "#1B1E7A", // AI Purple
           neutral: "#0A182E", // Midnight Navy
           "base-100": "#0F172A", // Dark Surface
           "base-content": "#E0E0E0", // Light Text
@@ -45,7 +45,7 @@ module.exports = {
         codeketlight: {
           primary: "#1E2A38", // Deep Blue
           secondary: "#00E6E6", // Neon Cyan
-          accent: "#8A2BE2", // AI Purple
+          accent: "#1B1E7A", // AI Purple
           neutral: "#f8fafc", // Light Neutral
           "base-100": "#ffffff",
           "base-content": "#1E2A38",

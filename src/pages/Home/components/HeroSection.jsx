@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import technologies from "../../../utils/technologies";
+import technologies from "../../../utils/technologies.jsx";
 
 const HeroSection = () => {
   const canvasRef = useRef(null);
