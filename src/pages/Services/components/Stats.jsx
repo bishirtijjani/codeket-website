@@ -3,26 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const stats = [
-  {
-    value: "35+",
-    label: "Projects Delivered",
-    gradient: "from-primary to-secondary",
-  },
-  {
-    value: "8+",
-    label: "Years of Industry Experience",
-    gradient: "from-accent to-info",
-  },
-  {
-    value: "94%",
-    label: "Client Retention",
-    gradient: "from-success to-warning",
-  },
-  {
-    value: "100%",
-    label: "Client Satisfaction",
-    gradient: "from-warning to-error",
-  },
+  { value: "35+", label: "Projects Delivered" },
+  { value: "8+", label: "Years of Industry Experience" },
+  { value: "94%", label: "Client Retention" },
+  { value: "100%", label: "Client Satisfaction" },
 ];
 
 const Stats = () => {
@@ -39,9 +23,7 @@ const Stats = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div
-                className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
-              >
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
                 {stat.value}
               </div>
               <p className="text-xl text-base-content/80">{stat.label}</p>

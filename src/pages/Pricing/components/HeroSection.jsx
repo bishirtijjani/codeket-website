@@ -13,9 +13,8 @@ const HeroSection = () => {
 
       {/* Background gradient animation */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] bg-blue-600 rounded-full filter blur-[120px] opacity-20 animate-blob"></div>
-        <div className="absolute top-[20%] -right-[10%] w-[70%] h-[70%] bg-purple-600 rounded-full filter blur-[120px] opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-[10%] left-[20%] w-[60%] h-[60%] bg-teal-600 rounded-full filter blur-[120px] opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] bg-primary rounded-full filter blur-[160px] opacity-5 animate-blob"></div>
+        <div className="absolute top-[20%] -right-[10%] w-[70%] h-[70%] bg-primary rounded-full filter blur-[160px] opacity-5 animate-blob animation-delay-2000"></div>
       </div>
 
       {/* Content */}
@@ -26,7 +25,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold">
-            <span className="bg-gradient-to-r from-primary via-accent to-info bg-clip-text text-transparent">
+            <span className="text-primary">
               Software Solutions That Power Growth
             </span>
           </h1>
@@ -44,7 +43,7 @@ const HeroSection = () => {
         >
           <button
             onClick={() => scrollToSection("pricing-plans")}
-            className="inline-block btn-lg bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg mr-4"
+            className="inline-block btn-lg bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300 mr-4"
           >
             Explore Solutions
           </button>

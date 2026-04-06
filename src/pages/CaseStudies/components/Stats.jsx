@@ -5,7 +5,7 @@ import { FaRocket, FaChartLine, FaBrain, FaServer } from "react-icons/fa";
 
 const StatisticsSection = () => {
   return (
-    <div className="py-20 bg-gradient-to-b from-neutral-focus to-neutral">
+    <div className="py-20 bg-base-200">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ const StatisticsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-primary">
               Our Impact by the Numbers
             </span>
           </h2>
@@ -31,7 +31,7 @@ const StatisticsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="bg-neutral-focus/50 backdrop-blur border border-neutral rounded-2xl p-6 text-center"
+            className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaRocket className="mx-auto text-primary text-3xl mb-4" />
             <div className="text-4xl font-bold text-base-content mb-2">94%</div>
@@ -43,7 +43,7 @@ const StatisticsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-neutral-focus/50 backdrop-blur border border-neutral rounded-2xl p-6 text-center"
+            className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaChartLine className="mx-auto text-accent text-3xl mb-4" />
             <div className="text-4xl font-bold text-base-content mb-2">$42M+</div>
@@ -55,7 +55,7 @@ const StatisticsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-neutral-focus/50 backdrop-blur border border-neutral rounded-2xl p-6 text-center"
+            className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaBrain className="mx-auto text-secondary text-3xl mb-4" />
             <div className="text-4xl font-bold text-base-content mb-2">14</div>
@@ -67,7 +67,7 @@ const StatisticsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-neutral-focus/50 backdrop-blur border border-neutral rounded-2xl p-6 text-center"
+            className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaServer className="mx-auto text-success text-3xl mb-4" />
             <div className="text-4xl font-bold text-base-content mb-2">99.99%</div>

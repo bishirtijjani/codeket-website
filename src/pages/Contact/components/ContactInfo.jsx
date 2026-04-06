@@ -14,7 +14,7 @@ const ContactInfo = () => {
     <div className="space-y-8" id="contact-info">
       <div className="flex items-start space-x-4">
         <div className="bg-primary p-3 rounded-lg">
-          <FaEnvelope className="text-neutral text-xl" />
+          <FaEnvelope className="text-white text-xl" />
         </div>
         <div>
           <h3 className="text-xl font-semibold mb-1">Email Us</h3>
@@ -30,7 +30,7 @@ const ContactInfo = () => {
 
       <div className="flex items-start space-x-4">
         <div className="bg-accent p-3 rounded-lg">
-          <FaPhoneAlt className="text-neutral text-xl" />
+          <FaPhoneAlt className="text-white text-xl" />
         </div>
         <div>
           <h3 className="text-xl font-semibold mb-1">Call Us</h3>
@@ -47,7 +47,7 @@ const ContactInfo = () => {
 
       <div className="flex items-start space-x-4">
         <div className="bg-success p-3 rounded-lg">
-          <FaClock className="text-neutral text-xl" />
+          <FaClock className="text-white text-xl" />
         </div>
         <div>
           <h3 className="text-xl font-semibold mb-1">Business Hours</h3>
@@ -64,13 +64,13 @@ const ContactInfo = () => {
         <div className="flex space-x-4">
           <a
             href="https://linkedin.com/company/codeket"
-            className="bg-neutral-focus hover:bg-primary p-3 rounded-lg transition-colors"
+            className="bg-base-200 hover:bg-primary p-3 rounded-lg transition-colors"
           >
             <FaLinkedin className="text-base-content/80 text-xl" />
           </a>
           <a
             href="https://twitter.com/codeketofficial"
-            className="bg-neutral-focus hover:bg-primary-focus p-3 rounded-lg transition-colors"
+            className="bg-base-200 hover:bg-primary-focus p-3 rounded-lg transition-colors"
           >
             <FaTwitter className="text-base-content/80 text-xl" />
           </a>

@@ -29,7 +29,7 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-neutral-focus rounded-xl overflow-hidden border border-neutral hover:transform hover:scale-105 transition-all duration-300"
+              className="bg-base-100 rounded-xl overflow-hidden border border-base-300 hover:shadow-md hover:border-primary/40 transition-all duration-300"
             >
               <div className="relative group">
                 <img
@@ -87,7 +87,7 @@ const Team = () => {
           <a
             target="_blank"
             href="/careers"
-            className="btn btn-lg bg-gradient-to-r from-codeket-electricBlue to-accent text-white text-base-content font-semibold rounded-full hover:from-primary-focus hover:to-accent-focus transition-all duration-300 shadow-lg hover:px-8 "
+            className="btn btn-lg bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300"
           >
             Join Our Team
           </a>

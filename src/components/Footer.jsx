@@ -52,7 +52,7 @@ const quickLinks = [
 const Footer = ({ theme }) => {
   return (
     <>
-      <footer className="footer p-10 bg-neutral text-base-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-primary pt-16">
+      <footer className="footer p-10 bg-base-200 text-base-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-primary pt-16">
         <nav className="flex flex-col items-start">
           <Link to="/" className="link link-hover mb-4">
             <img

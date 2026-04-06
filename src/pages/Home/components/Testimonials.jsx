@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { testimonials } from "../../../utils/testimonials";
 
 const Testimonials = () => (
-  <div className="my-8 p-8 bg-gradient-to-b from-base-100 to-neutral rounded-xl">
+  <div className="my-8 p-8 bg-base-200 rounded-xl">
     <motion.div
       className="relative"
       initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ const Testimonials = () => (
 
       <div className="relative z-10 text-center mb-16">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary mb-4"
+          className="text-4xl md:text-5xl font-bold text-primary mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -40,7 +40,7 @@ const Testimonials = () => (
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className="bg-gradient-to-br from-neutral-focus to-neutral rounded-xl overflow-hidden border border-neutral p-6 relative shadow-2xl"
+            className="bg-base-100 rounded-xl overflow-hidden border border-base-300 p-6 relative shadow-sm"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -58,7 +58,7 @@ const Testimonials = () => (
 
             {/* Author info */}
             <div className="flex items-center mt-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-codeket-electricBlue to-accent flex items-center justify-center text-xl font-bold text-base-content text-white">
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl font-bold text-white">
                 {testimonial.name.charAt(0)}
               </div>
               <div className="ml-4">

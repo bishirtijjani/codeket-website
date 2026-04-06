@@ -25,16 +25,16 @@ const CaseStudyModal = ({ activeCaseStudy, setActiveCaseStudy }) => {
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.9, y: 50 }}
           transition={{ type: "spring", duration: 0.5 }}
-          className="bg-neutral rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden relative z-10 flex flex-col"
+          className="bg-base-100 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden relative z-10 flex flex-col shadow-xl"
         >
           {/* Sticky Header - Fixed positioning with higher z-index */}
-          <div className="sticky top-0 z-30 bg-neutral p-6 border-b border-neutral-focus flex justify-between items-center">
+          <div className="sticky top-0 z-30 bg-base-100 p-6 border-b border-base-300 flex justify-between items-center">
             <h3 className="text-2xl font-bold text-base-content">
               {activeCaseStudy.title}
             </h3>
             <button
               onClick={() => setActiveCaseStudy(null)}
-              className="w-10 h-10 rounded-full bg-neutral-focus flex items-center justify-center text-base-content/70 hover:text-base-content hover:bg-neutral transition-colors"
+              className="w-10 h-10 rounded-full bg-base-200 flex items-center justify-center text-base-content/70 hover:text-base-content hover:bg-base-300 transition-colors"
             >
               ✕
             </button>
@@ -45,7 +45,7 @@ const CaseStudyModal = ({ activeCaseStudy, setActiveCaseStudy }) => {
             <div className="p-6 md:p-8">
               {/* Client info */}
               <div className="mb-10">
-                <div className="bg-neutral-focus w-20 h-20 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-base-200 w-20 h-20 rounded-xl flex items-center justify-center mb-4">
                   <div className="text-4xl">{activeCaseStudy.icon}</div>
                 </div>
                 <p className="text-primary font-medium mb-2">Client</p>
@@ -75,7 +75,7 @@ const CaseStudyModal = ({ activeCaseStudy, setActiveCaseStudy }) => {
                 {activeCaseStudy.stats.map((stat, index) => (
                   <div
                     key={index}
-                    className="bg-neutral-focus rounded-lg p-4 text-center"
+                    className="bg-base-200 rounded-lg p-4 text-center"
                   >
                     <div
                       className={`text-xl md:text-2xl font-bold text-${activeCaseStudy.accentColor} mb-1`}
@@ -124,7 +124,7 @@ const CaseStudyModal = ({ activeCaseStudy, setActiveCaseStudy }) => {
                     {activeCaseStudy.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-neutral-focus rounded-full text-base-content/80 text-xs"
+                        className="px-3 py-1 bg-base-200 rounded-full text-base-content/80 text-xs"
                       >
                         {tech}
                       </span>
@@ -163,9 +163,9 @@ const CaseStudyModal = ({ activeCaseStudy, setActiveCaseStudy }) => {
               </div>
 
               {/* Testimonial */}
-              <div className="bg-neutral-focus rounded-xl p-6 mb-10">
+              <div className="bg-base-200 rounded-xl p-6 mb-10">
                 <div className="flex items-center mb-4">
-                  <div className="bg-neutral w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                  <div className="bg-base-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
                     <HiOutlineUser className="text-2xl text-base-content/70" />
                   </div>
                   <div>
@@ -186,7 +186,7 @@ const CaseStudyModal = ({ activeCaseStudy, setActiveCaseStudy }) => {
               <div className="text-center">
                 <Link
                   to="/consultation"
-                  className="bg-gradient-to-r from-primary to-accent text-base-content font-medium py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl hover:from-primary-focus hover:to-accent-focus transition-all duration-300"
+                  className="bg-primary text-white font-medium py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl hover:bg-primary-focus transition-all duration-300"
                 >
                   Start Your Success Story
                 </Link>

@@ -5,7 +5,7 @@ import { FaCheck, FaCode, FaUserClock, FaHandshake } from "react-icons/fa";
 // Guarantee Section
 const Guarantee = () => {
   return (
-    <div className="py-24 px-6 bg-gradient-to-r from-primary/30 to-accent/30">
+    <div className="py-24 px-6 bg-base-200">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -65,7 +65,7 @@ const Guarantee = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               href="#pricing-plans"
-              className="inline-block mt-10 px-8 py-4 bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral font-semibold rounded-full shadow-lg hover:shadow-primary/30 transition-all duration-300"
+              className="inline-block mt-10 px-8 py-4 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300"
             >
               Choose Your Solution
             </motion.a>

@@ -4,7 +4,7 @@ import { timeline } from "../../../utils/timeline";
 
 const Timeline = () => {
   return (
-    <div className="py-24 px-6 bg-neutral">
+    <div className="py-24 px-6 bg-base-200">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ const Timeline = () => {
                   }`}
                 >
                   <div
-                    className={`bg-neutral-focus rounded-xl p-6 border border-neutral ${
+                    className={`bg-base-100 rounded-xl p-6 border border-base-300 shadow-sm ${
                       index % 2 === 0 ? "ml-auto" : ""
                     }`}
                   >
@@ -49,7 +49,7 @@ const Timeline = () => {
                   </div>
                 </div>
 
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-r from-codeket-electricBlue to-primary text-white rounded-full flex items-center justify-center text-xl font-bold border-4 border-neutral">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold border-4 border-base-200">
                   {index + 1}
                 </div>
               </motion.div>

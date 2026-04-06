@@ -7,9 +7,8 @@ const HeroSection = ({ y }) => {
     <div className="relative h-screen -top-10 flex items-center justify-center overflow-hidden">
       {/* Background gradient animation */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] bg-blue-600 rounded-full filter blur-[120px] opacity-20 animate-blob"></div>
-        <div className="absolute top-[20%] -right-[10%] w-[70%] h-[70%] bg-purple-600 rounded-full filter blur-[120px] opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-[10%] left-[20%] w-[60%] h-[60%] bg-teal-600 rounded-full filter blur-[120px] opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] bg-primary rounded-full filter blur-[160px] opacity-5 animate-blob"></div>
+        <div className="absolute top-[20%] -right-[10%] w-[70%] h-[70%] bg-primary rounded-full filter blur-[160px] opacity-5 animate-blob animation-delay-2000"></div>
       </div>
 
       <motion.div
@@ -19,7 +18,7 @@ const HeroSection = ({ y }) => {
         className="relative z-10 text-center px-6 max-w-4xl"
       >
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold">
-          <span className="bg-gradient-to-r from-primary via-accent to-info bg-clip-text text-transparent">
+          <span className="text-primary">
             Let's Connect
           </span>
         </h1>
@@ -30,7 +29,7 @@ const HeroSection = ({ y }) => {
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="/consultation"
-            className="px-8 py-4 mb-3 bg-gradient-to-r border-0 from-codeket-electricBlue to-accent text-neutral  font-semibold rounded-full hover:from-primary-focus hover:to-accent-focus transition-all duration-300 hover:bg-base-100/10"
+            className="px-8 py-4 mb-3 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300"
           >
             Get in Touch
           </a>

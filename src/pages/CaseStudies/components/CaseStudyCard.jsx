@@ -21,8 +21,8 @@ const CaseStudyCard = ({
       onMouseLeave={() => setHoveredCard(null)}
       className={`bg-gradient-to-br ${caseStudy.bgColor} p-1 rounded-2xl h-full`}
     >
-      <div className="bg-neutral rounded-2xl h-full flex flex-col overflow-hidden">
-        <div className="h-48 bg-neutral-focus relative overflow-hidden">
+      <div className="bg-base-100 rounded-2xl h-full flex flex-col overflow-hidden">
+        <div className="h-48 bg-base-200 relative overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
             <img src={caseStudy.image} alt="" className="h-full w-full" />
           </div>
@@ -33,18 +33,18 @@ const CaseStudyCard = ({
 
         <div className="p-6 flex flex-col flex-grow">
           <div className="mb-4">
-            <span className="inline-block px-3 py-1 bg-neutral-focus rounded-full text-base-content/80 text-xs mb-2">
+            <span className="inline-block px-3 py-1 bg-base-200 rounded-full text-base-content/80 text-xs mb-2">
               {caseStudy.industry}
             </span>
             <h3 className="text-xl font-bold mb-2">{caseStudy.title}</h3>
-            <p className="text-gray-400 text-sm">{caseStudy.clientName}</p>
+            <p className="text-base-content/60 text-sm">{caseStudy.clientName}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
             {caseStudy.stats.slice(0, 2).map((stat, index) => (
               <div
                 key={index}
-                className="bg-neutral-focus rounded-lg p-3 text-center"
+                className="bg-base-200 rounded-lg p-3 text-center"
               >
                 <div
                   className={`text-lg font-bold text-${caseStudy.accentColor} mb-1`}

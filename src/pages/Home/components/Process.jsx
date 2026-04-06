@@ -36,10 +36,10 @@ const processes = [
 
 const Process = () => {
   return (
-    <div className="my-8 p-8 bg-gradient-to-b from-neutral to-base-100 rounded-xl">
+    <div className="my-8 p-8 bg-base-200 rounded-xl">
       <div className="text-center mb-16">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary mb-4"
+          className="text-4xl md:text-5xl font-bold text-primary mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -73,12 +73,12 @@ const Process = () => {
             {/* Timeline connector */}
             {index < 4 && (
               <div className="absolute inset-0 flex items-center justify-center w-6 h-full">
-                <div className="h-full w-0.5 bg-gradient-to-b from-primary to-accent pointer-events-none"></div>
+                <div className="h-full w-0.5 bg-base-300 pointer-events-none"></div>
               </div>
             )}
 
             {/* Timeline node */}
-            <div className="relative z-10 flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-accent shadow-2xl">
+            <div className="relative z-10 flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full bg-primary shadow-md">
               <span className="text-xl">{step.icon}</span>
             </div>
 

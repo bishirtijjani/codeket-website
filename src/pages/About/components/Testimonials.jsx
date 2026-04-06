@@ -32,7 +32,7 @@ const Testimonials = ({ activeTestimonial, setActiveTestimonial }) => {
 
                 <div className="flex flex-col md:flex-row md:items-center">
                   <div className="md:w-1/4 flex justify-center mb-6 md:mb-0">
-                    <div className="w-24 h-24 rounded-full object-cover border-4 border-neutral bg-gradient-to-br from-codeket-electricBlue to-accent flex items-center justify-center text-6xl font-bold text-base-content text-white">
+                    <div className="w-24 h-24 rounded-full object-cover border-4 border-base-300 bg-primary flex items-center justify-center text-6xl font-bold text-white">
                 {testimonials[activeTestimonial].name.charAt(0)}
               </div>
                   </div>

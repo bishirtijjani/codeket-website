@@ -152,8 +152,7 @@ const ContactForm = () => {
       className="bg-neutral rounded-2xl p-8 border border-neutral-focus shadow-xl relative overflow-hidden"
       id="contact-form"
     >
-      <div className="absolute -top-12 -right-12 w-40 h-40 bg-primary rounded-full opacity-20 blur-3xl"></div>
-      <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-accent rounded-full opacity-20 blur-3xl"></div>
+
 
       <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
 
@@ -326,10 +325,10 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-4 bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral font-semibold rounded-lg transition-all duration-300 shadow-lg ${
+            className={`w-full py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 shadow-md ${
               isSubmitting
                 ? "opacity-70 cursor-not-allowed"
-                : "hover:from-primary-focus hover:to-accent-focus"
+                : "hover:bg-accent"
             }`}
           >
             {isSubmitting ? (

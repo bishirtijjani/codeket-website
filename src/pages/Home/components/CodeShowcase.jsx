@@ -5,10 +5,10 @@ const CodeShowcase = ({ codeSnippets }) => {
   const [activeSnippet, setActiveSnippet] = useState(0);
 
   return (
-    <div className="my-8 p-8 bg-gradient-to-b from-neutral to-base-100 rounded-xl">
+    <div className="my-8 p-8 bg-base-200 rounded-xl">
       <div className="text-center mb-12">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-4"
+          className="text-4xl md:text-5xl font-bold text-primary mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,7 +37,7 @@ const CodeShowcase = ({ codeSnippets }) => {
               key={index}
               className={`w-full text-left p-4 rounded-lg transition-all duration-300 flex items-center space-x-3 ${
                 activeSnippet === index
-                  ? `bg-gradient-to-r from-primary to-accent text-base-content shadow-lg`
+                  ? `bg-primary text-white shadow-md`
                   : "bg-base-100/5 hover:bg-base-100/10 text-base-content/80"
               }`}
               onClick={() => setActiveSnippet(index)}
@@ -65,7 +65,7 @@ const CodeShowcase = ({ codeSnippets }) => {
             >
               {/* Code header */}
               <div
-                className={`px-4 py-3 bg-gradient-to-r from-primary to-secondary flex justify-between items-center`}
+                className={`px-4 py-3 bg-base-300 flex justify-between items-center`}
               >
                 <div className="flex items-center">
                   <span className="text-lg mr-2">

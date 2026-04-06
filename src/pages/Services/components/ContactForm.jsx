@@ -162,8 +162,7 @@ const ContactForm = () => {
       className="bg-gray-900 rounded-2xl p-8 border border-gray-800 shadow-xl relative overflow-hidden"
       id="contact-form"
     >
-      <div className="absolute -top-12 -right-12 w-40 h-40 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>
-      <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-purple-500 rounded-full opacity-20 blur-3xl"></div>
+
 
       <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
 
@@ -207,7 +206,7 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} noValidate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label htmlFor="name" className="block text-gray-300 mb-2">
+              <label htmlFor="name" className="block text-base-content/80 mb-2">
                 Your Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -227,7 +226,7 @@ const ContactForm = () => {
               )}
             </div>
             <div>
-              <label htmlFor="email" className="block text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-base-content/80 mb-2">
                 Email Address <span className="text-red-500">*</span>
               </label>
               <input
@@ -250,7 +249,7 @@ const ContactForm = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label htmlFor="company" className="block text-gray-300 mb-2">
+              <label htmlFor="company" className="block text-base-content/80 mb-2">
                 Company
               </label>
               <input
@@ -264,7 +263,7 @@ const ContactForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="subject" className="block text-gray-300 mb-2">
+              <label htmlFor="subject" className="block text-base-content/80 mb-2">
                 Subject <span className="text-red-500">*</span>
               </label>
               <input
@@ -288,7 +287,7 @@ const ContactForm = () => {
           </div>
 
           <div className="mb-6">
-            <label className="block text-gray-300 mb-2">
+            <label className="block text-base-content/80 mb-2">
               Services You're Interested In
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -303,7 +302,7 @@ const ContactForm = () => {
                   />
                   <label
                     htmlFor={`service-${index}`}
-                    className="text-gray-300 text-sm"
+                    className="text-base-content/80 text-sm"
                   >
                     {service}
                   </label>
@@ -313,7 +312,7 @@ const ContactForm = () => {
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block text-gray-300 mb-2">
+            <label htmlFor="message" className="block text-base-content/80 mb-2">
               Your Message <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -336,10 +335,9 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg ${
-              isSubmitting
-                ? "opacity-70 cursor-not-allowed"
-                : "hover:from-blue-700 hover:to-purple-700"
+            className={`w-full py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 shadow-md ${
+              ? "opacity-70 cursor-not-allowed"
+                : "hover:bg-accent"
             }`}
           >
             {isSubmitting ? (

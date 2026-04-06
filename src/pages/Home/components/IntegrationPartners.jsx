@@ -50,10 +50,10 @@ const integrationPartners = [
 
 const IntegrationPartners = () => {
   return (
-    <div className="my-8 p-8 bg-gradient-to-b from-base-100 to-neutral rounded-xl">
+    <div className="my-8 p-8 bg-base-200 rounded-xl">
       <div className="text-center mb-16">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary mb-4"
+          className="text-4xl md:text-5xl font-bold text-primary mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -77,15 +77,12 @@ const IntegrationPartners = () => {
         {integrationPartners.map((item, index) => (
           <motion.div
             key={index}
-            className="bg-base-100/5 hover:bg-base-100/10 border border-neutral-focus rounded-lg p-6 flex items-center justify-center h-24 transition-all duration-300"
+            className="bg-base-100 hover:bg-base-200 border border-base-300 rounded-lg p-6 flex items-center justify-center h-24 transition-all duration-300 shadow-sm hover:shadow-md"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{
-              y: -5,
-              boxShadow: "0 10px 30px rgba(var(--p), 0.2)",
-            }}
+            whileHover={{ y: -4 }}
           >
             <div className="text-base-content text-lg font-semibold">
               {item.logo}

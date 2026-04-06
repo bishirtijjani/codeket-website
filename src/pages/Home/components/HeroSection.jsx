@@ -27,7 +27,7 @@ const HeroSection = () => {
         this.size = Math.random() * 2 + 0.5;
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = `hsl(${Math.random() * 360}, 70%, 50%)`;
+        this.color = `rgba(15, 76, 129, ${Math.random() * 0.2 + 0.05})`;
       }
 
       update() {
@@ -100,8 +100,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="block text-primary ">Smart Software</span>
-          <span className="block mt-4  text-info">for Growing Businesses</span>
+          <span className="block text-primary">Smart Software</span>
+          <span className="block mt-4 text-base-content">for Growing Businesses</span>
         </motion.h1>
 
         <motion.p
@@ -124,7 +124,7 @@ const HeroSection = () => {
         >
           <Link
             to="consultation"
-            className="px-10 py-5 bg-gradient-to-r from-codeket-electricBlue to-accent text-white text-xl font-medium rounded-full shadow-lg hover:shadow-primary/40 hover:scale-105 transition-all duration-300 flex items-center justify-center group"
+            className="px-10 py-5 bg-primary text-white text-xl font-semibold rounded-xl shadow-md hover:bg-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center group"
           >
             <span>Get Started</span>
             <svg

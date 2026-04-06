@@ -6,14 +6,14 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gradient-to-br from-primary to-secondary  min-h-screen ">
+    <div className="bg-base-100 min-h-screen">
       <div className="flex flex-col items-center justify-center text-error p-6 min-w-full ">
         {/* Animated 404 Text */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring" }}
-          className="text-9xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+          className="text-9xl font-bold mb-4 text-primary"
         >
           404
         </motion.div>
@@ -33,7 +33,7 @@ const NotFoundPage = () => {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-gray-400 text-lg mb-8 text-center max-w-md"
+          className="text-base-content/70 text-lg mb-8 text-center max-w-md"
         >
           The page you're looking for doesn't exist or has been moved. Let's get
           you back on track.
@@ -45,7 +45,7 @@ const NotFoundPage = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.6 }}
           onClick={() => navigate("/")} // Navigate to homepage
-          className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/20 transition-all flex items-center"
+          className="px-8 py-3 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all flex items-center"
         >
           <span>Go Back Home</span>
           <svg

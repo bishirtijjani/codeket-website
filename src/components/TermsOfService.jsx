@@ -3,16 +3,14 @@ import { motion } from "framer-motion";
 
 const TermsOfService = () => {
   return (
-    <div className="w-full min-h-screen overflow-hidden bg-gradient-to-b from-black via-slate-900 to-indigo-950">
+    <div className="w-full min-h-screen overflow-hidden bg-base-100">
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
         {/* Background gradient animation */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] bg-blue-600 rounded-full filter blur-[120px] opacity-20 animate-blob"></div>
-          <div className="absolute top-[20%] -right-[10%] w-[70%] h-[70%] bg-purple-600 rounded-full filter blur-[120px] opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-[10%] left-[20%] w-[60%] h-[60%] bg-teal-600 rounded-full filter blur-[120px] opacity-20 animate-blob animation-delay-4000"></div>
+          <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] bg-primary rounded-full filter blur-[160px] opacity-5 animate-blob"></div>
         </div>
 
         {/* Content */}
@@ -23,11 +21,11 @@ const TermsOfService = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold">
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 bg-clip-text text-transparent">
+              <span className="text-primary">
                 Terms of Service
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mt-6 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-base-content/70 mt-6 max-w-3xl mx-auto">
               Last Updated:{" "}
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
@@ -48,8 +46,8 @@ const TermsOfService = () => {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
           <div className="flex flex-col items-center">
-            <p className="text-gray-400 mb-2">Scroll to read</p>
-            <div className="w-8 h-12 rounded-full border-2 border-white flex justify-center">
+            <p className="text-base-content/70 mb-2">Scroll to read</p>
+            <div className="w-8 h-12 rounded-full border-2 border-base-content/30 flex justify-center">
               <motion.div
                 animate={{
                   y: [0, 12, 0],
@@ -58,13 +56,13 @@ const TermsOfService = () => {
                   repeat: Infinity,
                   duration: 1.5,
                 }}
-                className="w-2 h-2 bg-white rounded-full mt-2"
+                className="w-2 h-2 bg-primary rounded-full mt-2"
               />
             </div>
           </div>
         </motion.div>
       </div>
-      <div className="mx-4 p-8 text-white lg:mx-24 xl:mx-44">
+      <div className="mx-4 p-8 text-base-content lg:mx-24 xl:mx-44">
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. INTRODUCTION</h2>
           <p className="mb-4">

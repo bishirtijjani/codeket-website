@@ -22,15 +22,13 @@ const Navbar = () => {
           </div>
           <div className="flex-1 px-2 mx-2">
             {/* Logo */}
-            <div className="bg-gradient-to-r from-blue-600 to-violet-600 p-px rounded-xl shadow-lg shadow-blue-500/30">
-              <div className="bg-black bg-opacity-30 backdrop-blur-sm px-6 py-3 rounded-xl">
-                <h3 className="text-lg font-mono font-medium text-white">
-                  <span className="text-blue-400">&lt;</span>
-                  <span className="text-white">code</span>
-                  <span className="text-violet-400">ket</span>
-                  <span className="text-blue-400">/&gt;</span>
-                </h3>
-              </div>
+            <div className="border border-primary/30 px-5 py-2 rounded-lg">
+              <h3 className="text-lg font-mono font-semibold text-base-content">
+                <span className="text-primary">&lt;</span>
+                <span className="text-base-content">code</span>
+                <span className="text-primary">ket</span>
+                <span className="text-primary">/&gt;</span>
+              </h3>
             </div>
           </div>
 

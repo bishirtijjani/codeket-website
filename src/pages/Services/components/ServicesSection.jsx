@@ -344,7 +344,7 @@ const ServicesSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6" id="services">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-primary">
               Our Services
             </span>
           </h2>
@@ -363,8 +363,8 @@ const ServicesSection = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-full transition-all duration-300 ${
                 selectedCategory === category.id
-                  ? "bg-gradient-to-r from-codeket-electricBlue to-accent text-white"
-                  : "bg-neutral-focus text-base-content/80 hover:bg-neutral"
+                  ? "bg-primary text-white"
+                  : "bg-base-200 border border-base-300 text-base-content/80 hover:bg-base-300"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -387,9 +387,9 @@ const ServicesSection = () => {
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`bg-gradient-to-br ${service.bgColor} p-1 rounded-2xl h-full`}
+                className="bg-base-200 border border-base-300 rounded-2xl h-full hover:border-primary/40 transition-colors duration-300"
               >
-                <div className="bg-neutral rounded-2xl p-8 h-full flex flex-col">
+                <div className="bg-base-100 rounded-2xl p-8 h-full flex flex-col">
                   <div className="text-4xl mb-6">{service.icon}</div>
                   <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                   <p className="text-base-content/80 mb-6 flex-grow">

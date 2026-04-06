@@ -15,7 +15,7 @@ const Testimonials = ({ caseStudies }) => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-primary">
               What Our Clients Say
             </span>
           </h2>
@@ -37,10 +37,10 @@ const Testimonials = ({ caseStudies }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-neutral border border-neutral-focus rounded-2xl p-8"
+                className="bg-base-100 border border-base-300 rounded-2xl p-8 shadow-sm"
               >
                 <div className="flex items-center mb-6">
-                  <div className="bg-neutral-focus w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                  <div className="bg-base-200 w-12 h-12 rounded-full flex items-center justify-center mr-4">
                     <HiOutlineUser className="text-2xl text-base-content/70" />
                   </div>
                   <div>

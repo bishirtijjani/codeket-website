@@ -63,7 +63,7 @@ const processSteps = [
 
 const ProcessSection = () => {
   return (
-    <div className="py-24 bg-neutral">
+    <div className="py-24 bg-base-200">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ const ProcessSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-primary">
               Our Process
             </span>
           </h2>
@@ -91,7 +91,7 @@ const ProcessSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               key={step.id}
-              className="bg-neutral-focus rounded-2xl p-6 relative overflow-hidden"
+              className="bg-base-100 border border-base-300 rounded-2xl p-6 relative overflow-hidden shadow-sm"
             >
               <div className="absolute -right-4 -top-4 text-6xl opacity-10">
                 {step.id}

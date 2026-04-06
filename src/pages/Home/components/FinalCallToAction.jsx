@@ -6,7 +6,7 @@ const FinalCallToAction = () => {
   return (
     <div className="my-8 ">
       <motion.div
-        className="bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 rounded-3xl border border-primary/20 p-8 lg:p-12 text-center relative overflow-hidden"
+        className="bg-base-200 rounded-2xl border border-base-300 p-8 lg:p-12 text-center relative overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -14,7 +14,7 @@ const FinalCallToAction = () => {
       >
         <div className="relative z-10">
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-base-content to-accent mb-6 leading-tight"
+            className="text-4xl md:text-5xl font-bold text-base-content mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -43,7 +43,7 @@ const FinalCallToAction = () => {
           >
             <Link
               to="/consultation"
-              className="px-10 py-5 cursor-pointer bg-gradient-to-r from-secondary to-accent text-white text-xl font-medium rounded-xl shadow-lg hover:shadow-secondary/30 hover:scale-105 transition-all duration-300 flex items-center justify-center group"
+              className="px-10 py-5 cursor-pointer bg-primary text-white text-xl font-semibold rounded-xl shadow-md hover:bg-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center group"
             >
               <span>Get a Custom Solution</span>
               <svg
@@ -64,7 +64,7 @@ const FinalCallToAction = () => {
 
             <Link
               to="/services#projects"
-              className="px-10 cursor-pointer py-5 bg-base-100/5 border border-primary/30 backdrop-blur-sm text-base-content text-xl font-medium rounded-xl hover:bg-primary/10 transition-all duration-300 flex items-center justify-center"
+              className="px-10 cursor-pointer py-5 bg-white border border-base-300 text-base-content text-xl font-semibold rounded-xl hover:bg-base-100 hover:border-primary/40 transition-all duration-300 flex items-center justify-center"
             >
               <span>Explore SaaS Solutions</span>
               <svg

@@ -19,7 +19,7 @@ const ClientLogos = () => {
   ];
 
   return (
-    <div className="py-24 px-6 bg-gradient-to-r from-secondary/20 via-accent/20 to-info/20 p-20 ">
+    <div className="py-24 px-6 bg-base-200">
       <div className="max-w-6xl mx-auto ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ const ClientLogos = () => {
           viewport={{ once: true }}
           className="text-center mb-16 "
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-info bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary">
             Trusted by Industry Leaders
           </h2>
           <p className="text-xl text-base-content/80 max-w-3xl mx-auto">

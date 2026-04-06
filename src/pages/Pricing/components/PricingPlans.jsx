@@ -305,7 +305,7 @@ const PricingPlans = ({ setSelectedPlan }) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
             African Excellence, Global Delivery
           </h2>
           <p className="text-xl text-base-content/80 max-w-3xl mx-auto">
@@ -320,8 +320,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
             onClick={() => setServiceType("development")}
             className={`px-6 py-3 rounded-full transition-all ${
               serviceType === "development"
-                ? "bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral"
-                : "bg-neutral-focus text-base-content/80 hover:border"
+                ? "bg-primary text-white"
+                : "bg-base-200 border border-base-300 text-base-content/80 hover:bg-base-300"
             }`}
           >
             <span className="flex items-center">
@@ -332,8 +332,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
             onClick={() => setServiceType("mobile")}
             className={`px-6 py-3 rounded-full transition-all ${
               serviceType === "mobile"
-                ? "bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral"
-                : "bg-neutral-focus text-base-content/80 hover:border"
+                ? "bg-primary text-white"
+                : "bg-base-200 border border-base-300 text-base-content/80 hover:bg-base-300"
             }`}
           >
             <span className="flex items-center">
@@ -344,8 +344,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
             onClick={() => setServiceType("ai")}
             className={`px-6 py-3 rounded-full transition-all ${
               serviceType === "ai"
-                ? "bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral"
-                : "bg-neutral-focus text-base-content/80 hover:border"
+                ? "bg-primary text-white"
+                : "bg-base-200 border border-base-300 text-base-content/80 hover:bg-base-300"
             }`}
           >
             <span className="flex items-center">
@@ -356,8 +356,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
             onClick={() => setServiceType("security")}
             className={`px-6 py-3 rounded-full transition-all ${
               serviceType === "security"
-                ? "bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral"
-                : "bg-neutral-focus text-base-content/80 hover:border"
+                ? "bg-primary text-white"
+                : "bg-base-200 border border-base-300 text-base-content/80 hover:bg-base-300"
             }`}
           >
             <span className="flex items-center">
@@ -382,7 +382,7 @@ const PricingPlans = ({ setSelectedPlan }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 text-center bg-gradient-to-r from-primary/40 to-accent/40 p-8 rounded-2xl border border-primary/30"
+          className="mt-16 text-center bg-base-200 p-8 rounded-2xl border border-base-300"
         >
           <h3 className="text-2xl font-bold mb-4">
             Looking for a Custom Solution?
@@ -395,13 +395,13 @@ const PricingPlans = ({ setSelectedPlan }) => {
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a
               href="/consultation"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral font-semibold rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
+              className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300"
             >
               Schedule Free Consultation
             </a>
             <a
               href="#custom-quote"
-              className="inline-block px-8 py-4 bg-base-100/10 border border-base-content/20 backdrop-blur-sm text-base-content font-semibold rounded-full hover:bg-base-100/20 transition-all duration-300"
+              className="inline-block px-8 py-4 bg-white border border-base-300 text-base-content font-semibold rounded-xl hover:bg-base-100 hover:border-primary/40 transition-all duration-300"
             >
               Get Custom Quote
             </a>

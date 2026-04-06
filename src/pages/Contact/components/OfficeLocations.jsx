@@ -28,8 +28,8 @@ const OfficeLocations = ({ locations }) => {
             onClick={() => setActiveLocation(index)}
             className={`p-6 rounded-xl text-left transition-all ${
               activeLocation === index
-                ? "bg-gradient-to-r from-primary to-accent shadow-lg"
-                : "bg-neutral-focus hover:bg-neutral"
+                ? "bg-primary text-white shadow-md"
+                : "bg-base-200 border border-base-300 hover:bg-base-300"
             }`}
           >
             <h3 className="text-2xl font-bold mb-2">{location.city}</h3>
@@ -38,7 +38,7 @@ const OfficeLocations = ({ locations }) => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-neutral p-8 rounded-2xl border border-neutral-focus">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-base-100 p-8 rounded-2xl border border-base-300 shadow-sm">
         <div className="relative h-80 lg:h-auto overflow-hidden rounded-xl">
           <img
             ref={mapRef}
@@ -57,7 +57,7 @@ const OfficeLocations = ({ locations }) => {
         <div className="space-y-6">
           <div className="flex items-start space-x-4">
             <div className="bg-primary p-3 rounded-lg flex-shrink-0">
-              <FaMapMarkerAlt className="text-base-content text-xl" />
+              <FaMapMarkerAlt className="text-white text-xl" />
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-1">Address</h3>
@@ -69,7 +69,7 @@ const OfficeLocations = ({ locations }) => {
 
           <div className="flex items-start space-x-4">
             <div className="bg-accent p-3 rounded-lg flex-shrink-0">
-              <FaPhoneAlt className="text-base-content text-xl" />
+              <FaPhoneAlt className="text-white text-xl" />
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-1">Phone</h3>
@@ -84,7 +84,7 @@ const OfficeLocations = ({ locations }) => {
 
           <div className="flex items-start space-x-4">
             <div className="bg-success p-3 rounded-lg flex-shrink-0">
-              <FaEnvelope className="text-base-content text-xl" />
+              <FaEnvelope className="text-white text-xl" />
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-1">Email</h3>

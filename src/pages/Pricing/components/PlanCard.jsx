@@ -19,14 +19,14 @@ const PlanCard = ({ plan, isPopular, setSelectedPlan }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className={`relative bg-neutral-focus rounded-2xl overflow-hidden border ${
+      className={`relative bg-base-100 rounded-2xl overflow-hidden border ${
         isPopular
-          ? "border-primary shadow-lg shadow-primary/20"
-          : "border-neutral"
+          ? "border-primary shadow-md shadow-primary/10"
+          : "border-base-300"
       }`}
     >
       {isPopular && (
-        <div className="absolute top-0 right-0 bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral text-sm font-bold py-1 px-4 rounded-bl-lg">
+        <div className="absolute top-0 right-0 bg-primary text-white text-sm font-bold py-1 px-4 rounded-bl-lg">
           Most Popular
         </div>
       )}
@@ -53,8 +53,8 @@ const PlanCard = ({ plan, isPopular, setSelectedPlan }) => {
           onClick={() => setSelectedPlan(plan)}
           className={`w-full py-3 px-6 rounded-lg font-medium mb-8 transition-all duration-300 flex items-center justify-center ${
             isPopular
-              ? "bg-gradient-to-r from-codeket-electricBlue to-accent text-neutral hover:shadow-lg hover:shadow-codeket-electricBlue/30"
-              : "btn btn-outline "
+              ? "bg-primary text-white hover:bg-accent hover:shadow-md"
+              : "btn btn-outline border-base-300 hover:border-primary"
           }`}
         >
           Get Started <FaArrowRight className="ml-2" />

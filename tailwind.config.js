@@ -7,16 +7,16 @@ module.exports = {
     extend: {
       colors: {
         codeket: {
-          deepBlue: "#1E2A38",
-          electricBlue: "#007AFF",
-          midnightNavy: "#0A182E",
-          neonCyan: "#00E6E6",
-          ai: "#1B1E7A",
-          silver: "#E0E0E0",
+          bgBase: "#FFFFFF",
+          bgCard: "#F3F4F6",
+          bgBorder: "#E5E7EB",
+          primary: "#0F4C81",
+          textMain: "#111827",
+          textSub: "#4B5563",
         },
       },
       dropShadow: {
-        premium: "0 10px 30px rgba(0, 122, 255, 0.25)",
+        premium: "0 2px 8px rgba(0, 0, 0, 0.10)",
       },
       borderRadius: {
         xl: "1.25rem",
@@ -28,34 +28,39 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        codeketdark: {
-          primary: "#007AFF", // Electric Blue
-          secondary: "#00E6E6", // Neon Cyan
-          accent: "#1B1E7A", // AI Purple
-          neutral: "#0A182E", // Midnight Navy
-          "base-100": "#0F172A", // Dark Surface
-          "base-content": "#E0E0E0", // Light Text
-          info: "#8AB4F8",
-          success: "#34D399",
-          warning: "#FBBF24",
-          error: "#F87171",
+        codeketlight: {
+          primary: "#0F4C81",        // Deep Operational Blue
+          secondary: "#E5E7EB",      // Crisp border gray
+          accent: "#0369A1",         // Slightly lighter operational blue for hovers
+          neutral: "#4B5563",        // Secondary text
+          "base-100": "#FFFFFF",     // Pure white (primary surface)
+          "base-200": "#F3F4F6",     // Card / section surface
+          "base-300": "#E5E7EB",     // Border / dividers
+          "base-content": "#111827", // Near-black text
+          info: "#1D4ED8",
+          success: "#15803D",
+          warning: "#B45309",
+          error: "#B91C1C",
         },
       },
       {
-        codeketlight: {
-          primary: "#1E2A38", // Deep Blue
-          secondary: "#00E6E6", // Neon Cyan
-          accent: "#1B1E7A", // AI Purple
-          neutral: "#f8fafc", // Light Neutral
-          "base-100": "#ffffff",
-          "base-content": "#1E2A38",
+        codeketdark: {
+          primary: "#3B82F6",        // Lightened brand blue for dark bg visibility
+          secondary: "#27272A",      // Zinc card surface
+          accent: "#60A5FA",         // Hover/focus state
+          neutral: "#71717A",        // Muted text
+          "base-100": "#18181B",     // Zinc-900 background
+          "base-200": "#27272A",     // Zinc-800 card surface
+          "base-300": "#3F3F46",     // Zinc-700 borders
+          "base-content": "#F4F4F5", // Off-white text
           info: "#3B82F6",
-          success: "#10B981",
+          success: "#22C55E",
           warning: "#F59E0B",
           error: "#EF4444",
         },
       },
     ],
     darkTheme: "codeketdark",
+    lightTheme: "codeketlight",
   },
 };

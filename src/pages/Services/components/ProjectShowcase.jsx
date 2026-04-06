@@ -82,7 +82,7 @@ const ProjectShowcase = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-primary">
               Project Showcase
             </span>
           </h2>

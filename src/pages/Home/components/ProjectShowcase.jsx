@@ -15,7 +15,7 @@ const projectShowcase = [
       "Internal Tools & Dashboards",
       "API Development & Integration",
     ],
-    color: "from-primary to-secondary",
+    color: "bg-primary",
   },
   {
     title: "Mobile App Development",
@@ -29,7 +29,7 @@ const projectShowcase = [
       "App Store Optimization",
     ],
 
-    color: "from-secondary to-accent",
+    color: "bg-accent",
   },
   {
     title: "Business Process Automation",
@@ -42,7 +42,7 @@ const projectShowcase = [
       "Document Processing Automation",
       "Business Process Modeling",
     ],
-    color: "from-accent to-primary",
+    color: "bg-primary",
   },
 ];
 
@@ -51,7 +51,7 @@ const ProjectShowcase = () => {
     <div className="my-8 p-8">
       <div className="text-center mb-16">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-4 h-[100%]"
+          className="text-4xl md:text-5xl font-bold text-primary mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -76,22 +76,18 @@ const ProjectShowcase = () => {
         {projectShowcase.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-gradient-to-br from-neutral-focus to-neutral rounded-xl overflow-hidden border border-neutral relative group"
+            className="bg-base-100 rounded-xl overflow-hidden border border-base-300 relative group shadow-sm hover:shadow-md transition-shadow duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             whileHover={{ translateY: -10 }}
           >
-            {/* Project card glow effect */}
-            <div
-              className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-gradient-to-r ${project.color}`}
-            ></div>
+            {/* hover accent border */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary rounded-xl pointer-events-none"></div>
 
             {/* Project icon */}
-            <div
-              className={`w-20 h-20 flex items-center justify-center text-3xl bg-gradient-to-br ${project.color} rounded-br-xl`}
-            >
+            <div className={`w-20 h-20 flex items-center justify-center text-3xl ${project.color} rounded-br-xl`}>
               {project.icon}
             </div>
 
@@ -120,7 +116,7 @@ const ProjectShowcase = () => {
       {/* CTA Button */}
       <div className=" text-center mt-12">
         <motion.button
-          className="px-10 py-5 bg-gradient-to-r from-codeket-electricBlue to-accent text-white font-medium rounded-full shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto "
+          className="px-10 py-5 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

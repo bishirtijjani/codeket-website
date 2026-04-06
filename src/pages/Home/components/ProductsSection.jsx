@@ -20,7 +20,7 @@ export default function SoftwareSuiteShowcase() {
       description:
         "Complete solution for managing your restaurant operations, from orders to inventory, staff scheduling to customer management.",
       icon: ChefHat,
-      color: "#1E2A38",
+      color: "#0F4C81",
       backgroundImage: "/images/restaurant-lady.jpg",
       link: "https://restaurant.codeket.com",
       features: [
@@ -36,7 +36,7 @@ export default function SoftwareSuiteShowcase() {
       description:
         "Comprehensive platform for educational institutions to manage students, teachers, courses, grades, and administrative tasks.",
       icon: GraduationCap,
-      color: "#007AFF",
+      color: "#1D4ED8",
       backgroundImage: "/images/school-admin.jpeg",
       link: "https://school.codeket.com",
       features: [
@@ -52,7 +52,7 @@ export default function SoftwareSuiteShowcase() {
       description:
         "Smart inventory tracking and management system with real-time stock monitoring, automated alerts, and detailed reporting.",
       icon: Package,
-      color: "#00E6E6",
+      color: "#15803D",
       backgroundImage: "/images/inventory-cashier.jpeg",
       link: "https://inventory.codeket.com",
       features: [
@@ -69,7 +69,7 @@ export default function SoftwareSuiteShowcase() {
       description:
         "Create stunning 360-degree virtual tours for real estate, businesses, and venues with interactive features and custom branding.",
       icon: Camera,
-      color: "#8A2BE2",
+      color: "#6D28D9",
       backgroundImage: "/images/person-virtual-tour.jpeg",
       link: "https://virtualtours.codeket.com",
       features: [

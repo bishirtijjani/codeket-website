@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <div
       ref={heroRef}
-      className="relative w-full min-h-screen bg-gradient-to-b from-base-100 via-base-300 to-neutral"
+      className="relative w-full min-h-screen bg-base-100"
     >
       <div className="sticky top-0 z-[1000]"></div>
       <HeroSection />
