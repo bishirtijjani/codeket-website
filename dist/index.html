@@ -1,10 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Codeket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Grain noise filter — applied via CSS class where needed */
+      .grain::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.035;
+        pointer-events: none;
+        z-index: 1;
+      }
+    </style>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-DQC72GBS8C"
@@ -17,8 +35,8 @@
       gtag("js", new Date());
       gtag("config", "G-DQC72GBS8C");
     </script>
-    <script type="module" crossorigin src="/assets/index-DudQdfHc.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-FTskAakv.css">
+    <script type="module" crossorigin src="/assets/index-BlCvTpC8.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DiDv7Gkg.css">
   </head>
   <body>
     <div id="root"></div>

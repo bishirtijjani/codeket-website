@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   ChefHat,
   GraduationCap,
   Package,
   Camera,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
-import { link } from "framer-motion/client";
 
 export default function SoftwareSuiteShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef(null);
-  const navigationRef = useRef(null);
+  const touchStartX = useRef(null);
+  const autoPlayRef = useRef(null);
 
   const suites = [
     {
@@ -81,55 +82,45 @@ export default function SoftwareSuiteShowcase() {
     },
   ];
 
+  const next = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % suites.length);
+  }, [suites.length]);
+
+  const prev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + suites.length) % suites.length);
+  }, [suites.length]);
+
+  const resetAutoPlay = useCallback(() => {
+    clearInterval(autoPlayRef.current);
+    autoPlayRef.current = setInterval(next, 5000);
+  }, [next]);
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % suites.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    autoPlayRef.current = setInterval(next, 5000);
+    return () => clearInterval(autoPlayRef.current);
+  }, [next]);
 
-  // Auto-scroll navigation to active item on mobile
-  useEffect(() => {
-    if (navigationRef.current) {
-      const container = navigationRef.current;
-      const activeCard = container.children[activeIndex];
-      if (activeCard) {
-        const containerRect = container.getBoundingClientRect();
-        const cardRect = activeCard.getBoundingClientRect();
-        const cardOffsetLeft = activeCard.offsetLeft;
-        const cardWidth = activeCard.offsetWidth;
-        const containerWidth = container.offsetWidth;
-        const scrollLeft = container.scrollLeft;
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
 
-        // Calculate the position to center the active card
-        const targetScrollLeft =
-          cardOffsetLeft - containerWidth / 2 + cardWidth / 2;
-
-        // Smooth scroll to the target position
-        container.scrollTo({
-          left: targetScrollLeft,
-          behavior: "smooth",
-        });
-      }
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) {
+      delta > 0 ? next() : prev();
+      resetAutoPlay();
     }
-  }, [activeIndex]);
+    touchStartX.current = null;
+  };
 
   const activeSuite = suites[activeIndex];
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-12 md:py-20 overflow-hidden bg-base-100"
-    >
+    <section className="relative py-12 md:py-20 overflow-hidden bg-base-100">
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-8 md:mb-16">
-          <div className="badge badge-sm md:badge-lg bg-base-200/20 backdrop-blur-sm border-base-300/30 mb-4 md:mb-6">
-            <span className="text-xs md:text-sm font-medium text-base-content">
-              Our Software Suite
-            </span>
-          </div>
-
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 text-base-content leading-tight">
             Our Products &amp;
             <br />
@@ -150,8 +141,12 @@ export default function SoftwareSuiteShowcase() {
 
         {/* Mobile-first layout */}
         <div className="space-y-6 md:space-y-0">
-          {/* Featured Suite Display */}
-          <div className="w-full">
+          {/* Featured Suite Display — touch swipe enabled */}
+          <div
+            className="w-full"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="card bg-black/30 backdrop-blur-xl border transition-all duration-700 p-6 md:p-10 relative overflow-hidden text-white min-h-[400px] md:min-h-[500px]"
               style={{
@@ -250,177 +245,53 @@ export default function SoftwareSuiteShowcase() {
             </div>
           </div>
 
-          {/* Suite Navigation - Mobile: Horizontal scroll, Desktop: Vertical stack */}
-          <div className="md:hidden">
-            <div
-              ref={navigationRef}
-              className="flex space-x-3 overflow-x-auto pb-4 scrollbar-hide"
+          {/* Carousel controls: prev · dots · next */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button
+              onClick={() => {
+                prev();
+                resetAutoPlay();
+              }}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-base-300 bg-base-100 hover:bg-base-200 transition-colors"
+              aria-label="Previous"
             >
+              <ChevronLeft className="w-5 h-5 text-base-content" />
+            </button>
+
+            <div className="flex items-center gap-2">
               {suites.map((suite, index) => {
-                const IconComponent = suite.icon;
                 const isActive = index === activeIndex;
-
                 return (
-                  <div
+                  <button
                     key={suite.id}
-                    className={`cursor-pointer transition-all duration-300 flex-shrink-0 ${
-                      isActive ? "" : "opacity-60 hover:opacity-100"
-                    }`}
-                    onClick={() => setActiveIndex(index)}
-                    onMouseEnter={() => setActiveIndex(index)}
-                  >
-                    <a
-                      href={suite.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="card bg-base-200/40 backdrop-blur-xl border border-base-300/20 p-4 hover:bg-base-200/60 transition-all duration-300 min-w-[280px]"
-                      onClick={(e) => e.preventDefault()}
-                      style={{
-                        borderColor: isActive ? `${suite.color}40` : "",
-                        backgroundColor: isActive ? `${suite.color}10` : "",
-                      }}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div
-                            className="p-2 rounded-lg mr-3 border"
-                            style={{
-                              backgroundColor: isActive
-                                ? suite.color
-                                : `${suite.color}20`,
-                              borderColor: `${suite.color}40`,
-                            }}
-                          >
-                            <IconComponent
-                              size={18}
-                              className={isActive ? "text-white" : ""}
-                              style={{
-                                color: isActive ? "white" : suite.color,
-                              }}
-                            />
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-base-content text-sm mb-1 leading-tight">
-                              {suite.title}
-                            </h4>
-                          </div>
-                        </div>
-
-                        <ArrowRight
-                          className="w-4 h-4 transition-all duration-300 flex-shrink-0"
-                          style={{
-                            color: suite.color,
-                            opacity: isActive ? 1 : 0.5,
-                            transform: isActive
-                              ? "translateX(2px)"
-                              : "translateX(0)",
-                          }}
-                        />
-                      </div>
-
-                      {/* Simple progress indicator */}
-                      {isActive && (
-                        <div className="mt-3 h-1 bg-base-300/50 rounded-full overflow-hidden">
-                          <div
-                            className="h-full rounded-full transition-all duration-300"
-                            style={{
-                              backgroundColor: suite.color,
-                              width: "100%",
-                              animation: "progress 5s linear infinite",
-                            }}
-                          />
-                        </div>
-                      )}
-                    </a>
-                  </div>
+                    onClick={() => {
+                      setActiveIndex(index);
+                      resetAutoPlay();
+                    }}
+                    title={suite.title}
+                    aria-label={suite.title}
+                    className="transition-all duration-300 rounded-full focus:outline-none"
+                    style={{
+                      width: isActive ? "28px" : "10px",
+                      height: "10px",
+                      backgroundColor: suite.color,
+                      opacity: isActive ? 1 : 0.35,
+                    }}
+                  />
                 );
               })}
             </div>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block md:absolute md:right-6 md:top-32 lg:static lg:mt-8">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-              {suites.map((suite, index) => {
-                const IconComponent = suite.icon;
-                const isActive = index === activeIndex;
-
-                return (
-                  <div
-                    key={suite.id}
-                    className={`cursor-pointer transition-all duration-300 ${
-                      isActive ? "" : "opacity-60 hover:opacity-100"
-                    }`}
-                    onClick={() => setActiveIndex(index)}
-                    onMouseEnter={() => setActiveIndex(index)}
-                  >
-                    <a
-                      href={suite.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="card bg-base-200/40 backdrop-blur-xl border border-base-300/20 p-6 hover:bg-base-200/60 transition-all duration-300"
-                      onClick={(e) => e.preventDefault()}
-                      style={{
-                        borderColor: isActive ? `${suite.color}40` : "",
-                        backgroundColor: isActive ? `${suite.color}10` : "",
-                      }}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div
-                            className="p-3 rounded-xl mr-4 border"
-                            style={{
-                              backgroundColor: isActive
-                                ? suite.color
-                                : `${suite.color}20`,
-                              borderColor: `${suite.color}40`,
-                            }}
-                          >
-                            <IconComponent
-                              size={20}
-                              className={isActive ? "text-white" : ""}
-                              style={{
-                                color: isActive ? "white" : suite.color,
-                              }}
-                            />
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-base-content text-sm mb-1">
-                              {suite.title}
-                            </h4>
-                          </div>
-                        </div>
-
-                        <ArrowRight
-                          className="w-5 h-5 transition-all duration-300"
-                          style={{
-                            color: suite.color,
-                            opacity: isActive ? 1 : 0.5,
-                            transform: isActive
-                              ? "translateX(4px)"
-                              : "translateX(0)",
-                          }}
-                        />
-                      </div>
-
-                      {/* Simple progress indicator */}
-                      {isActive && (
-                        <div className="mt-4 h-1 bg-base-300/50 rounded-full overflow-hidden">
-                          <div
-                            className="h-full rounded-full transition-all duration-300"
-                            style={{
-                              backgroundColor: suite.color,
-                              width: "100%",
-                              animation: "progress 5s linear infinite",
-                            }}
-                          />
-                        </div>
-                      )}
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
+            <button
+              onClick={() => {
+                next();
+                resetAutoPlay();
+              }}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-base-300 bg-base-100 hover:bg-base-200 transition-colors"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-5 h-5 text-base-content" />
+            </button>
           </div>
         </div>
       </div>
@@ -435,13 +306,6 @@ export default function SoftwareSuiteShowcase() {
             transform: scaleX(1);
             transform-origin: left;
           }
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
         }
       `}</style>
     </section>

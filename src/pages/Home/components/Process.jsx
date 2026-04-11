@@ -36,66 +36,84 @@ const processes = [
 
 const Process = () => {
   return (
-    <div className="my-8 p-8 bg-base-200 rounded-xl">
-      <div className="text-center mb-16">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-primary mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Our AI-Powered Process
-        </motion.h2>
-        <motion.p
-          className="text-base-content/80 text-lg md:text-xl max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Here's how we transform your business challenges into powerful
-          software solutions 3x faster.
-        </motion.p>
-      </div>
-
-      {/* Process timeline */}
-      <div className="max-w-4xl mx-auto">
-        {processes.map((step, index) => (
-          <motion.div
-            key={index}
-            className="flex relative pb-12"
+    <section className="py-28 px-6 bg-[#0B1628] text-slate-100">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Timeline connector */}
-            {index < 4 && (
-              <div className="absolute inset-0 flex items-center justify-center w-6 h-full">
-                <div className="h-full w-0.5 bg-base-300 pointer-events-none"></div>
+            Our AI-Powered{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Process
+            </span>
+          </motion.h2>
+          <motion.p
+            className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Here's how we transform your business challenges into powerful
+            software solutions 3x faster.
+          </motion.p>
+        </div>
+
+        {/* Process timeline */}
+        <div className="max-w-4xl mx-auto">
+          {processes.map((step, index) => (
+            <motion.div
+              key={index}
+              className="flex relative pb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Timeline connector */}
+              {index < 4 && (
+                <div className="absolute inset-0 flex items-center justify-center w-6 h-full">
+                  <div className="h-full w-0.5 bg-base-300 pointer-events-none"></div>
+                </div>
+              )}
+
+              {/* Timeline node */}
+              <div
+                className="relative z-10 flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full shadow-md"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+                }}
+              >
+                <span className="text-xl">{step.icon}</span>
               </div>
-            )}
 
-            {/* Timeline node */}
-            <div className="relative z-10 flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full bg-primary shadow-md">
-              <span className="text-xl">{step.icon}</span>
-            </div>
-
-            {/* Content */}
-            <div className="ml-6">
-              <h3 className="flex text-2xl font-bold text-base-content mb-2">
-                {step.title}
-                <span className="ml-2 text-base-content/70 font-mono">
-                  0{index + 1}
-                </span>
-              </h3>
-              <p className="text-base-content/80">{step.description}</p>
-            </div>
-          </motion.div>
-        ))}
+              {/* Content */}
+              <div className="ml-6">
+                <h3 className="flex text-2xl font-bold text-white mb-2">
+                  {step.title}
+                  <span className="ml-2 text-orange-500/60 font-mono">
+                    0{index + 1}
+                  </span>
+                </h3>
+                <p className="text-slate-400">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

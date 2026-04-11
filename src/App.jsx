@@ -13,32 +13,36 @@ import TermsOfService from "./components/TermsOfService";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookiePolicy from "./components/CookiePolicy";
 import ScrollToTop from "./components/Common/ScrollToTop";
+import CustomCursor from "./components/Common/CustomCursor";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("codeket-theme");
+    if (saved) return saved;
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       return "codeketdark";
-    } else {
-      return "codeketlight";
     }
+    return "codeketlight";
   });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("codeket-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prev) =>
-      prev === "codeketdark" ? "codeketlight" : "codeketdark"
+      prev === "codeketdark" ? "codeketlight" : "codeketdark",
     );
   };
 
   return (
     <Router>
       <div className="relative">
+        <CustomCursor />
         <Header theme={theme} toggleTheme={toggleTheme} />
         <ScrollToTop />
         <Routes>

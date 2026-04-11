@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Consistent section spacing used across all pages */
+  .section-container {
+    @apply py-28 px-6;
+  }
+
+  .section-inner {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Gold accent CTA button */
+  .btn-gold {
+    @apply bg-amber-700 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  /* Navy outline button */
+  .btn-navy-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300;
+  }
+
+  /* Card with hover gold border-top */
+  .card-premium {
+    @apply bg-base-100 border border-base-300 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl relative overflow-hidden;
+  }
+
+  .card-premium::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #b45309, #f59e0b);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .card-premium:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Section with dark navy background */
+  .section-dark {
+    @apply bg-[#0B1628] text-slate-100;
+  }
+
+  /* Gold text for stats/numbers */
+  .text-gold {
+    @apply text-amber-700;
+  }
+
+  [data-theme="codeketdark"] .text-gold {
+    @apply text-amber-400;
+  }
+}
