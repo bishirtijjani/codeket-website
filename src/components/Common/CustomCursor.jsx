@@ -4,17 +4,25 @@ const CustomCursor = () => {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Detect touch-primary devices and bail out entirely
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+    const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const isMobile = hasCoarsePointer && !hasFinePointer;
+
+    if (isMobile) {
+      setIsTouchDevice(true);
+      return;
+    }
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
-    // Only hide the real cursor on non-touch devices, and restore it on unmount
-    const isFinePoniter = window.matchMedia("(pointer: fine)").matches;
-    if (isFinePoniter) {
-      document.documentElement.style.cursor = "none";
-    }
+    document.documentElement.style.cursor = "none";
+
     let mouseX = 0;
     let mouseY = 0;
     let ringX = 0;
@@ -59,6 +67,9 @@ const CustomCursor = () => {
       document.documentElement.style.cursor = "";
     };
   }, []);
+
+  // Don't render anything on touch devices
+  if (isTouchDevice) return null;
 
   return (
     <>

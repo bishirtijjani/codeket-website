@@ -97,7 +97,7 @@ const HeroSection = () => {
               background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
             }}
           >
-            <span>Get Started</span>
+            <span>Get a Free Quote</span>
             <svg
               className="w-5 h-5 group-hover:translate-x-1 transition-transform"
               fill="none"

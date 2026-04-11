@@ -5,6 +5,7 @@ import { Sun, Moon } from "lucide-react";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/case-studies", label: "Case Studies" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },

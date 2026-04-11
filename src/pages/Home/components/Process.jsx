@@ -1,34 +1,35 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Search, Landmark, Zap, FlaskConical, TrendingUp } from "lucide-react";
 
 const processes = [
   {
     title: "Business Analysis",
-    icon: "🔍",
+    icon: Search,
     description:
       "Our AI analyzes your business requirements and turns them into technical specifications.",
   },
   {
     title: "Architecture Design",
-    icon: "🏗️",
+    icon: Landmark,
     description:
       "Intelligent systems design the optimal architecture considering scalability, performance, and security.",
   },
   {
     title: "Accelerated Development",
-    icon: "⚡",
+    icon: Zap,
     description:
       "AI-assisted coding with pre-built components accelerates development by 300%.",
   },
   {
     title: "Intelligent Testing",
-    icon: "🧪",
+    icon: FlaskConical,
     description:
       "Automated test generation and execution with predictive issue detection finds and fixes issues early.",
   },
   {
     title: "Continuous Optimization",
-    icon: "📈",
+    icon: TrendingUp,
     description:
       "Real-time performance monitoring and AI-driven optimizations keeps your software running smoothly.",
   },
@@ -96,7 +97,7 @@ const Process = () => {
                     "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
                 }}
               >
-                <span className="text-xl">{step.icon}</span>
+                <step.icon className="w-5 h-5 text-white" />
               </div>
 
               {/* Content */}

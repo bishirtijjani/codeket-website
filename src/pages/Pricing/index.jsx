@@ -4,7 +4,8 @@ import HeroSection from "./components/HeroSection";
 import PricingPlans from "./components/PricingPlans";
 import FAQ from "./components/FAQ";
 import ComparisonTable from "./components/ComparisonTable";
-import Consultation from "../Consultation";
+import ContactForm from "../Contact/components/ContactForm";
+import ContactInfo from "../Contact/components/ContactInfo";
 import PaymentOptions from "./components/PaymentOptions";
 import Guarantee from "./components/Guarantee";
 import ClientLogos from "./components/ClientLogos";
@@ -25,10 +26,18 @@ const Pricing = () => {
         <PaymentOptions />
         <ClientLogos />
         <FAQ />
-        <Consultation />
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <ContactInfo />
+            <ContactForm />
+          </div>
+        </div>
         <CallToAction />
         {selectedPlan && (
-          <PricingModal plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
+          <PricingModal
+            plan={selectedPlan}
+            onClose={() => setSelectedPlan(null)}
+          />
         )}
       </div>
     </div>

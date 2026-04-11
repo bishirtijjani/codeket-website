@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -8,6 +8,9 @@ const ContactForm = () => {
     name: "",
     email: "",
     company: "",
+    projectType: "",
+    budget: "",
+    timeline: "",
     subject: "",
     services: [],
     message: "",
@@ -106,7 +109,7 @@ const ContactForm = () => {
         "service_iwxa8rc",
         "template_rwyciy9",
         formData,
-        "IUJbFrZ9oGYqVff3D"
+        "IUJbFrZ9oGYqVff3D",
       );
 
       // Successfully sent
@@ -121,6 +124,9 @@ const ContactForm = () => {
         name: "",
         email: "",
         company: "",
+        projectType: "",
+        budget: "",
+        timeline: "",
         subject: "",
         services: [],
         message: "",
@@ -152,9 +158,10 @@ const ContactForm = () => {
       className="bg-neutral rounded-2xl p-8 border border-neutral-focus shadow-xl relative overflow-hidden"
       id="contact-form"
     >
-
-
-      <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+      <h2 className="text-3xl font-bold mb-2">Get a Free Quote</h2>
+      <p className="text-sm text-base-content/60 mb-6">
+        Tell us about your project and we'll get back to you within 24 hours.
+      </p>
 
       {formStatus.submitted ? (
         <motion.div
@@ -269,17 +276,78 @@ const ContactForm = () => {
                 placeholder="Project Inquiry"
               />
               {formErrors.subject && (
-                <p className="text-error text-sm mt-1">
-                  {formErrors.subject}
-                </p>
+                <p className="text-error text-sm mt-1">{formErrors.subject}</p>
               )}
             </div>
           </div>
 
+          {/* Qualifying fields */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div>
+              <label htmlFor="projectType" className="block mb-2">
+                Project Type
+              </label>
+              <select
+                id="projectType"
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+              >
+                <option value="">Select type...</option>
+                <option value="New Project">New Project</option>
+                <option value="Existing Project">
+                  Existing Project / Upgrade
+                </option>
+                <option value="Consultation">Consultation Only</option>
+                <option value="SaaS Product">SaaS Product</option>
+                <option value="Mobile App">Mobile App</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="budget" className="block mb-2">
+                Estimated Budget
+              </label>
+              <select
+                id="budget"
+                name="budget"
+                value={formData.budget}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+              >
+                <option value="">Select range...</option>
+                <option value="Under $5K">Under $5,000</option>
+                <option value="$5K - $15K">$5,000 – $15,000</option>
+                <option value="$15K - $50K">$15,000 – $50,000</option>
+                <option value="$50K - $100K">$50,000 – $100,000</option>
+                <option value="$100K+">$100,000+</option>
+                <option value="Not Sure">Not sure yet</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="timeline" className="block mb-2">
+                Timeline
+              </label>
+              <select
+                id="timeline"
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+              >
+                <option value="">Select timeline...</option>
+                <option value="ASAP">ASAP</option>
+                <option value="1-2 Months">1–2 Months</option>
+                <option value="3-6 Months">3–6 Months</option>
+                <option value="6+ Months">6+ Months</option>
+                <option value="Just Exploring">Just Exploring</option>
+              </select>
+            </div>
+          </div>
+
           <div className="mb-6">
-            <label className="block  mb-2">
-              Services You're Interested In
-            </label>
+            <label className="block  mb-2">Services You're Interested In</label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {serviceOptions.map((service, index) => (
                 <div key={index} className="flex items-center">
@@ -290,10 +358,7 @@ const ContactForm = () => {
                     onChange={() => handleCheckboxChange(service)}
                     className="w-4 h-4 mr-2 accent-primary"
                   />
-                  <label
-                    htmlFor={`service-${index}`}
-                    className=" text-sm"
-                  >
+                  <label htmlFor={`service-${index}`} className=" text-sm">
                     {service}
                   </label>
                 </div>
@@ -326,9 +391,7 @@ const ContactForm = () => {
             type="submit"
             disabled={isSubmitting}
             className={`w-full py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 shadow-md ${
-              isSubmitting
-                ? "opacity-70 cursor-not-allowed"
-                : "hover:bg-accent"
+              isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-accent"
             }`}
           >
             {isSubmitting ? (

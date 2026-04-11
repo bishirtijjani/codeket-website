@@ -30,8 +30,8 @@ const CallToAction = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Join the hundreds of organizations that have partnered with Codeket to
-            drive innovation and achieve remarkable results.
+            Join the hundreds of organizations that have partnered with Codeket
+            to drive innovation and achieve remarkable results.
           </motion.p>
 
           <motion.div
@@ -42,7 +42,7 @@ const CallToAction = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Link
-              to="/contact"
+              to="/consultation"
               className="px-10 py-5 cursor-pointer bg-primary text-white text-xl font-semibold rounded-xl shadow-md hover:bg-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center group"
             >
               <span>Contact Us</span>

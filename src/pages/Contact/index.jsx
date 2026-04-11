@@ -1,45 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { useScroll, useTransform } from "framer-motion";
 import HeroSection from "./components/HeroSection";
 import ContactInfo from "./components/ContactInfo";
 import ContactForm from "./components/ContactForm";
-import OfficeLocations from "./components/OfficeLocations";
 import CallToAction from "../../components/Common/CallToAction";
 import FAQSection from "./components/FAQSection";
 
 const Contact = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-
-  const locations = [
-    {
-      city: "San Francisco",
-      address: "101 Market Street, Suite 700, San Francisco, CA 94105",
-      phone: "+1 (415) 555-1234",
-      email: "sf@codeket.com",
-      hours: "Monday - Friday: 9AM - 6PM PST",
-      mapUrl: "/images/maps/sf-map.jpg",
-      image: "/images/offices/sf.jpg",
-    },
-    {
-      city: "Singapore",
-      address: "80 Raffles Place, #43-01, Singapore 048624",
-      phone: "+65 6123 4567",
-      email: "sg@codeket.com",
-      hours: "Monday - Friday: 9AM - 6PM SGT",
-      mapUrl: "/images/maps/sg-map.jpg",
-      image: "/images/offices/singapore.jpg",
-    },
-    {
-      city: "Berlin",
-      address: "Friedrichstraße 88, 10117 Berlin, Germany",
-      phone: "+49 30 1234 5678",
-      email: "berlin@codeket.com",
-      hours: "Monday - Friday: 9AM - 6PM CET",
-      mapUrl: "/images/maps/berlin-map.jpg",
-      image: "/images/offices/berlin.jpg",
-    },
-  ];
 
   const faqs = [
     {
@@ -77,7 +46,6 @@ const Contact = () => {
           <ContactInfo />
           <ContactForm />
         </div>
-        {/* <OfficeLocations locations={locations} /> */}
         <FAQSection faqs={faqs} />
         <CallToAction />
       </div>
