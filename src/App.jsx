@@ -13,7 +13,6 @@ import TermsOfService from "./components/TermsOfService";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookiePolicy from "./components/CookiePolicy";
 import ScrollToTop from "./components/Common/ScrollToTop";
-import CustomCursor from "./components/Common/CustomCursor";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -42,7 +41,6 @@ function App() {
   return (
     <Router>
       <div className="relative">
-        <CustomCursor />
         <Header theme={theme} toggleTheme={toggleTheme} />
         <ScrollToTop />
         <Routes>

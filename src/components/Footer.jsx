@@ -135,11 +135,11 @@ const Footer = ({ theme }) => {
             contact@codeket.com
           </a>
           <a
-            href="tel:+2349068149540"
+            href="tel:+2349063503232"
             className="text-slate-400 hover:text-orange-400 flex items-center gap-2 mb-3 text-sm transition-colors"
           >
             <FaPhoneAlt className="text-orange-600 flex-shrink-0" />
-            +234 906 814 9540
+            +234 906 350 3232
           </a>
           <p className="text-slate-400 flex items-center gap-2 text-sm">
             <FaClock className="text-orange-600 flex-shrink-0" />

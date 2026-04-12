@@ -4,34 +4,34 @@ import { Search, Landmark, Zap, FlaskConical, TrendingUp } from "lucide-react";
 
 const processes = [
   {
-    title: "Business Analysis",
+    title: "Discovery & Strategy",
     icon: Search,
     description:
-      "Our AI analyzes your business requirements and turns them into technical specifications.",
+      "We learn your business inside out — goals, users, pain points — then map out a clear plan with timelines and deliverables.",
   },
   {
-    title: "Architecture Design",
+    title: "Architecture & Design",
     icon: Landmark,
     description:
-      "Intelligent systems design the optimal architecture considering scalability, performance, and security.",
+      "Our team designs the system architecture and UI/UX with scalability, performance, and your users in mind from day one.",
   },
   {
-    title: "Accelerated Development",
+    title: "Build & Iterate",
     icon: Zap,
     description:
-      "AI-assisted coding with pre-built components accelerates development by 300%.",
+      "We develop in focused sprints, shipping working features regularly so you can see progress and give feedback early.",
   },
   {
-    title: "Intelligent Testing",
+    title: "Testing & QA",
     icon: FlaskConical,
     description:
-      "Automated test generation and execution with predictive issue detection finds and fixes issues early.",
+      "Rigorous manual and automated testing at every stage ensures your product is reliable, secure, and production-ready.",
   },
   {
-    title: "Continuous Optimization",
+    title: "Launch & Support",
     icon: TrendingUp,
     description:
-      "Real-time performance monitoring and AI-driven optimizations keeps your software running smoothly.",
+      "We handle deployment, monitor performance, and provide ongoing support to keep your software running smoothly as you grow.",
   },
 ];
 
@@ -47,7 +47,7 @@ const Process = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our AI-Powered{" "}
+            How We{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
@@ -56,7 +56,7 @@ const Process = () => {
                 backgroundClip: "text",
               }}
             >
-              Process
+              Work
             </span>
           </motion.h2>
           <motion.p
@@ -66,8 +66,8 @@ const Process = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Here's how we transform your business challenges into powerful
-            software solutions 3x faster.
+            From first call to launch day — a straightforward process built
+            around your goals.
           </motion.p>
         </div>
 

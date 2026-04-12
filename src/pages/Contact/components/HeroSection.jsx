@@ -18,9 +18,7 @@ const HeroSection = ({ y }) => {
         className="relative z-10 text-center px-6 max-w-4xl"
       >
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold">
-          <span className="text-primary">
-            Let's Connect
-          </span>
+          <span className="text-primary">Let's Connect</span>
         </h1>
         <p className="text-xl md:text-2xl text-base-content/80 mb-10">
           Ready to transform your ideas into reality? Reach out to our team of
@@ -29,7 +27,10 @@ const HeroSection = ({ y }) => {
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="/consultation"
-            className="px-8 py-4 mb-3 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300"
+            className="px-8 py-4 mb-3 text-white font-semibold rounded-xl shadow-md hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+            style={{
+              background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+            }}
           >
             Get in Touch
           </a>

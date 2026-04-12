@@ -155,7 +155,7 @@ const ContactForm = () => {
 
   return (
     <div
-      className="bg-neutral rounded-2xl p-8 border border-neutral-focus shadow-xl relative overflow-hidden"
+      className="bg-base-200/60 backdrop-blur-sm rounded-2xl p-8 border border-base-300/60 shadow-xl relative overflow-hidden"
       id="contact-form"
     >
       <h2 className="text-3xl font-bold mb-2">Get a Free Quote</h2>
@@ -213,8 +213,8 @@ const ContactForm = () => {
                 required
                 value={formData.name}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 bg-neutral-focus text-primary border ${
-                  formErrors.name ? "border-error" : "border-primary"
+                className={`w-full px-4 py-3 bg-base-100 text-base-content border ${
+                  formErrors.name ? "border-error" : "border-base-300"
                 } rounded-lg focus:outline-none focus:border-primary transition-colors`}
                 placeholder="John Doe"
               />
@@ -233,8 +233,8 @@ const ContactForm = () => {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 bg-neutral-focus text-primary border ${
-                  formErrors.email ? "border-error" : "border-primary"
+                className={`w-full px-4 py-3 bg-base-100 text-base-content border ${
+                  formErrors.email ? "border-error" : "border-base-300"
                 } rounded-lg focus:outline-none focus:border-primary transition-colors`}
                 placeholder="john@example.com"
               />
@@ -255,7 +255,7 @@ const ContactForm = () => {
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-base-100 text-base-content border border-base-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
                 placeholder="Your Company"
               />
             </div>
@@ -270,8 +270,8 @@ const ContactForm = () => {
                 required
                 value={formData.subject}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 bg-neutral-focus text-primary border ${
-                  formErrors.subject ? "border-error" : "border-primary"
+                className={`w-full px-4 py-3 bg-base-100 text-base-content border ${
+                  formErrors.subject ? "border-error" : "border-base-300"
                 } rounded-lg focus:outline-none focus:border-primary transition-colors`}
                 placeholder="Project Inquiry"
               />
@@ -292,7 +292,7 @@ const ContactForm = () => {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-base-100 text-base-content border border-base-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
               >
                 <option value="">Select type...</option>
                 <option value="New Project">New Project</option>
@@ -314,7 +314,7 @@ const ContactForm = () => {
                 name="budget"
                 value={formData.budget}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-base-100 text-base-content border border-base-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
               >
                 <option value="">Select range...</option>
                 <option value="Under $5K">Under $5,000</option>
@@ -334,7 +334,7 @@ const ContactForm = () => {
                 name="timeline"
                 value={formData.timeline}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-neutral-focus text-primary border border-primary rounded-lg focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-base-100 text-base-content border border-base-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
               >
                 <option value="">Select timeline...</option>
                 <option value="ASAP">ASAP</option>
@@ -377,8 +377,8 @@ const ContactForm = () => {
               rows="5"
               value={formData.message}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 bg-neutral-focus text-primary border ${
-                formErrors.message ? "border-error" : "border-primary"
+              className={`w-full px-4 py-3 bg-base-100 text-base-content border ${
+                formErrors.message ? "border-error" : "border-base-300"
               } rounded-lg focus:outline-none focus:border-primary transition-colors resize-none`}
               placeholder="Tell us about your project or inquiry..."
             ></textarea>
@@ -390,9 +390,14 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 shadow-md ${
-              isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-accent"
+            className={`w-full py-4 text-white font-semibold rounded-lg transition-all duration-300 shadow-md ${
+              isSubmitting
+                ? "opacity-70 cursor-not-allowed"
+                : "hover:-translate-y-0.5 hover:shadow-lg"
             }`}
+            style={{
+              background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+            }}
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center">

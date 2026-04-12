@@ -20,7 +20,7 @@ const FAQSection = ({ faqs }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-neutral rounded-xl p-6 border border-neutral-focus"
+              className="bg-base-200/60 rounded-xl p-6 border border-base-300/60"
             >
               <h3 className="text-xl font-semibold mb-3">{faq.question}</h3>
               <p className="text-base-content/80">{faq.answer}</p>
