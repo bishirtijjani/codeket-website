@@ -3,7 +3,7 @@
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-CHu8Y-23.js"
+    "/assets/client-nB_08xtj.js"
   ],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -268,6 +268,7 @@
   "node_modules/motion-dom/dist/es/resize/handle-window.mjs": [],
   "node_modules/motion-dom/dist/es/resize/index.mjs": [],
   "node_modules/motion-dom/dist/es/scroll/observe.mjs": [],
+  "node_modules/motion-dom/dist/es/stats/buffer.mjs": [],
   "node_modules/motion-dom/dist/es/utils/interpolate.mjs": [],
   "node_modules/motion-dom/dist/es/utils/is-html-element.mjs": [],
   "node_modules/motion-dom/dist/es/utils/is-svg-element.mjs": [],
@@ -340,7 +341,7 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-CHu8Y-23.js"
+    "/assets/client-nB_08xtj.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
@@ -376,6 +377,7 @@
   "src/components/NotFound.jsx": [],
   "src/components/PrivacyPolicy.jsx": [],
   "src/components/TermsOfService.jsx": [],
+  "src/framer-motion-static-shim.jsx": [],
   "src/index.css": [],
   "src/main.jsx": [],
   "src/pages/About/components/CoreValues.jsx": [],
