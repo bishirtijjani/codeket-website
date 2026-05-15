@@ -1,9 +1,19 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 
 const TermsOfService = () => {
   return (
     <div className="w-full min-h-screen overflow-hidden bg-base-100">
+      <Helmet>
+        <title>Terms of Service | Codeket</title>
+        <meta
+          name="description"
+          content="The terms of service governing your use of Codeket's website and engagement with our software development services."
+        />
+        <link rel="canonical" href="https://codeket.com/terms-of-service" />
+        <meta name="robots" content="index,follow" />
+      </Helmet>
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>

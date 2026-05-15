@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom"; // For navigation
 
@@ -7,6 +8,10 @@ const NotFoundPage = () => {
 
   return (
     <div className="bg-base-100 min-h-screen">
+      <Helmet>
+        <title>Page Not Found | Codeket</title>
+        <meta name="robots" content="noindex,follow" />
+      </Helmet>
       <div className="flex flex-col items-center justify-center text-error p-6 min-w-full ">
         {/* Animated 404 Text */}
         <motion.div

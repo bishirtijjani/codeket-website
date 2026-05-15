@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NotFound from "./components/NotFound";
@@ -17,15 +17,18 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-function App() {
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem("codeket-theme");
-    if (saved) return saved;
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "codeketdark";
-    }
-    return "codeketlight";
-  });
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return "codeketlight";
+  const saved = localStorage.getItem("codeket-theme");
+  if (saved) return saved;
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "codeketdark";
+  }
+  return "codeketlight";
+};
+
+function Layout() {
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -39,32 +42,34 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="relative">
-        <Header theme={theme} toggleTheme={toggleTheme} />
-        <ScrollToTop />
-        <Routes>
-          {/* Pages */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/consultation" element={<Consultation />} />
-          <Route path="/pricing" element={<Pricing />} />
-
-          {/* Legal Pages */}
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
-
-          {/* 404 Page */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer theme={theme} />
-      </div>
-    </Router>
+    <div className="relative">
+      <Header theme={theme} toggleTheme={toggleTheme} />
+      <ScrollToTop />
+      <Outlet />
+      <Footer theme={theme} />
+    </div>
   );
 }
 
-export default App;
+export const routes = [
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "services", element: <Services /> },
+      { path: "case-studies", element: <CaseStudies /> },
+      { path: "consultation", element: <Consultation /> },
+      { path: "pricing", element: <Pricing /> },
+      { path: "terms-of-service", element: <TermsOfService /> },
+      { path: "privacy-policy", element: <PrivacyPolicy /> },
+      { path: "cookie-policy", element: <CookiePolicy /> },
+      { path: "404", element: <NotFound /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+];
+
+export default Layout;

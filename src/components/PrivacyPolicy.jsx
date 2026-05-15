@@ -1,9 +1,19 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 
 const PrivacyPolicy = () => {
   return (
     <div className="w-full min-h-screen overflow-hidden bg-base-100">
+      <Helmet>
+        <title>Privacy Policy | Codeket</title>
+        <meta
+          name="description"
+          content="How Codeket collects, uses, and protects your personal information when you visit our site or engage our services."
+        />
+        <link rel="canonical" href="https://codeket.com/privacy-policy" />
+        <meta name="robots" content="index,follow" />
+      </Helmet>
       <div className="relative h-screen flex items-center justify-center overflow-hidden ">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>

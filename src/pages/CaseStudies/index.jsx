@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import {
   motion,
   useScroll,
@@ -43,6 +44,23 @@ const CaseStudiesPage = () => {
 
   return (
     <div className="bg-base-100 text-base-content ">
+      <Helmet>
+        <title>Case Studies — Real Projects, Real Results | Codeket</title>
+        <meta
+          name="description"
+          content="Explore Codeket's case studies across industries and services. See how we've delivered measurable results for clients with web, mobile, and AI solutions."
+        />
+        <link rel="canonical" href="https://codeket.com/case-studies" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://codeket.com/case-studies" />
+        <meta property="og:title" content="Case Studies — Real Projects, Real Results | Codeket" />
+        <meta
+          property="og:description"
+          content="Explore Codeket's case studies. Real projects, measurable results."
+        />
+        <meta property="og:image" content="https://codeket.com/preview-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <HeroSection />
 
       {/* Main Case Studies Section */}

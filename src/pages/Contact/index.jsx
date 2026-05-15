@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useScroll, useTransform } from "framer-motion";
 import HeroSection from "./components/HeroSection";
 import ContactInfo from "./components/ContactInfo";
@@ -40,6 +41,23 @@ const Contact = () => {
 
   return (
     <div className="bg-base-100 text-base-content ">
+      <Helmet>
+        <title>Contact Codeket — Let's Build Something Great</title>
+        <meta
+          name="description"
+          content="Get in touch with Codeket. Email, phone, and a contact form for project inquiries, partnerships, and free consultations. We respond within 24 hours."
+        />
+        <link rel="canonical" href="https://codeket.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://codeket.com/contact" />
+        <meta property="og:title" content="Contact Codeket — Let's Build Something Great" />
+        <meta
+          property="og:description"
+          content="Reach out to Codeket for project inquiries, partnerships, and free consultations."
+        />
+        <meta property="og:image" content="https://codeket.com/preview-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <HeroSection y={y} />
       <div className="max-w-7xl mx-auto px-6 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-32">
