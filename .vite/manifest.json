@@ -1,6 +1,6 @@
 {
-  "_client-nB_08xtj.js": {
-    "file": "assets/client-nB_08xtj.js",
+  "_client-5oTLc-FB.js": {
+    "file": "assets/client-5oTLc-FB.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,12 +8,12 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-BwbniENT.js",
+    "file": "assets/app-CDRpnXkU.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-nB_08xtj.js"
+      "_client-5oTLc-FB.js"
     ],
     "css": [
       "assets/app-Dmta7rBu.css"
