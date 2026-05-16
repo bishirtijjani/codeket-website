@@ -8,40 +8,40 @@ const FAQ = () => {
   const questions = [
     {
       id: 1,
-      question: "How does billing work?",
+      question: "How does payment work?",
       answer:
-        "For monthly plans, you'll be billed at the beginning of each month. For annual plans, you'll be billed once at the beginning of your subscription period. All plans are auto-renewing but can be canceled at any time.",
+        "Pricing is project-based, not subscription. After a free scoping call, we send a fixed-price quote. Larger projects are split into milestones (typically a 40% deposit to kick off, then payments at agreed milestones, with the balance on final delivery).",
     },
     {
       id: 2,
-      question: "Can I change my plan later?",
+      question: "What if my project scope changes mid-build?",
       answer:
-        "Yes, you can upgrade or downgrade your plan at any time. When upgrading, you'll be prorated for the remainder of your billing period. When downgrading, changes will take effect at the start of your next billing cycle.",
+        "Small adjustments inside the original scope are absorbed without extra cost. Significant additions (new features, new integrations, design overhauls) are handled with a change order — quoted and agreed separately so you're never surprised on the invoice.",
     },
     {
       id: 3,
-      question: "Is there a free trial available?",
+      question: "Who owns the code after delivery?",
       answer:
-        "Yes, we offer a 14-day free trial for all plans. No credit card is required to start your trial, and you can upgrade to a paid plan at any time during or after your trial period.",
+        "You do. Full IP and source code transfer on final payment. We retain rights only to reusable infrastructure and design patterns built across multiple projects — never to anything specific to your business.",
     },
     {
       id: 4,
-      question: "Do you offer refunds?",
+      question: "What's included in the support window?",
       answer:
-        "We offer a 30-day money-back guarantee for all plans. If you're not satisfied with our service within the first 30 days, contact our support team for a full refund.",
+        "Bug fixes, security patches, minor adjustments, and email support during the included support period (2 months for Starter, 4 for Growth, 6 for Enterprise). New features, design changes, or scope expansion aren't included but can be added as a separate engagement or via a monthly retainer.",
     },
     {
       id: 5,
       question: "What payment methods do you accept?",
       answer:
-        "We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, and bank transfers for enterprise clients. All payments are securely processed through our payment provider.",
+        "USD wire transfer via Wise or Grey, credit card via Stripe, and direct bank transfer for clients in Nigeria and Africa. Enterprise contracts can be structured around your procurement process.",
     },
     {
       id: 6,
       question:
-        "Do you offer discounts for non-profits or educational institutions?",
+        "Do you offer discounts for non-profits, early-stage startups, or African businesses?",
       answer:
-        "Yes, we offer special pricing for qualified non-profits, educational institutions, and startups. Please contact our sales team for more information and to apply for our special pricing programs.",
+        "Case-by-case. Mention your situation in the inquiry form and we'll let you know what's possible. We also occasionally take on case-study partnerships at reduced cost in exchange for a published case study and testimonial.",
     },
   ];
 

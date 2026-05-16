@@ -20,27 +20,27 @@ const ComparisonTable = () => {
       name: "Core Features",
       features: [
         {
-          name: "AI-powered projects",
-          starter: true,
-          professional: true,
-          enterprise: true,
+          name: "AI-powered features",
+          starter: false,
+          growth: "Basic",
+          enterprise: "Advanced",
         },
         {
           name: "Team members",
           starter: "Up to 5",
-          professional: "Up to 20",
+          growth: "Up to 20",
           enterprise: "Unlimited",
         },
         {
           name: "Analytics dashboard",
           starter: "Basic",
-          professional: "Advanced",
+          growth: "Advanced",
           enterprise: "Enterprise",
         },
         {
           name: "Uptime guarantee",
           starter: "99.5%",
-          professional: "99.9%",
+          growth: "99.9%",
           enterprise: "99.99%",
         },
       ],
@@ -50,28 +50,28 @@ const ComparisonTable = () => {
       name: "Support & Services",
       features: [
         {
-          name: "Customer support",
-          starter: "Standard",
-          professional: "Priority",
-          enterprise: "24/7 Premium",
+          name: "Support window",
+          starter: "2 months",
+          growth: "4 months",
+          enterprise: "6 months",
         },
         {
           name: "Onboarding session",
           starter: false,
-          professional: "2 hours",
+          growth: "2 hours",
           enterprise: "8 hours",
         },
         {
-          name: "Dedicated account manager",
+          name: "Dedicated project manager",
           starter: false,
-          professional: false,
+          growth: false,
           enterprise: true,
         },
         {
-          name: "Training sessions",
+          name: "Staff training sessions",
           starter: false,
-          professional: "Monthly",
-          enterprise: "Weekly",
+          growth: true,
+          enterprise: true,
         },
       ],
     },
@@ -82,26 +82,26 @@ const ComparisonTable = () => {
         {
           name: "Data encryption",
           starter: true,
-          professional: true,
+          growth: true,
           enterprise: true,
         },
         {
           name: "Single sign-on (SSO)",
           starter: false,
-          professional: true,
+          growth: true,
           enterprise: true,
         },
         {
           name: "Role-based access",
           starter: "Basic",
-          professional: "Advanced",
+          growth: "Advanced",
           enterprise: "Custom",
         },
         {
-          name: "Compliance certifications",
-          starter: "SOC 2",
-          professional: "SOC 2, HIPAA",
-          enterprise: "SOC 2, HIPAA, GDPR, Custom",
+          name: "Compliance support",
+          starter: "Standard",
+          growth: "Industry-standard (e.g., HIPAA-ready)",
+          enterprise: "Custom (HIPAA, GDPR, SOC 2)",
         },
       ],
     },
@@ -110,28 +110,28 @@ const ComparisonTable = () => {
       name: "Integrations & API",
       features: [
         {
-          name: "Pre-built integrations",
-          starter: "5",
-          professional: "20+",
-          enterprise: "All",
+          name: "API integrations",
+          starter: "Basic",
+          growth: "Advanced",
+          enterprise: "Unlimited",
         },
         {
           name: "Custom integrations",
           starter: false,
-          professional: true,
+          growth: true,
           enterprise: true,
         },
         {
-          name: "API access",
+          name: "Microservices architecture",
           starter: false,
-          professional: true,
+          growth: false,
           enterprise: true,
         },
         {
-          name: "Custom workflows",
+          name: "Load testing & optimization",
           starter: false,
-          professional: "Basic",
-          enterprise: "Advanced",
+          growth: false,
+          enterprise: true,
         },
       ],
     },
@@ -196,7 +196,7 @@ const ComparisonTable = () => {
                           Starter
                         </th>
                         <th className="py-4 px-6 text-center text-base-content/80 font-medium">
-                          Professional
+                          Growth
                         </th>
                         <th className="py-4 px-6 text-center text-base-content/80 font-medium">
                           Enterprise
@@ -223,15 +223,15 @@ const ComparisonTable = () => {
                             )}
                           </td>
                           <td className="py-4 px-6 text-center">
-                            {typeof feature.professional === "boolean" ? (
-                              feature.professional ? (
+                            {typeof feature.growth === "boolean" ? (
+                              feature.growth ? (
                                 <FaCheck className="mx-auto text-success" />
                               ) : (
                                 <FaTimes className="mx-auto text-base-content/70" />
                               )
                             ) : (
                               <span className="text-base-content/80">
-                                {feature.professional}
+                                {feature.growth}
                               </span>
                             )}
                           </td>

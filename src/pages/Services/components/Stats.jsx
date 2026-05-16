@@ -3,10 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "35+", label: "Projects Delivered" },
-  { value: "8+", label: "Years of Industry Experience" },
-  { value: "94%", label: "Client Retention" },
-  { value: "100%", label: "Client Satisfaction" },
+  { value: "3", label: "Products Shipped" },
+  { value: "5+", label: "Industries Served" },
+  { value: "2021", label: "Year Founded" },
+  { value: "100%", label: "In-House Development" },
 ];
 
 const Stats = () => {

@@ -35,7 +35,7 @@ const Contact = () => {
     {
       question: "Do you work with clients internationally?",
       answer:
-        "Absolutely! With offices in North America, Asia, and Europe, we serve clients globally. Our team is experienced in working across time zones and can adapt to your communication preferences.",
+        "Yes. Our team is based in Nigeria and we serve clients globally. We work in flexible hours that overlap with your time zone, communicate primarily over Slack, email, and Zoom, and bill in USD via Wise or Grey for clients outside Africa.",
     },
   ];
 

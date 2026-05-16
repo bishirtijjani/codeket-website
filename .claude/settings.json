@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:codeket.com)",
+      "WebSearch",
+      "Bash(stat -c '%y' \"c:/Users/BISHIR-TM/Documents/codeket/codeket-website/dist/index.html\" 2>/dev/null || ls -la \"c:/Users/BISHIR-TM/Documents/codeket/codeket-website/dist/index.html\")",
+      "Read(//c/Users/BISHIR-TM/Documents/codeket/codeket-website/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\BISHIR-TM\\Documents\\codeket-launch"
+    ]
+  }
+}

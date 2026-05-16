@@ -17,23 +17,31 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const getInitialTheme = () => {
-  if (typeof window === "undefined") return "codeketlight";
-  const saved = localStorage.getItem("codeket-theme");
-  if (saved) return saved;
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    return "codeketdark";
-  }
-  return "codeketlight";
-};
+const DEFAULT_THEME = "codeketlight";
 
 function Layout() {
-  const [theme, setTheme] = useState(getInitialTheme);
+  // Must match the server-rendered value on first client render — DO NOT read
+  // localStorage or prefers-color-scheme here. That goes in the effect below.
+  const [theme, setTheme] = useState(DEFAULT_THEME);
+  const [hydrated, setHydrated] = useState(false);
+
+  // After hydration, resolve the user's actual preferred theme.
+  useEffect(() => {
+    const saved = localStorage.getItem("codeket-theme");
+    if (saved) {
+      setTheme(saved);
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("codeketdark");
+    }
+    setHydrated(true);
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("codeket-theme", theme);
-  }, [theme]);
+    if (hydrated) {
+      localStorage.setItem("codeket-theme", theme);
+    }
+  }, [theme, hydrated]);
 
   const toggleTheme = () => {
     setTheme((prev) =>

@@ -34,8 +34,8 @@ const StatisticsSection = () => {
             className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaRocket className="mx-auto text-primary text-3xl mb-4" />
-            <div className="text-4xl font-bold text-base-content mb-2">94%</div>
-            <p className="text-base-content/70">Projects Delivered On Time</p>
+            <div className="text-4xl font-bold text-base-content mb-2">4+</div>
+            <p className="text-base-content/70">Documented Case Studies</p>
           </motion.div>
 
           <motion.div
@@ -46,8 +46,8 @@ const StatisticsSection = () => {
             className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaChartLine className="mx-auto text-accent text-3xl mb-4" />
-            <div className="text-4xl font-bold text-base-content mb-2">$42M+</div>
-            <p className="text-base-content/70">Client Revenue Increased</p>
+            <div className="text-4xl font-bold text-base-content mb-2">5+</div>
+            <p className="text-base-content/70">Industries Served</p>
           </motion.div>
 
           <motion.div
@@ -58,8 +58,8 @@ const StatisticsSection = () => {
             className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaBrain className="mx-auto text-secondary text-3xl mb-4" />
-            <div className="text-4xl font-bold text-base-content mb-2">14</div>
-            <p className="text-base-content/70">Custom AI Solutions</p>
+            <div className="text-4xl font-bold text-base-content mb-2">2-12 wk</div>
+            <p className="text-base-content/70">Typical Delivery Window</p>
           </motion.div>
 
           <motion.div
@@ -70,8 +70,8 @@ const StatisticsSection = () => {
             className="bg-base-100 border border-base-300 rounded-2xl p-6 text-center shadow-sm"
           >
             <FaServer className="mx-auto text-success text-3xl mb-4" />
-            <div className="text-4xl font-bold text-base-content mb-2">99.99%</div>
-            <p className="text-base-content/70">System Uptime</p>
+            <div className="text-4xl font-bold text-base-content mb-2">100%</div>
+            <p className="text-base-content/70">In-House Development</p>
           </motion.div>
         </div>
       </div>
