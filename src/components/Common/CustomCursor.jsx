@@ -73,7 +73,7 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* SVG arrow pointer — snappy, positioned at tip */}
+      {/* SVG arrow pointer, snappy, positioned at tip */}
       <div
         ref={dotRef}
         className="fixed pointer-events-none z-[9999] transition-transform duration-75"
@@ -87,7 +87,7 @@ const CustomCursor = () => {
           xmlns="http://www.w3.org/2000/svg"
           style={{ transition: "width 0.15s, height 0.15s" }}
         >
-          {/* Arrow pointer shape — tip at top-left (0,0) */}
+          {/* Arrow pointer shape, tip at top-left (0,0) */}
           <path
             d="M2 2L2 20L7.5 15.5L11 23L14 21.5L10.5 14H18L2 2Z"
             fill={isHovering ? "#C2410C" : "#0F4C81"}
@@ -99,7 +99,7 @@ const CustomCursor = () => {
         </svg>
       </div>
 
-      {/* Trailing ring — lags behind for feel */}
+      {/* Trailing ring, lags behind for feel */}
       <div
         ref={ringRef}
         className="fixed pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-200"

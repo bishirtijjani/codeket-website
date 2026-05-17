@@ -50,33 +50,33 @@ const PricingModal = ({ plan, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4"
       >
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
-          className="bg-base-100 rounded-lg shadow-xl p-8 max-w-lg w-full relative"
+          className="bg-base-100 text-base-content border border-base-300 rounded-xl shadow-xl p-8 max-w-lg w-full relative"
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+            className="absolute top-4 right-4 text-base-content/60 hover:text-base-content transition-colors"
           >
             <FaTimes />
           </button>
           <h2 className="text-2xl font-bold mb-4">{plan.name}</h2>
           {status === "success" ? (
             <div>
-              <p className="text-green-500">Your request has been sent successfully!</p>
+              <p className="text-success">Your request has been sent successfully!</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <p className="mb-4">You have selected the <strong>{plan.name}</strong> plan for <strong>${plan.price}</strong>.</p>
+              <p className="mb-4 text-base-content/80">You have selected the <strong className="text-base-content">{plan.name}</strong> plan for <strong className="text-base-content">${plan.price}</strong>.</p>
               <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="w-full p-2 border rounded mb-4"
+                className="w-full p-3 bg-base-100 border border-base-300 rounded-lg mb-4 focus:outline-none focus:border-primary transition-colors"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -85,14 +85,14 @@ const PricingModal = ({ plan, onClose }) => {
                 type="email"
                 name="email"
                 placeholder="Your Email"
-                className="w-full p-2 border rounded mb-4"
+                className="w-full p-3 bg-base-100 border border-base-300 rounded-lg mb-4 focus:outline-none focus:border-primary transition-colors"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
               <textarea
                 name="message"
-                className="w-full p-2 border rounded mb-4"
+                className="w-full p-3 bg-base-100 border border-base-300 rounded-lg mb-4 focus:outline-none focus:border-primary transition-colors resize-none"
                 rows="4"
                 placeholder="Enter any additional message or questions here..."
                 value={formData.message}
@@ -100,13 +100,13 @@ const PricingModal = ({ plan, onClose }) => {
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
+                className="w-full bg-primary text-white p-3 rounded-lg font-semibold hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={status === "sending"}
               >
                 {status === "sending" ? "Sending..." : "Send Request"}
               </button>
               {status === "error" && (
-                <p className="text-red-500 mt-2">Failed to send request. Please try again later.</p>
+                <p className="text-error mt-2">Failed to send request. Please try again later.</p>
               )}
             </form>
           )}

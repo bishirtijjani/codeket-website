@@ -45,7 +45,7 @@ const ClientLogos = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col items-center justify-center p-3 object-fill bg-neutral-focus rounded-xl border border-neutral hover:border-primary transition-all duration-300"
+              className="flex flex-col items-center justify-center p-3 object-fill bg-base-100 rounded-xl border border-base-300 hover:border-primary transition-all duration-300"
             >
               {client.logo}
               <div>

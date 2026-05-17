@@ -9,9 +9,14 @@ import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
 import Consultation from "./pages/Consultation";
 import Pricing from "./pages/Pricing";
+import WhatsAppReceptionist from "./pages/WhatsAppReceptionist";
 import TermsOfService from "./components/TermsOfService";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import CookiePolicy from "./components/CookiePolicy";
+// Files renamed from PrivacyPolicy/CookiePolicy so Brave Shields and other
+// tracker blockers don't block the .jsx asset URL (those filenames match
+// common cookie-consent / privacy-popup filter rules, which crashes the
+// bundle and blanks every page).
+import LegalPrivacy from "./components/LegalPrivacy";
+import LegalCookies from "./components/LegalCookies";
 import ScrollToTop from "./components/Common/ScrollToTop";
 import "./App.css";
 import Header from "./components/Header";
@@ -20,7 +25,7 @@ import Footer from "./components/Footer";
 const DEFAULT_THEME = "codeketlight";
 
 function Layout() {
-  // Must match the server-rendered value on first client render — DO NOT read
+  // Must match the server-rendered value on first client render, DO NOT read
   // localStorage or prefers-color-scheme here. That goes in the effect below.
   const [theme, setTheme] = useState(DEFAULT_THEME);
   const [hydrated, setHydrated] = useState(false);
@@ -71,9 +76,10 @@ export const routes = [
       { path: "case-studies", element: <CaseStudies /> },
       { path: "consultation", element: <Consultation /> },
       { path: "pricing", element: <Pricing /> },
+      { path: "whatsapp-receptionist", element: <WhatsAppReceptionist /> },
       { path: "terms-of-service", element: <TermsOfService /> },
-      { path: "privacy-policy", element: <PrivacyPolicy /> },
-      { path: "cookie-policy", element: <CookiePolicy /> },
+      { path: "privacy-policy", element: <LegalPrivacy /> },
+      { path: "cookie-policy", element: <LegalCookies /> },
       { path: "404", element: <NotFound /> },
       { path: "*", element: <NotFound /> },
     ],

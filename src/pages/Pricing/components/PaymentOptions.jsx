@@ -35,7 +35,7 @@ const PaymentOptions = () => {
   ];
 
   return (
-    <div className="py-24 px-6">
+    <div className="py-24 px-6 bg-base-200">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ const PaymentOptions = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-neutral-focus rounded-xl p-8 border border-neutral hover:border-primary transition-all duration-300"
+              className="bg-base-100 rounded-xl p-8 border border-base-300 hover:border-primary transition-all duration-300"
             >
               <div className="mb-6 flex justify-center">{method.icon}</div>
               <h3 className="text-2xl font-bold text-center mb-3">
@@ -78,7 +78,7 @@ const PaymentOptions = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 p-6 bg-neutral-focus rounded-xl border-2  flex flex-col md:flex-row items-center justify-center"
+          className="mt-16 p-6 bg-base-100 rounded-xl border border-base-300 flex flex-col md:flex-row items-center justify-center"
         >
           <div className="flex items-center mb-6 md:mb-0">
             <div className="p-3 bg-primary/20 rounded-full mr-4">

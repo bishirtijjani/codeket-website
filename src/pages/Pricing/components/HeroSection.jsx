@@ -31,7 +31,7 @@ const HeroSection = () => {
           </h1>
           <p className="text-xl md:text-2xl  mt-6 max-w-3xl mx-auto">
             Choose the technology solutions that will drive your business
-            forward — from custom development to AI-powered software.
+            forward, from custom development to AI-powered software.
           </p>
         </motion.div>
 
@@ -39,20 +39,20 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-10 flex items-center justify-center"
+          className="mt-10 flex flex-col md:flex-row items-center justify-center gap-4"
         >
           <button
             onClick={() => scrollToSection("pricing-plans")}
-            className="inline-block btn-lg bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300 mr-4"
+            className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-xl shadow-md hover:bg-accent transition-all duration-300"
           >
             Explore Solutions
           </button>
-          <button
-            onClick={() => scrollToSection("custom-quote")}
-            className="btn btn-lg rounded-full btn-accent btn-outline  transition-all duration-300"
+          <a
+            href="/consultation"
+            className="px-8 py-4 bg-white border border-base-300 text-base-content font-semibold rounded-xl hover:bg-base-100 hover:border-primary/40 transition-all duration-300"
           >
             Get Custom Quote
-          </button>
+          </a>
         </motion.div>
       </div>
 
@@ -64,8 +64,8 @@ const HeroSection = () => {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center">
-          <p className="text-gray-400 mb-2">Scroll down to discover</p>
-          <div className="w-8 h-12 rounded-full border-2 border-white flex justify-center">
+          <p className="text-base-content/70 mb-2">Scroll down to discover</p>
+          <div className="w-8 h-12 rounded-full border-2 border-base-content flex justify-center">
             <motion.div
               animate={{
                 y: [0, 12, 0],

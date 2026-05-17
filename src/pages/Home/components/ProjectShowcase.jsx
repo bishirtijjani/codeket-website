@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Server, Smartphone, Workflow } from "lucide-react";
 
 // Project showcase data
 const projectShowcase = [
@@ -8,7 +9,7 @@ const projectShowcase = [
     title: "Enterprise Software Development",
     description:
       "Custom enterprise-grade software solutions designed to automate processes, integrate systems, and scale with your business growth.",
-    icon: "🏦",
+    Icon: Server,
     items: [
       "Custom Web Applications",
       "Legacy System Modernization",
@@ -21,7 +22,7 @@ const projectShowcase = [
     title: "Mobile App Development",
     description:
       "Native and cross-platform mobile applications with stunning UIs, seamless performance, and robust backend integration.",
-    icon: "🏙️",
+    Icon: Smartphone,
     items: [
       "iOS & Android Development",
       "React Native Solutions",
@@ -35,7 +36,7 @@ const projectShowcase = [
     title: "Business Process Automation",
     description:
       "Streamline operations with intelligent automation that eliminates repetitive tasks and optimizes complex business processes.",
-    icon: "🏥",
+    Icon: Workflow,
     items: [
       "Robotic Process Automation (RPA)",
       "Workflow Optimization",
@@ -87,8 +88,10 @@ const ProjectShowcase = () => {
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-primary rounded-xl pointer-events-none"></div>
 
             {/* Project icon */}
-            <div className={`w-20 h-20 flex items-center justify-center text-3xl ${project.color} rounded-br-xl`}>
-              {project.icon}
+            <div
+              className={`w-20 h-20 flex items-center justify-center ${project.color} rounded-br-xl text-white`}
+            >
+              <project.Icon className="w-9 h-9" strokeWidth={1.75} />
             </div>
 
             {/* Project content */}

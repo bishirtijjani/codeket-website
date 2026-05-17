@@ -2,11 +2,13 @@ const Sitemap = require("react-router-sitemap").default;
 
 const paramsConfig = {
   "/": {},
-  "/home": {},
   "/about": {},
   "/services": {},
-  "/services": {},
   "/contact": {},
+  "/pricing": {},
+  "/case-studies": {},
+  "/consultation": {},
+  "/whatsapp-receptionist": {},
 };
 
 new Sitemap("https://codeket.com")

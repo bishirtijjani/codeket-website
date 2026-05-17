@@ -7,7 +7,7 @@ const processes = [
     title: "Discovery & Strategy",
     icon: Search,
     description:
-      "We learn your business inside out — goals, users, pain points — then map out a clear plan with timelines and deliverables.",
+      "We learn your business inside out, goals, users, pain points, then map out a clear plan with timelines and deliverables.",
   },
   {
     title: "Architecture & Design",
@@ -66,7 +66,7 @@ const Process = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            From first call to launch day — a straightforward process built
+            From first call to launch day, a straightforward process built
             around your goals.
           </motion.p>
         </div>

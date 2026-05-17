@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
+const ROTATING_WORDS = ["Software", "Systems", "Apps", "AI Tools"];
+
 /**
- * HERO A — "Split Hero with Inline Form"
+ * HERO A, "Split Hero with Inline Form"
  *
  * Left: headline + subtext + phone link
  * Right: compact inline contact form (name, email, message, submit)
@@ -17,6 +19,14 @@ const HeroA = () => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setWordIndex((i) => (i + 1) % ROTATING_WORDS.length);
+    }, 2200);
+    return () => clearInterval(id);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,14 +71,59 @@ const HeroA = () => {
       />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-        {/* Left — copy */}
+        {/* Left, copy */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight text-base-content mb-6">
-            Smart Software
+            Smart{" "}
+            <span className="relative inline-block align-baseline">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  initial={{ y: 24, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -24, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className="relative inline-block whitespace-nowrap"
+                >
+                  <span
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {ROTATING_WORDS[wordIndex]}
+                  </span>
+                  <svg
+                    className="absolute left-0 -bottom-2 md:-bottom-3 w-full pointer-events-none"
+                    viewBox="0 0 200 12"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <motion.path
+                      d="M 4 7 Q 50 1, 100 6 T 196 7"
+                      stroke="#EA580C"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      fill="none"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        delay: 0.15,
+                        ease: "easeOut",
+                      }}
+                    />
+                  </svg>
+                </motion.span>
+              </AnimatePresence>
+            </span>
             <br />
             <span className="text-primary">for Growing</span>{" "}
             <span
@@ -90,7 +145,7 @@ const HeroA = () => {
           </p>
         </motion.div>
 
-        {/* Right — inline form */}
+        {/* Right, inline form */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}

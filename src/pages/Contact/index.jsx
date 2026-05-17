@@ -42,7 +42,7 @@ const Contact = () => {
   return (
     <div className="bg-base-100 text-base-content ">
       <Helmet>
-        <title>Contact Codeket — Let's Build Something Great</title>
+        <title>Contact Codeket, Let's Build Something Great</title>
         <meta
           name="description"
           content="Get in touch with Codeket. Email, phone, and a contact form for project inquiries, partnerships, and free consultations. We respond within 24 hours."
@@ -50,7 +50,7 @@ const Contact = () => {
         <link rel="canonical" href="https://codeket.com/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codeket.com/contact" />
-        <meta property="og:title" content="Contact Codeket — Let's Build Something Great" />
+        <meta property="og:title" content="Contact Codeket, Let's Build Something Great" />
         <meta
           property="og:description"
           content="Reach out to Codeket for project inquiries, partnerships, and free consultations."

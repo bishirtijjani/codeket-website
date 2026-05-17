@@ -125,7 +125,7 @@ const Guarantee = () => {
                 </defs>
               </svg>
 
-              <div className="absolute -bottom-8 right-0 bg-neutral bg-opacity-60 backdrop-blur-sm rounded-xl border border-neutral p-6 shadow-xl max-w-sm">
+              <div className="absolute -bottom-8 right-0 bg-base-100/90 backdrop-blur-sm rounded-xl border border-base-300 p-6 shadow-xl max-w-sm">
                 <div className="flex items-start mb-4">
                   <div className="bg-success/20 p-2 rounded-full mr-4">
                     <FaCheck className="text-success" />

@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div ref={heroRef} className="relative w-full min-h-screen bg-base-100">
       <Helmet>
-        <title>Codeket — Complex Challenges. Elegant Solutions.</title>
+        <title>Codeket, Complex Challenges. Elegant Solutions.</title>
         <meta
           name="description"
           content="Codeket is a software studio turning complex business challenges into elegant, production-ready software. Web, mobile, and AI solutions delivered with care."
@@ -25,7 +25,7 @@ const Home = () => {
         <meta property="og:url" content="https://codeket.com/" />
         <meta
           property="og:title"
-          content="Codeket — Complex Challenges. Elegant Solutions."
+          content="Codeket, Complex Challenges. Elegant Solutions."
         />
         <meta
           property="og:description"
@@ -33,7 +33,7 @@ const Home = () => {
         />
         <meta property="og:image" content="https://codeket.com/preview-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Codeket — Complex Challenges. Elegant Solutions." />
+        <meta name="twitter:title" content="Codeket, Complex Challenges. Elegant Solutions." />
         <meta
           name="twitter:description"
           content="Software studio turning complex business challenges into elegant, production-ready software."

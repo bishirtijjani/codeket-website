@@ -5,11 +5,23 @@ import { Sun, Moon } from "lucide-react";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/whatsapp-receptionist", label: "AI Automation", badge: "New" },
   { to: "/pricing", label: "Pricing" },
   { to: "/case-studies", label: "Case Studies" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
+
+const Badge = ({ children }) => (
+  <span
+    className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-bold tracking-wider text-white uppercase shadow-sm"
+    style={{
+      background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+    }}
+  >
+    {children}
+  </span>
+);
 
 const Header = ({ theme, toggleTheme }) => {
   const location = useLocation();
@@ -44,7 +56,7 @@ const Header = ({ theme, toggleTheme }) => {
             tabIndex={0}
             className="menu menu-lg dropdown-content mt-3 z-[1] p-2 shadow-xl bg-base-100 border border-base-300 rounded-2xl w-56"
           >
-            {navLinks.map(({ to, label }) => (
+            {navLinks.map(({ to, label, badge }) => (
               <li key={to}>
                 <Link
                   to={to}
@@ -55,6 +67,7 @@ const Header = ({ theme, toggleTheme }) => {
                   }
                 >
                   {label}
+                  {badge && <Badge>{badge}</Badge>}
                 </Link>
               </li>
             ))}
@@ -90,7 +103,7 @@ const Header = ({ theme, toggleTheme }) => {
       {/* Desktop nav */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-1">
-          {navLinks.map(({ to, label }) => (
+          {navLinks.map(({ to, label, badge }) => (
             <li key={to}>
               <Link
                 to={to}
@@ -101,6 +114,7 @@ const Header = ({ theme, toggleTheme }) => {
                 }
               >
                 {label}
+                {badge && <Badge>{badge}</Badge>}
               </Link>
             </li>
           ))}

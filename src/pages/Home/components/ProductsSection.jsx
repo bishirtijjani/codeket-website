@@ -141,7 +141,7 @@ export default function SoftwareSuiteShowcase() {
 
         {/* Mobile-first layout */}
         <div className="space-y-6 md:space-y-0">
-          {/* Featured Suite Display — touch swipe enabled */}
+          {/* Featured Suite Display, touch swipe enabled */}
           <div
             className="w-full"
             onTouchStart={handleTouchStart}
@@ -296,7 +296,7 @@ export default function SoftwareSuiteShowcase() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes progress {
           from {
             transform: scaleX(0);

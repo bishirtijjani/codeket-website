@@ -19,7 +19,7 @@ const Pricing = () => {
   return (
     <div className="bg-base-100 text-base-content">
       <Helmet>
-        <title>Pricing — Transparent Plans for Every Stage | Codeket</title>
+        <title>Pricing, Transparent Plans for Every Stage | Codeket</title>
         <meta
           name="description"
           content="Clear, transparent pricing for Codeket's web, mobile, and AI development services. Compare plans, view payment options, and find the right fit for your project."
@@ -27,7 +27,7 @@ const Pricing = () => {
         <link rel="canonical" href="https://codeket.com/pricing" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codeket.com/pricing" />
-        <meta property="og:title" content="Pricing — Transparent Plans for Every Stage | Codeket" />
+        <meta property="og:title" content="Pricing, Transparent Plans for Every Stage | Codeket" />
         <meta
           property="og:description"
           content="Transparent pricing for Codeket's web, mobile, and AI development services."

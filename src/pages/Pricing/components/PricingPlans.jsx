@@ -19,8 +19,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Starter",
       description: "Core functionality for startups and small businesses",
       price: 8999,
-      icon: <FaCode className="text-2xl text-blue-400" />,
-      iconBg: "bg-blue-900/30",
+      icon: <FaCode className="text-2xl text-info" />,
+      iconBg: "bg-info/10",
       features: [
         "Full-stack development",
         "Responsive design",
@@ -41,8 +41,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Growth",
       description: "Comprehensive solution for scaling businesses",
       price: 19999,
-      icon: <FaChartLine className="text-2xl text-purple-400" />,
-      iconBg: "bg-purple-900/30",
+      icon: <FaChartLine className="text-2xl text-primary" />,
+      iconBg: "bg-primary/10",
       features: [
         "Everything in Starter",
         "Multiple platform deployment",
@@ -64,8 +64,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Enterprise",
       description: "Tailored solutions for large-scale business needs",
       price: 39999,
-      icon: <FaRegLightbulb className="text-2xl text-teal-400" />,
-      iconBg: "bg-teal-900/30",
+      icon: <FaRegLightbulb className="text-2xl text-accent" />,
+      iconBg: "bg-accent/10",
       features: [
         "Everything in Growth",
         "Microservices architecture",
@@ -88,8 +88,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Basic App",
       description: "Essential mobile app development for single platform",
       price: 12999,
-      icon: <FaMobile className="text-2xl text-blue-400" />,
-      iconBg: "bg-blue-900/30",
+      icon: <FaMobile className="text-2xl text-info" />,
+      iconBg: "bg-info/10",
       features: [
         "Single platform (Android or iOS)",
         "User authentication",
@@ -110,8 +110,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Premium App",
       description: "Cross-platform app with advanced features",
       price: 24999,
-      icon: <FaMobile className="text-2xl text-purple-400" />,
-      iconBg: "bg-purple-900/30",
+      icon: <FaMobile className="text-2xl text-primary" />,
+      iconBg: "bg-primary/10",
       features: [
         "Cross-platform (Android & iOS)",
         "Advanced user interface",
@@ -130,8 +130,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Enterprise App",
       description: "Full-featured app solution with custom integrations",
       price: 45999,
-      icon: <FaMobile className="text-2xl text-teal-400" />,
-      iconBg: "bg-teal-900/30",
+      icon: <FaMobile className="text-2xl text-accent" />,
+      iconBg: "bg-accent/10",
       features: [
         "Everything in Premium App",
         "AI-powered features",
@@ -154,8 +154,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "AI Starter",
       description: "Basic AI integration for existing applications",
       price: 14999,
-      icon: <FaRobot className="text-2xl text-blue-400" />,
-      iconBg: "bg-blue-900/30",
+      icon: <FaRobot className="text-2xl text-info" />,
+      iconBg: "bg-info/10",
       features: [
         "AI model integration",
         "Basic data processing",
@@ -176,8 +176,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "AI Advanced",
       description: "Enhanced AI capabilities for business optimization",
       price: 29999,
-      icon: <FaRobot className="text-2xl text-purple-400" />,
-      iconBg: "bg-purple-900/30",
+      icon: <FaRobot className="text-2xl text-primary" />,
+      iconBg: "bg-primary/10",
       features: [
         "Advanced AI implementation",
         "Multiple AI model integration",
@@ -199,8 +199,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "AI Premium",
       description: "Custom AI solution with specialized model development",
       price: 59999,
-      icon: <FaRobot className="text-2xl text-teal-400" />,
-      iconBg: "bg-teal-900/30",
+      icon: <FaRobot className="text-2xl text-accent" />,
+      iconBg: "bg-accent/10",
       features: [
         "Custom AI model development",
         "Large-scale data processing",
@@ -223,8 +223,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Security Basic",
       description: "Essential security assessment and implementation",
       price: 9999,
-      icon: <FaShieldAlt className="text-2xl text-blue-400" />,
-      iconBg: "bg-blue-900/30",
+      icon: <FaShieldAlt className="text-2xl text-info" />,
+      iconBg: "bg-info/10",
       features: [
         "Security assessment",
         "Vulnerability scanning",
@@ -245,8 +245,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Security Advanced",
       description: "Comprehensive security solution for sensitive applications",
       price: 19999,
-      icon: <FaShieldAlt className="text-2xl text-purple-400" />,
-      iconBg: "bg-purple-900/30",
+      icon: <FaShieldAlt className="text-2xl text-primary" />,
+      iconBg: "bg-primary/10",
       features: [
         "Everything in Security Basic",
         "Advanced penetration testing",
@@ -268,8 +268,8 @@ const PricingPlans = ({ setSelectedPlan }) => {
       name: "Security Premium",
       description: "Enterprise-grade security with continuous protection",
       price: 34999,
-      icon: <FaShieldAlt className="text-2xl text-teal-400" />,
-      iconBg: "bg-teal-900/30",
+      icon: <FaShieldAlt className="text-2xl text-accent" />,
+      iconBg: "bg-accent/10",
       features: [
         "Everything in Security Advanced",
         "Custom security architecture",
@@ -296,7 +296,7 @@ const PricingPlans = ({ setSelectedPlan }) => {
       : securityPlans;
 
   return (
-    <div id="pricing-plans" className="py-24 px-6 bg-neutral">
+    <div id="pricing-plans" className="py-24 px-6 bg-base-200">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -415,21 +415,21 @@ const PricingPlans = ({ setSelectedPlan }) => {
           viewport={{ once: true }}
           className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
         >
-          <div className="bg-neutral-focus/50 border border-neutral p-6 rounded-xl">
+          <div className="bg-base-100 border border-base-300 p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-2">US-Aligned Hours</h3>
             <p className="text-base-content/70">
               Our teams work in overlapping hours with US time zones to ensure
               smooth communication
             </p>
           </div>
-          <div className="bg-neutral-focus/50 border border-neutral p-6 rounded-xl">
+          <div className="bg-base-100 border border-base-300 p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-2">Fixed-Price Projects</h3>
             <p className="text-base-content/70">
               Know exactly what you're paying upfront with our detailed project
               scopes and fixed pricing
             </p>
           </div>
-          <div className="bg-neutral-focus/50 border border-neutral p-6 rounded-xl">
+          <div className="bg-base-100 border border-base-300 p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-2">Agile Development</h3>
             <p className="text-base-content/70">
               Weekly sprints and demos with flexible priorities to adapt to your

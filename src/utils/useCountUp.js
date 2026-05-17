@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 /**
- * useCountUp — animates a number from 0 to `end` when the element is in view.
+ * useCountUp, animates a number from 0 to `end` when the element is in view.
  * @param {number} end  - Target number to count to
  * @param {number} duration - Animation duration in ms (default 1800)
  * @returns {{ ref, count }} - ref to attach to the container, current count value

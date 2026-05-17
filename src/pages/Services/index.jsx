@@ -17,7 +17,7 @@ const ServicePage = () => {
   return (
     <div className="bg-base-100 text-base-content ">
       <Helmet>
-        <title>Services — Web, Mobile &amp; AI Development | Codeket</title>
+        <title>Services, Web, Mobile &amp; AI Development | Codeket</title>
         <meta
           name="description"
           content="Codeket's services: custom web apps, mobile development, AI integration, and product engineering. End-to-end delivery from design to deployment."
@@ -25,7 +25,7 @@ const ServicePage = () => {
         <link rel="canonical" href="https://codeket.com/services" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codeket.com/services" />
-        <meta property="og:title" content="Services — Web, Mobile & AI Development | Codeket" />
+        <meta property="og:title" content="Services, Web, Mobile & AI Development | Codeket" />
         <meta
           property="og:description"
           content="Custom web apps, mobile development, AI integration, and product engineering."

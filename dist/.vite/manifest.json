@@ -1,6 +1,6 @@
 {
-  "_client-5oTLc-FB.js": {
-    "file": "assets/client-5oTLc-FB.js",
+  "_client-D7E_UNkY.js": {
+    "file": "assets/client-D7E_UNkY.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-CDRpnXkU.js",
+    "file": "assets/app-BlTqPl71.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-5oTLc-FB.js"
+      "_client-D7E_UNkY.js"
     ],
     "css": [
-      "assets/app-Dmta7rBu.css"
+      "assets/app-BuMxgaOi.css"
     ]
   }
 }

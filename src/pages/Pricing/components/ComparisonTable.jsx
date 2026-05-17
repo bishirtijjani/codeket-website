@@ -138,7 +138,7 @@ const ComparisonTable = () => {
   ];
 
   return (
-    <div className="py-24 px-6 bg-neutral">
+    <div className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -161,11 +161,11 @@ const ComparisonTable = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="border border-neutral-focus rounded-xl overflow-hidden"
+              className="border border-base-300 rounded-xl overflow-hidden bg-base-100"
             >
               <button
                 onClick={() => toggleSection(section.id)}
-                className="w-full px-6 py-4 flex items-center justify-between bg-neutral hover:bg-neutral-focus transition-colors duration-300"
+                className="w-full px-6 py-4 flex items-center justify-between bg-base-100 hover:bg-base-200 transition-colors duration-300"
               >
                 <h3 className="text-xl font-semibold">{section.name}</h3>
                 <motion.div
@@ -187,7 +187,7 @@ const ComparisonTable = () => {
               >
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-neutral/50">
+                    <thead className="bg-base-200">
                       <tr>
                         <th className="py-4 px-6 text-left text-base-content/80 font-medium">
                           Feature
@@ -203,9 +203,9 @@ const ComparisonTable = () => {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-neutral-focus">
+                    <tbody className="divide-y divide-base-300">
                       {section.features.map((feature, idx) => (
-                        <tr key={idx} className="hover:bg-neutral/30">
+                        <tr key={idx} className="hover:bg-base-200/60">
                           <td className="py-4 px-6 text-left">
                             {feature.name}
                           </td>

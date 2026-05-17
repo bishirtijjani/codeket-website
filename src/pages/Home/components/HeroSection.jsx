@@ -8,7 +8,7 @@ const HeroSection = () => {
     <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-base-100 grain">
       {/* Animated gradient mesh blobs */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Primary navy blob — top left */}
+        {/* Primary navy blob, top left */}
         <div
           className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full opacity-20 blur-3xl"
           style={{
@@ -16,7 +16,7 @@ const HeroSection = () => {
             animation: "blobDrift1 18s ease-in-out infinite alternate",
           }}
         />
-        {/* Gold accent blob — bottom right */}
+        {/* Gold accent blob, bottom right */}
         <div
           className="absolute -bottom-40 -right-20 w-[550px] h-[550px] rounded-full opacity-15 blur-3xl"
           style={{
@@ -24,7 +24,7 @@ const HeroSection = () => {
             animation: "blobDrift2 22s ease-in-out infinite alternate",
           }}
         />
-        {/* Subtle navy blob — top right */}
+        {/* Subtle navy blob, top right */}
         <div
           className="absolute top-10 right-0 w-[350px] h-[350px] rounded-full opacity-10 blur-2xl"
           style={{

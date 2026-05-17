@@ -50,7 +50,9 @@ const StatCard = ({ stat, index }) => {
       viewport={{ once: true }}
       className="text-center p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-orange-600/30 hover:bg-white/10 transition-all duration-300"
     >
-      <div className="text-4xl mb-3">{stat.icon}</div>
+      <div className="flex justify-center mb-4">
+        <stat.Icon className="w-9 h-9 text-orange-500" strokeWidth={1.75} />
+      </div>
       <div
         className="text-5xl font-extrabold mb-2 tabular-nums"
         style={{
