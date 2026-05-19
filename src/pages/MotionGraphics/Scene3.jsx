@@ -1,12 +1,18 @@
 import { useEffect, useRef } from "react";
-import { animate, wait, nextFrame, NAVY, ORANGE } from "./animUtils";
+import { animate, wait, nextFrame, NAVY } from "./animUtils";
+import {
+  PhoneMockup,
+  AINetwork,
+  EnterpriseDashboard,
+  AnalyticsChart,
+} from "./Scene3Mockups";
 
 const SERVICES = [
-  { label: "Inventory Systems",    imgSrc: "/images/ims.gif",                    tilt: -2.5 },
-  { label: "AI Automation",        imgSrc: "/images/process-automation.jpg",     tilt:  2.5 },
-  { label: "Mobile Apps",          imgSrc: null,                                 tilt: -2.5 },
-  { label: "Enterprise Software",  imgSrc: "/images/enterprise-software.jpg",    tilt:  2.5 },
-  { label: "Data Analytics",       imgSrc: "/images/business-intel.jpg",         tilt: -2.5 },
+  { label: "Inventory Systems",   imgSrc: "/images/ims.gif", Mockup: null,                tilt: -2.5 },
+  { label: "AI Automation",       imgSrc: null,              Mockup: AINetwork,           tilt:  2.5 },
+  { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5 },
+  { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5 },
+  { label: "Data Analytics",      imgSrc: null,              Mockup: AnalyticsChart,      tilt: -2.5 },
 ];
 
 // Timing constants (ms)
@@ -16,71 +22,6 @@ const EXIT_MS      = 360;
 // Next slide starts this many ms after the current one starts.
 // Setting it to (hold-start - 120ms) means ~120ms of cross-fade overlap.
 const START_OFFSET = 80 + ENTER_MS + HOLD_MS - 120; // 1940
-
-function PhoneMockup() {
-  const apps = [
-    { bg: NAVY,      label: "IMS", fg: ORANGE    },
-    { bg: ORANGE,    label: "AI",  fg: "#fff"    },
-    { bg: "#1E3A5F", label: "ERP", fg: "#fff"    },
-    { bg: "#2D6A4F", label: "VTU", fg: "#fff"    },
-  ];
-  return (
-    <div
-      style={{
-        width: "100%", height: "100%",
-        backgroundColor: "#0F172A",
-        display: "flex", flexDirection: "column",
-        alignItems: "center",
-        padding: "18px 14px 20px",
-        gap: "10px",
-        boxSizing: "border-box",
-      }}
-    >
-      <div
-        style={{
-          width: "44px", height: "8px",
-          backgroundColor: "rgba(255,255,255,0.18)",
-          borderRadius: "4px",
-          flexShrink: 0,
-        }}
-      />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "10px",
-          flex: 1,
-          width: "100%",
-        }}
-      >
-        {apps.map((app, i) => (
-          <div
-            key={i}
-            style={{
-              backgroundColor: app.bg,
-              borderRadius: "14px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span
-              style={{
-                color: app.fg,
-                fontWeight: 800,
-                fontSize: "clamp(0.7rem, 1.1vw, 1.3rem)",
-                fontFamily: "inherit",
-                letterSpacing: "0.02em",
-              }}
-            >
-              {app.label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function Scene3({ playToken, onComplete }) {
   const textRefs  = useRef([]);
@@ -176,76 +117,80 @@ export default function Scene3({ playToken, onComplete }) {
 
   return (
     <div className="absolute inset-0">
-      {SERVICES.map((s, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            paddingLeft: "10vw",
-            paddingRight: "10vw",
-            gap: "20vw",
-          }}
-        >
-          {/* Bold label — left 30 vw */}
+      {SERVICES.map((s, i) => {
+        const Mockup = s.Mockup;
+        return (
           <div
-            ref={(el) => (textRefs.current[i] = el)}
+            key={i}
             style={{
-              width: "30vw",
-              flexShrink: 0,
-              opacity: 0,
-              willChange: "transform, opacity",
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              paddingLeft: "10vw",
+              paddingRight: "10vw",
+              gap: "20vw",
             }}
           >
+            {/* Bold label — left 30 vw */}
             <div
-              className="font-display"
+              ref={(el) => (textRefs.current[i] = el)}
               style={{
-                color: NAVY,
-                fontWeight: 900,
-                fontSize: "clamp(2rem, 3.8vw, 5.2rem)",
-                letterSpacing: "-0.03em",
-                lineHeight: 1.05,
+                width: "30vw",
+                flexShrink: 0,
+                opacity: 0,
+                willChange: "transform, opacity",
               }}
             >
-              {s.label}
+              <div
+                className="font-display"
+                style={{
+                  color: NAVY,
+                  fontWeight: 900,
+                  fontSize: "clamp(2rem, 3.8vw, 5.2rem)",
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.05,
+                }}
+              >
+                {s.label}
+              </div>
+            </div>
+
+            {/* Image / mockup — right 30 vw */}
+            <div
+              ref={(el) => (imageRefs.current[i] = el)}
+              style={{
+                width: "30vw",
+                height: "60vh",
+                flexShrink: 0,
+                borderRadius: "16px",
+                boxShadow:
+                  "0 24px 64px rgba(11,22,40,0.20), 0 4px 16px rgba(11,22,40,0.08)",
+                overflow: "hidden",
+                transform: `translateY(110%) rotate(${s.tilt}deg)`,
+                opacity: 0,
+                willChange: "transform, opacity",
+                backgroundColor: "#fff",
+              }}
+            >
+              {s.imgSrc ? (
+                <img
+                  src={s.imgSrc}
+                  alt={s.label}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                  }}
+                />
+              ) : Mockup ? (
+                <Mockup />
+              ) : null}
             </div>
           </div>
-
-          {/* Image / mockup — right 30 vw */}
-          <div
-            ref={(el) => (imageRefs.current[i] = el)}
-            style={{
-              width: "30vw",
-              height: "60vh",
-              flexShrink: 0,
-              borderRadius: "16px",
-              boxShadow:
-                "0 24px 64px rgba(11,22,40,0.20), 0 4px 16px rgba(11,22,40,0.08)",
-              overflow: "hidden",
-              transform: `translateY(110%) rotate(${s.tilt}deg)`,
-              opacity: 0,
-              willChange: "transform, opacity",
-            }}
-          >
-            {s.imgSrc ? (
-              <img
-                src={s.imgSrc}
-                alt={s.label}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "top center",
-                }}
-              />
-            ) : (
-              <PhoneMockup />
-            )}
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
