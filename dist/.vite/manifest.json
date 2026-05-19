@@ -1,6 +1,6 @@
 {
-  "_client-ibFuseyD.js": {
-    "file": "assets/client-ibFuseyD.js",
+  "_client-234nkTda.js": {
+    "file": "assets/client-234nkTda.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,12 +8,12 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-DTBTzPoZ.js",
+    "file": "assets/app-DjacmQ1k.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-ibFuseyD.js"
+      "_client-234nkTda.js"
     ],
     "css": [
       "assets/app-BJHaLHEg.css"

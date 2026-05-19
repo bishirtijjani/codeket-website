@@ -157,9 +157,11 @@ export default function Scene4({ playToken, onComplete }) {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%) scale(1)",
-          display: "flex",
-          gap: "clamp(20px, 3.5vw, 80px)",
-          alignItems: "flex-start",
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          columnGap: "clamp(24px, 3.2vw, 64px)",
+          width: "min(88vw, 1560px)",
+          alignItems: "start",
           willChange: "transform, opacity",
         }}
       >
@@ -173,7 +175,7 @@ export default function Scene4({ playToken, onComplete }) {
               alignItems: "flex-start",
               opacity: 0,
               willChange: "transform, opacity",
-              minWidth: "min(18vw, 240px)",
+              minWidth: 0,
             }}
           >
             <div
@@ -182,10 +184,11 @@ export default function Scene4({ playToken, onComplete }) {
               style={{
                 color: NAVY,
                 fontWeight: 900,
-                fontSize: "clamp(2.6rem, 7vw, 9rem)",
+                fontSize: "clamp(2rem, 5.4vw, 7.2rem)",
                 letterSpacing: "-0.04em",
                 lineHeight: 1,
                 fontVariantNumeric: "tabular-nums",
+                whiteSpace: "nowrap",
               }}
             >
               {s.kind === "static" ? s.display : "0"}

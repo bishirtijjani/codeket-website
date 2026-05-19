@@ -18,14 +18,20 @@ export const cancelAnims = (...els) => {
   });
 };
 
-export const countUp = (el, target, duration, { suffix = "", prefix = "" } = {}) =>
+export const countUp = (
+  el,
+  target,
+  duration,
+  { suffix = "", prefix = "", separator = false } = {},
+) =>
   new Promise((resolve) => {
     const startTime = performance.now();
     const tick = (now) => {
       const t = Math.min((now - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       const value = Math.round(eased * target);
-      el.textContent = `${prefix}${value.toLocaleString()}${suffix}`;
+      const formatted = separator ? value.toLocaleString() : String(value);
+      el.textContent = `${prefix}${formatted}${suffix}`;
       if (t < 1) requestAnimationFrame(tick);
       else resolve();
     };

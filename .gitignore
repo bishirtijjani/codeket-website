@@ -20,3 +20,8 @@ node_modules
 *.njsproj
 *.sln
 *.sw?
+
+# Render artifacts
+*.webm
+this-is-codeket-draft.mp4
+
