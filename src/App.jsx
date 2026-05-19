@@ -10,6 +10,7 @@ import CaseStudies from "./pages/CaseStudies";
 import Consultation from "./pages/Consultation";
 import Pricing from "./pages/Pricing";
 import WhatsAppReceptionist from "./pages/WhatsAppReceptionist";
+import MotionGraphics from "./pages/MotionGraphics";
 import TermsOfService from "./components/TermsOfService";
 // Files renamed from PrivacyPolicy/CookiePolicy so Brave Shields and other
 // tracker blockers don't block the .jsx asset URL (those filenames match
@@ -83,6 +84,10 @@ export const routes = [
       { path: "404", element: <NotFound /> },
       { path: "*", element: <NotFound /> },
     ],
+  },
+  {
+    path: "/motion-graphics",
+    element: <MotionGraphics />,
   },
 ];
 
