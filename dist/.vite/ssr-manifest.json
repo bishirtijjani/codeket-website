@@ -3,7 +3,7 @@
   "\u0000/home/user/codeket-website/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/user/codeket-website/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/user/codeket-website/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-234nkTda.js"
+    "/assets/client-D3SXA_Kc.js"
   ],
   "\u0000/home/user/codeket-website/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000/home/user/codeket-website/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -199,6 +199,7 @@
   "node_modules/lucide-react/dist/esm/icons/external-link.js": [],
   "node_modules/lucide-react/dist/esm/icons/flask-conical.js": [],
   "node_modules/lucide-react/dist/esm/icons/graduation-cap.js": [],
+  "node_modules/lucide-react/dist/esm/icons/headphones.js": [],
   "node_modules/lucide-react/dist/esm/icons/landmark.js": [],
   "node_modules/lucide-react/dist/esm/icons/linkedin.js": [],
   "node_modules/lucide-react/dist/esm/icons/message-circle.js": [],
@@ -210,6 +211,7 @@
   "node_modules/lucide-react/dist/esm/icons/search.js": [],
   "node_modules/lucide-react/dist/esm/icons/server.js": [],
   "node_modules/lucide-react/dist/esm/icons/smartphone.js": [],
+  "node_modules/lucide-react/dist/esm/icons/sparkles.js": [],
   "node_modules/lucide-react/dist/esm/icons/sun.js": [],
   "node_modules/lucide-react/dist/esm/icons/trending-up.js": [],
   "node_modules/lucide-react/dist/esm/icons/user-round-check.js": [],
@@ -355,7 +357,7 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-234nkTda.js"
+    "/assets/client-D3SXA_Kc.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
