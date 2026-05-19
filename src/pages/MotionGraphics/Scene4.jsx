@@ -1,143 +1,148 @@
 import { useEffect, useRef } from "react";
-import {
-  animate,
-  wait,
-  nextFrame,
-  cancelAnims,
-  countUp,
-  NAVY,
-  ORANGE,
-} from "./animUtils";
+import { Zap, Headphones, Users, Sparkles } from "lucide-react";
+import { animate, wait, nextFrame, NAVY, ORANGE } from "./animUtils";
 
-const STATS = [
-  { kind: "count", target: 3, suffix: "", label: "Core products" },
-  { kind: "static", display: "< 1 wk", label: "Average onboarding" },
-  { kind: "count", target: 2021, suffix: "", label: "Year founded" },
-  { kind: "count", target: 100, suffix: "%", label: "In-house team" },
+const PROPS = [
+  {
+    Icon: Zap,
+    headline: "Fast Delivery",
+    sub: "Projects completed in weeks, not months.",
+  },
+  {
+    Icon: Headphones,
+    headline: "Amazing Support",
+    sub: "Real humans, every step of the way.",
+  },
+  {
+    Icon: Users,
+    headline: "Expert Dev Team",
+    sub: "Skilled engineers, no outsourcing.",
+  },
+  {
+    Icon: Sparkles,
+    headline: "AI-Powered",
+    sub: "We build smarter because we build with AI.",
+  },
 ];
 
+// Timing constants (ms)
+const ICON_ENTER_MS  = 440;
+const TEXT_DELAY_MS  =  80;
+const TEXT_ENTER_MS  = 360;
+const HOLD_MS        = 1400;
+const EXIT_MS        = 320;
+// Panel completes at: ICON_ENTER_MS + TEXT_DELAY_MS + max(TEXT_ENTER_MS, TEXT_DELAY_MS + TEXT_ENTER_MS) + HOLD_MS + EXIT_MS
+// = 440 + 80 + 440 + 1400 + 320 = 2680 ms
+const PANEL_DURATION = ICON_ENTER_MS + TEXT_DELAY_MS + (TEXT_DELAY_MS + TEXT_ENTER_MS) + HOLD_MS + EXIT_MS;
+
 export default function Scene4({ playToken, onComplete }) {
-  const wrapRef = useRef(null);
-  const colRefs = useRef([]);
-  const numRefs = useRef([]);
-  const labelRefs = useRef([]);
-  const underlineRef = useRef(null);
+  const iconRefs = useRef([]);
+  const hdlRefs  = useRef([]);
+  const subRefs  = useRef([]);
 
   useEffect(() => {
     if (!playToken) return;
     let cancelled = false;
 
     const run = async () => {
-      const wrap = wrapRef.current;
-      if (!wrap) return;
-
-      cancelAnims(
-        wrap,
-        underlineRef.current,
-        ...colRefs.current,
-        ...numRefs.current,
-        ...labelRefs.current,
-      );
-
-      wrap.style.opacity = "1";
-      wrap.style.transform = "translate(-50%, -50%) scale(1)";
-      wrap.style.filter = "none";
-
-      colRefs.current.forEach((c) => {
-        if (!c) return;
-        c.style.opacity = "0";
-        c.style.transform = "translateY(28px)";
+      // Reset all panels to hidden
+      PROPS.forEach((_, i) => {
+        const icon = iconRefs.current[i];
+        const hdl  = hdlRefs.current[i];
+        const sub  = subRefs.current[i];
+        [icon, hdl, sub].forEach((el) => {
+          if (!el) return;
+          el.getAnimations().forEach((a) => a.cancel());
+          el.style.opacity = "0";
+        });
+        if (icon) icon.style.transform = "scale(0.35)";
+        if (hdl)  hdl.style.transform  = "translateY(22px)";
+        if (sub)  sub.style.transform  = "translateY(22px)";
       });
-      numRefs.current.forEach((n, i) => {
-        if (!n) return;
-        if (STATS[i].kind === "count") n.textContent = "0";
-        else n.textContent = STATS[i].display;
-      });
-      labelRefs.current.forEach((l) => {
-        if (!l) return;
-        l.style.opacity = "0";
-      });
-      if (underlineRef.current) {
-        underlineRef.current.style.transform = "scaleX(0)";
-        underlineRef.current.style.opacity = "1";
-      }
 
       await nextFrame();
       if (cancelled) return;
 
-      // Reveal each column with a stagger; start counters as the column lands
-      const PER_STEP = 220;
-      const tasks = STATS.map(async (stat, i) => {
-        await wait(i * PER_STEP);
-        if (cancelled) return;
-        const col = colRefs.current[i];
-        const num = numRefs.current[i];
-        const lbl = labelRefs.current[i];
-        if (!col || !num || !lbl) return;
+      const runPanel = async (i) => {
+        const icon = iconRefs.current[i];
+        const hdl  = hdlRefs.current[i];
+        const sub  = subRefs.current[i];
+        if (!icon || !hdl) return;
 
-        animate(
-          col,
-          [
-            { opacity: 0, transform: "translateY(28px)" },
-            { opacity: 1, transform: "translateY(0)" },
-          ],
-          { duration: 520, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
-        );
-
-        if (stat.kind === "count") {
-          await countUp(num, stat.target, 850, { suffix: stat.suffix });
-        } else {
-          await wait(420);
-        }
+        await wait(i * PANEL_DURATION);
         if (cancelled) return;
 
+        // Icon bounces in
         await animate(
-          lbl,
+          icon,
           [
-            { opacity: 0, transform: "translateY(6px)" },
-            { opacity: 0.7, transform: "translateY(0)" },
+            { opacity: 0, transform: "scale(0.35)" },
+            { opacity: 1, transform: "scale(1)" },
           ],
-          { duration: 360, easing: "ease-out" },
+          { duration: ICON_ENTER_MS, easing: "cubic-bezier(0.34, 1.5, 0.64, 1)" },
         );
-      });
-      await Promise.all(tasks);
+        if (cancelled) return;
+
+        await wait(TEXT_DELAY_MS);
+        if (cancelled) return;
+
+        // Headline and sub rise in together (sub offset by 80 ms)
+        await Promise.all([
+          animate(
+            hdl,
+            [
+              { opacity: 0, transform: "translateY(22px)" },
+              { opacity: 1, transform: "translateY(0)" },
+            ],
+            { duration: TEXT_ENTER_MS, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+          ),
+          sub
+            ? animate(
+                sub,
+                [
+                  { opacity: 0, transform: "translateY(22px)" },
+                  { opacity: 0.6, transform: "translateY(0)" },
+                ],
+                {
+                  duration: TEXT_ENTER_MS,
+                  delay: TEXT_DELAY_MS,
+                  easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+                },
+              )
+            : Promise.resolve(),
+        ]);
+        if (cancelled) return;
+
+        await wait(HOLD_MS);
+        if (cancelled) return;
+
+        // Exit — scale down + fade everything together
+        await Promise.all([
+          animate(
+            icon,
+            [
+              { opacity: 1, transform: "scale(1)" },
+              { opacity: 0, transform: "scale(0.82)" },
+            ],
+            { duration: EXIT_MS, easing: "ease-in" },
+          ),
+          animate(
+            hdl,
+            [{ opacity: 1 }, { opacity: 0 }],
+            { duration: EXIT_MS, easing: "ease-in" },
+          ),
+          sub
+            ? animate(
+                sub,
+                [{ opacity: 0.6 }, { opacity: 0 }],
+                { duration: EXIT_MS, easing: "ease-in" },
+              )
+            : Promise.resolve(),
+        ]);
+      };
+
+      await Promise.all(PROPS.map((_, i) => runPanel(i)));
       if (cancelled) return;
-
-      await wait(300);
-
-      // Dim & draw the orange underline
-      await Promise.all([
-        animate(wrap, [{ opacity: 1 }, { opacity: 0.72 }], {
-          duration: 380,
-          easing: "ease-out",
-        }),
-        animate(
-          underlineRef.current,
-          [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
-          { duration: 520, easing: "cubic-bezier(0.65, 0, 0.35, 1)" },
-        ),
-      ]);
-      if (cancelled) return;
-
-      await wait(1200);
-      if (cancelled) return;
-
-      // Exit
-      await Promise.all([
-        animate(
-          wrap,
-          [
-            { opacity: 0.72, transform: "translate(-50%, -50%) scale(1)" },
-            { opacity: 0, transform: "translate(-50%, -50%) scale(0.96)" },
-          ],
-          { duration: 480, easing: "ease-in" },
-        ),
-        animate(
-          underlineRef.current,
-          [{ opacity: 1 }, { opacity: 0 }],
-          { duration: 380, easing: "ease-in" },
-        ),
-      ]);
 
       onComplete?.();
     };
@@ -150,82 +155,76 @@ export default function Scene4({ playToken, onComplete }) {
 
   return (
     <div className="absolute inset-0">
-      <div
-        ref={wrapRef}
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%) scale(1)",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          columnGap: "clamp(24px, 3.2vw, 64px)",
-          width: "min(88vw, 1560px)",
-          alignItems: "start",
-          willChange: "transform, opacity",
-        }}
-      >
-        {STATS.map((s, i) => (
+      {PROPS.map((p, i) => {
+        const Icon = p.Icon;
+        return (
           <div
             key={i}
-            ref={(el) => (colRefs.current[i] = el)}
             style={{
+              position: "absolute",
+              inset: 0,
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
-              opacity: 0,
-              willChange: "transform, opacity",
-              minWidth: 0,
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "clamp(12px, 2.2vh, 28px)",
+              padding: "0 clamp(24px, 6vw, 120px)",
             }}
           >
+            {/* Icon */}
             <div
-              ref={(el) => (numRefs.current[i] = el)}
+              ref={(el) => (iconRefs.current[i] = el)}
+              style={{
+                opacity: 0,
+                transform: "scale(0.35)",
+                willChange: "transform, opacity",
+                color: ORANGE,
+              }}
+            >
+              <Icon size={80} strokeWidth={1.5} />
+            </div>
+
+            {/* Headline */}
+            <div
+              ref={(el) => (hdlRefs.current[i] = el)}
               className="font-display"
               style={{
                 color: NAVY,
                 fontWeight: 900,
-                fontSize: "clamp(2rem, 5.4vw, 7.2rem)",
-                letterSpacing: "-0.04em",
+                fontSize: "clamp(3.5rem, 6.5vw, 9rem)",
+                letterSpacing: "-0.03em",
                 lineHeight: 1,
-                fontVariantNumeric: "tabular-nums",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {s.kind === "static" ? s.display : "0"}
-            </div>
-            <div
-              ref={(el) => (labelRefs.current[i] = el)}
-              className="font-sans"
-              style={{
-                marginTop: "14px",
-                color: NAVY,
                 opacity: 0,
-                fontSize: "clamp(0.78rem, 1vw, 1.15rem)",
-                fontWeight: 500,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
+                transform: "translateY(22px)",
+                willChange: "transform, opacity",
+                textAlign: "center",
               }}
             >
-              {s.label}
+              {p.headline}
             </div>
-          </div>
-        ))}
-      </div>
 
-      <div
-        ref={underlineRef}
-        style={{
-          position: "absolute",
-          left: "8vw",
-          right: "8vw",
-          bottom: "18vh",
-          height: "3px",
-          backgroundColor: ORANGE,
-          transformOrigin: "left center",
-          transform: "scaleX(0)",
-          willChange: "transform, opacity",
-        }}
-      />
+            {/* Sub-copy */}
+            {p.sub && (
+              <div
+                ref={(el) => (subRefs.current[i] = el)}
+                className="font-sans"
+                style={{
+                  color: NAVY,
+                  opacity: 0,
+                  fontSize: "clamp(0.95rem, 1.4vw, 1.7rem)",
+                  fontWeight: 400,
+                  transform: "translateY(22px)",
+                  willChange: "transform, opacity",
+                  textAlign: "center",
+                  maxWidth: "min(60vw, 860px)",
+                }}
+              >
+                {p.sub}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

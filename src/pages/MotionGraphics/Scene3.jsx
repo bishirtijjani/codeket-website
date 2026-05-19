@@ -1,137 +1,169 @@
 import { useEffect, useRef } from "react";
-import { animate, wait, nextFrame, cancelAnims, NAVY, ORANGE } from "./animUtils";
+import { animate, wait, nextFrame, NAVY, ORANGE } from "./animUtils";
 
-const PRODUCTS = [
-  { title: "Inventory", sub: "for supermarkets & retail" },
-  { title: "School Management", sub: "for serious private schools" },
-  { title: "Virtual Tours", sub: "branded 360° for real estate" },
+const SERVICES = [
+  { label: "Inventory Systems",    imgSrc: "/images/ims.gif",                    tilt: -2.5 },
+  { label: "AI Automation",        imgSrc: "/images/process-automation.jpg",     tilt:  2.5 },
+  { label: "Mobile Apps",          imgSrc: null,                                 tilt: -2.5 },
+  { label: "Enterprise Software",  imgSrc: "/images/enterprise-software.jpg",    tilt:  2.5 },
+  { label: "Data Analytics",       imgSrc: "/images/business-intel.jpg",         tilt: -2.5 },
 ];
 
+// Timing constants (ms)
+const ENTER_MS     = 480;
+const HOLD_MS      = 1500;
+const EXIT_MS      = 360;
+// Next slide starts this many ms after the current one starts.
+// Setting it to (hold-start - 120ms) means ~120ms of cross-fade overlap.
+const START_OFFSET = 80 + ENTER_MS + HOLD_MS - 120; // 1940
+
+function PhoneMockup() {
+  const apps = [
+    { bg: NAVY,      label: "IMS", fg: ORANGE    },
+    { bg: ORANGE,    label: "AI",  fg: "#fff"    },
+    { bg: "#1E3A5F", label: "ERP", fg: "#fff"    },
+    { bg: "#2D6A4F", label: "VTU", fg: "#fff"    },
+  ];
+  return (
+    <div
+      style={{
+        width: "100%", height: "100%",
+        backgroundColor: "#0F172A",
+        display: "flex", flexDirection: "column",
+        alignItems: "center",
+        padding: "18px 14px 20px",
+        gap: "10px",
+        boxSizing: "border-box",
+      }}
+    >
+      <div
+        style={{
+          width: "44px", height: "8px",
+          backgroundColor: "rgba(255,255,255,0.18)",
+          borderRadius: "4px",
+          flexShrink: 0,
+        }}
+      />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "10px",
+          flex: 1,
+          width: "100%",
+        }}
+      >
+        {apps.map((app, i) => (
+          <div
+            key={i}
+            style={{
+              backgroundColor: app.bg,
+              borderRadius: "14px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                color: app.fg,
+                fontWeight: 800,
+                fontSize: "clamp(0.7rem, 1.1vw, 1.3rem)",
+                fontFamily: "inherit",
+                letterSpacing: "0.02em",
+              }}
+            >
+              {app.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Scene3({ playToken, onComplete }) {
-  const headlineRef = useRef(null);
-  const cardsWrapRef = useRef(null);
-  const cardRefs = useRef([]);
-  const barRefs = useRef([]);
+  const textRefs  = useRef([]);
+  const imageRefs = useRef([]);
 
   useEffect(() => {
     if (!playToken) return;
     let cancelled = false;
 
     const run = async () => {
-      const headline = headlineRef.current;
-      const cardsWrap = cardsWrapRef.current;
-      if (!headline || !cardsWrap) return;
-
-      cancelAnims(headline, cardsWrap, ...cardRefs.current, ...barRefs.current);
-
-      headline.style.opacity = "0";
-      headline.style.filter = "blur(18px)";
-      headline.style.transform = "translate(-50%, -50%) translateY(0vh) scale(1.35)";
-      cardsWrap.style.opacity = "1";
-      cardsWrap.style.transform = "translate(-50%, 0) scale(1)";
-      cardRefs.current.forEach((c) => {
-        if (!c) return;
-        c.style.opacity = "0";
-        c.style.transform = "translateY(56px)";
-      });
-      barRefs.current.forEach((b) => {
-        if (!b) return;
-        b.style.transform = "scaleX(0)";
+      // Reset every element to its off-screen initial state
+      SERVICES.forEach((s, i) => {
+        const txt = textRefs.current[i];
+        const img = imageRefs.current[i];
+        if (txt) {
+          txt.getAnimations().forEach((a) => a.cancel());
+          txt.style.opacity = "0";
+          txt.style.transform = "translateX(-40px)";
+        }
+        if (img) {
+          img.getAnimations().forEach((a) => a.cancel());
+          img.style.opacity = "0";
+          img.style.transform = `translateY(110%) rotate(${s.tilt}deg)`;
+        }
       });
 
       await nextFrame();
       if (cancelled) return;
 
-      // Headline enters big and centered
-      await animate(
-        headline,
-        [
-          {
-            opacity: 0,
-            filter: "blur(18px)",
-            transform: "translate(-50%, -50%) translateY(0vh) scale(1.35)",
-          },
-          {
-            opacity: 1,
-            filter: "blur(0px)",
-            transform: "translate(-50%, -50%) translateY(0vh) scale(1)",
-          },
-        ],
-        { duration: 620, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
-      );
-      if (cancelled) return;
+      const runSlide = async (i) => {
+        const s   = SERVICES[i];
+        const txt = textRefs.current[i];
+        const img = imageRefs.current[i];
+        if (!txt || !img) return;
 
-      await wait(700);
-      if (cancelled) return;
+        await wait(i * START_OFFSET);
+        if (cancelled) return;
 
-      // Headline shrinks and moves up
-      await animate(
-        headline,
-        [
-          { transform: "translate(-50%, -50%) translateY(0vh) scale(1)" },
-          { transform: "translate(-50%, -50%) translateY(-32vh) scale(0.42)" },
-        ],
-        { duration: 640, easing: "cubic-bezier(0.65, 0, 0.35, 1)" },
-      );
-      if (cancelled) return;
-
-      // Cards slide up, staggered
-      await Promise.all(
-        cardRefs.current.map(async (card, i) => {
-          if (!card) return;
-          await wait(i * 130);
-          if (cancelled) return;
-          await animate(
-            card,
-            [
-              { opacity: 0, transform: "translateY(56px)" },
-              { opacity: 1, transform: "translateY(0)" },
-            ],
-            { duration: 520, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
-          );
-        }),
-      );
-      if (cancelled) return;
-
-      await wait(120);
-
-      // Orange accent bars grow
-      await Promise.all(
-        barRefs.current.map(async (bar, i) => {
-          if (!bar) return;
-          await wait(i * 110);
-          if (cancelled) return;
-          await animate(
-            bar,
-            [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
-            { duration: 480, easing: "cubic-bezier(0.65, 0, 0.35, 1)" },
-          );
-        }),
-      );
-      if (cancelled) return;
-
-      await wait(1500);
-      if (cancelled) return;
-
-      // Exit — scale down and fade
-      await Promise.all([
+        // Text slides in from left (non-blocking — fires in parallel with image entry)
         animate(
-          headline,
+          txt,
           [
-            { opacity: 1, transform: "translate(-50%, -50%) translateY(-32vh) scale(0.42)" },
-            { opacity: 0, transform: "translate(-50%, -50%) translateY(-32vh) scale(0.3)" },
+            { opacity: 0, transform: "translateX(-40px)" },
+            { opacity: 1, transform: "translateX(0)" },
           ],
-          { duration: 480, easing: "ease-in" },
-        ),
+          { duration: ENTER_MS, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+        );
+
+        // Image drops from below, 80 ms after text starts
+        await wait(80);
+        if (cancelled) return;
+        await animate(
+          img,
+          [
+            { opacity: 0, transform: `translateY(110%) rotate(${s.tilt}deg)` },
+            { opacity: 1, transform: `translateY(0) rotate(${s.tilt}deg)` },
+          ],
+          { duration: ENTER_MS, easing: "cubic-bezier(0.22, 1.1, 0.36, 1)" },
+        );
+        if (cancelled) return;
+
+        await wait(HOLD_MS);
+        if (cancelled) return;
+
+        // Text fades out (non-blocking)
         animate(
-          cardsWrap,
+          txt,
+          [{ opacity: 1 }, { opacity: 0 }],
+          { duration: EXIT_MS, easing: "ease-in" },
+        );
+        // Image exits upward
+        await animate(
+          img,
           [
-            { transform: "translate(-50%, 0) scale(1)", opacity: 1 },
-            { transform: "translate(-50%, 0) scale(0.82)", opacity: 0 },
+            { transform: `translateY(0) rotate(${s.tilt}deg)` },
+            { transform: `translateY(-110%) rotate(${s.tilt}deg)` },
           ],
-          { duration: 520, easing: "cubic-bezier(0.7, 0, 0.84, 0)" },
-        ),
-      ]);
+          { duration: EXIT_MS, easing: "cubic-bezier(0.7, 0, 0.84, 0)" },
+        );
+      };
+
+      await Promise.all(SERVICES.map((_, i) => runSlide(i)));
+      if (cancelled) return;
 
       onComplete?.();
     };
@@ -144,97 +176,76 @@ export default function Scene3({ playToken, onComplete }) {
 
   return (
     <div className="absolute inset-0">
-      <h2
-        ref={headlineRef}
-        className="font-display whitespace-nowrap"
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%) translateY(0vh) scale(1.35)",
-          color: NAVY,
-          fontWeight: 900,
-          fontSize: "clamp(2.4rem, 6vw, 7.5rem)",
-          letterSpacing: "-0.03em",
-          opacity: 0,
-          willChange: "transform, opacity, filter",
-        }}
-      >
-        We build three things
-        <span style={{ color: ORANGE }}>.</span>
-      </h2>
-
-      <div
-        ref={cardsWrapRef}
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, 0) scale(1)",
-          display: "flex",
-          gap: "clamp(16px, 2.2vw, 36px)",
-          willChange: "transform, opacity",
-        }}
-      >
-        {PRODUCTS.map((p, i) => (
+      {SERVICES.map((s, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            paddingLeft: "10vw",
+            paddingRight: "10vw",
+            gap: "20vw",
+          }}
+        >
+          {/* Bold label — left 30 vw */}
           <div
-            key={i}
-            ref={(el) => (cardRefs.current[i] = el)}
+            ref={(el) => (textRefs.current[i] = el)}
             style={{
-              position: "relative",
-              width: "min(24vw, 320px)",
-              minWidth: "200px",
-              border: `1.5px solid ${NAVY}`,
-              borderRadius: "14px",
-              padding: "clamp(20px, 2vw, 36px) clamp(18px, 1.8vw, 32px)",
-              paddingTop: "clamp(28px, 2.4vw, 44px)",
-              backgroundColor: "#FFFFFF",
+              width: "30vw",
+              flexShrink: 0,
               opacity: 0,
               willChange: "transform, opacity",
-              overflow: "hidden",
             }}
           >
-            <div
-              ref={(el) => (barRefs.current[i] = el)}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: "5px",
-                backgroundColor: ORANGE,
-                transformOrigin: "left center",
-                transform: "scaleX(0)",
-                willChange: "transform",
-              }}
-            />
             <div
               className="font-display"
               style={{
                 color: NAVY,
-                fontWeight: 800,
-                fontSize: "clamp(1.2rem, 2.1vw, 2.6rem)",
-                marginBottom: "10px",
-                letterSpacing: "-0.02em",
+                fontWeight: 900,
+                fontSize: "clamp(2rem, 3.8vw, 5.2rem)",
+                letterSpacing: "-0.03em",
                 lineHeight: 1.05,
               }}
             >
-              {p.title}
-            </div>
-            <div
-              className="font-sans"
-              style={{
-                color: NAVY,
-                opacity: 0.6,
-                fontSize: "clamp(0.78rem, 1vw, 1.15rem)",
-                lineHeight: 1.4,
-              }}
-            >
-              {p.sub}
+              {s.label}
             </div>
           </div>
-        ))}
-      </div>
+
+          {/* Image / mockup — right 30 vw */}
+          <div
+            ref={(el) => (imageRefs.current[i] = el)}
+            style={{
+              width: "30vw",
+              height: "60vh",
+              flexShrink: 0,
+              borderRadius: "16px",
+              boxShadow:
+                "0 24px 64px rgba(11,22,40,0.20), 0 4px 16px rgba(11,22,40,0.08)",
+              overflow: "hidden",
+              transform: `translateY(110%) rotate(${s.tilt}deg)`,
+              opacity: 0,
+              willChange: "transform, opacity",
+            }}
+          >
+            {s.imgSrc ? (
+              <img
+                src={s.imgSrc}
+                alt={s.label}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                }}
+              />
+            ) : (
+              <PhoneMockup />
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
