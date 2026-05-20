@@ -1,13 +1,19 @@
 import puppeteer from "puppeteer";
 import { setTimeout as sleep } from "node:timers/promises";
+import { spawn } from "node:child_process";
+import { unlink } from "node:fs/promises";
 
 const URL = process.env.RENDER_URL || "http://localhost:5173/motion-graphics";
-const OUT = process.env.RENDER_OUT || "motion-graphics.webm";
+const OUT = process.env.RENDER_OUT || "motion-graphics.mp4";
 const WIDTH = Number(process.env.RENDER_WIDTH || 1920);
 const HEIGHT = Number(process.env.RENDER_HEIGHT || 1080);
 const RECORD_SECONDS = Number(process.env.RENDER_DURATION || 55);
 const CHROME = process.env.PUPPETEER_EXECUTABLE_PATH
   || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
+
+// Chrome's screencast API only emits webm. We capture to a temp webm,
+// then transcode to H.264 mp4 with ffmpeg.
+const TEMP_WEBM = OUT.replace(/\.mp4$/i, "") + ".tmp.webm";
 
 console.log(`[render] launching chromium ${WIDTH}x${HEIGHT} — ${CHROME}`);
 const browser = await puppeteer.launch({
@@ -46,9 +52,9 @@ await page.evaluate(() => {
   }
 });
 
-console.log(`[render] starting screencast → ${OUT}`);
+console.log(`[render] starting screencast → ${TEMP_WEBM}`);
 const recorder = await page.screencast({
-  path: OUT,
+  path: TEMP_WEBM,
   fps: 30,
 });
 
@@ -73,4 +79,21 @@ console.log("[render] stopping screencast");
 await recorder.stop();
 
 await browser.close();
+
+console.log(`[render] transcoding to mp4 → ${OUT}`);
+await new Promise((resolve, reject) => {
+  const ff = spawn("ffmpeg", [
+    "-y",
+    "-i", TEMP_WEBM,
+    "-c:v", "libx264",
+    "-preset", "slow",
+    "-crf", "18",
+    "-pix_fmt", "yuv420p",
+    "-movflags", "+faststart",
+    OUT,
+  ], { stdio: ["ignore", "ignore", "inherit"] });
+  ff.on("error", reject);
+  ff.on("exit", (code) => code === 0 ? resolve() : reject(new Error(`ffmpeg exited ${code}`)));
+});
+await unlink(TEMP_WEBM).catch(() => {});
 console.log(`[render] done → ${OUT}`);
