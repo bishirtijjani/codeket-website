@@ -1,6 +1,6 @@
 {
-  "_client-wuDZqdXw.js": {
-    "file": "assets/client-wuDZqdXw.js",
+  "_client-DSLBUQ_W.js": {
+    "file": "assets/client-DSLBUQ_W.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,12 +8,12 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-CUqNVlNi.js",
+    "file": "assets/app-CSkv4gvw.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-wuDZqdXw.js"
+      "_client-DSLBUQ_W.js"
     ],
     "css": [
       "assets/app-99qEunsE.css"
