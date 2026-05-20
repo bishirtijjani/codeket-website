@@ -186,7 +186,7 @@ export default function Scene1({ playToken, onComplete }) {
         style={{
           color: NAVY,
           fontWeight: 900,
-          fontSize: "13vw",
+          fontSize: "clamp(3.5rem, 9vw, 10rem)",
           letterSpacing: "-0.03em",
           transform: "translateY(-115vh)",
           willChange: "transform, filter",

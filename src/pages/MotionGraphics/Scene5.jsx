@@ -2,10 +2,9 @@ import { useEffect, useRef } from "react";
 import { animate, wait, nextFrame, cancelAnims, NAVY, ORANGE } from "./animUtils";
 
 const VARIANTS = [
-  { text: "Built for serious businesses", accent: null },
-  { text: "Built for focused businesses", accent: null },
-  { text: "Built for growing businesses", accent: null },
-  { text: "Built for operators", accent: "operators" },
+  { text: "If you can think it", accent: null,       addPeriod: false },
+  { text: "we can build it",     accent: null,       addPeriod: true  },
+  { text: "For your business",   accent: "business", addPeriod: true  },
 ];
 
 const splitAccent = (text, accent) => {
@@ -13,8 +12,8 @@ const splitAccent = (text, accent) => {
   const idx = text.indexOf(accent);
   if (idx === -1) return [{ str: text, orange: false }];
   return [
-    { str: text.slice(0, idx), orange: false },
-    { str: accent, orange: true },
+    { str: text.slice(0, idx),            orange: false },
+    { str: accent,                        orange: true  },
     { str: text.slice(idx + accent.length), orange: false },
   ];
 };
@@ -46,23 +45,23 @@ export default function Scene5({ playToken, onComplete }) {
           el,
           [
             { opacity: 0, filter: "blur(18px)", transform: "translate(-50%, -50%) scale(0.97)" },
-            { opacity: 1, filter: "blur(0px)", transform: "translate(-50%, -50%) scale(1)" },
+            { opacity: 1, filter: "blur(0px)",  transform: "translate(-50%, -50%) scale(1)" },
           ],
-          { duration: 380, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+          { duration: 420, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
         );
         if (cancelled) return;
 
-        await wait(isLast ? 1700 : 950);
+        await wait(isLast ? 1800 : 900);
         if (cancelled) return;
 
         if (!isLast) {
           await animate(
             el,
             [
-              { opacity: 1, filter: "blur(0px)", transform: "translate(-50%, -50%) scale(1)" },
+              { opacity: 1, filter: "blur(0px)",  transform: "translate(-50%, -50%) scale(1)" },
               { opacity: 0, filter: "blur(16px)", transform: "translate(-50%, -50%) scale(1.03)" },
             ],
-            { duration: 280, easing: "cubic-bezier(0.7, 0, 0.84, 0)" },
+            { duration: 300, easing: "cubic-bezier(0.7, 0, 0.84, 0)" },
           );
         } else {
           await animate(
@@ -100,15 +99,14 @@ export default function Scene5({ playToken, onComplete }) {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%) scale(0.97)",
-              width: "min(90vw, 1500px)",
+              width: "min(86vw, 1400px)",
               color: NAVY,
               fontWeight: 800,
-              fontSize: "clamp(2.6rem, 6.4vw, 8rem)",
-              letterSpacing: "-0.03em",
+              fontSize: "clamp(2.4rem, 5.8vw, 7.2rem)",
+              letterSpacing: "-0.025em",
               lineHeight: 1.05,
               opacity: 0,
               willChange: "transform, filter, opacity",
-              whiteSpace: "nowrap",
             }}
           >
             {parts.map((p, j) => (
@@ -116,7 +114,7 @@ export default function Scene5({ playToken, onComplete }) {
                 {p.str}
               </span>
             ))}
-            <span style={{ color: ORANGE }}>.</span>
+            {v.addPeriod && <span style={{ color: ORANGE }}>.</span>}
           </h2>
         );
       })}
