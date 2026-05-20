@@ -309,6 +309,101 @@ falls out automatically in both orientations.
 
 ---
 
+## 7.5 Build once, render twice (the actual workflow)
+
+This is the headline insight from how we shipped both videos. **Don't
+build two videos. Build one responsive video and render it at two
+viewport sizes.** Mobile cost us one new hook and a layout branch in
+exactly one scene.
+
+### The order of operations
+
+1. **Build landscape (1920×1080) first, as if mobile didn't exist.**
+   It's the primary deliverable, the easiest to design for, and the one
+   the user will review most. Don't burn cycles on portrait until the
+   landscape pass is locked.
+2. **Use `clamp(min, vw, max)` for every fontSize and `min(vw, px)`
+   for every width from day one** — even when you're only thinking about
+   1920×1080. This is the secret: those units already reflow to *any*
+   viewport, so when you flip to portrait later, 80% of the work is
+   already done.
+3. **Lock landscape.** Iterate copy, timing, animations, mockups until
+   the user signs off. Don't touch layout structure after this.
+4. **Add `useIsPortrait()` to `animUtils.js`** (one hook, SSR-safe).
+5. **Render in portrait viewport (1080×1920) and watch what breaks.**
+   In our case: literally only Scene 3, because its layout was
+   structurally side-by-side. Everything else just reflowed via
+   `clamp()/vw/vh`.
+6. **Branch the broken scene by orientation, not the whole codebase.**
+   Two style objects (landscape / portrait), one set of refs, one
+   animation effect that picks the right "from" transform. No
+   duplicate components, no parallel scene tree.
+7. **Add the second npm script with different env vars.** Same render
+   pipeline, just `RENDER_WIDTH=1080 RENDER_HEIGHT=1920 RENDER_OUT=...mp4`.
+
+### Why this works
+
+`page.screencast()` records whatever Chrome paints in the viewport. If
+the page reflows correctly at 1080×1920, the recording is correct at
+1080×1920. There is no "mobile video pipeline" — there's one pipeline
+and a viewport argument.
+
+### What earns the "almost free" mobile version
+
+If you cut any of these corners during the landscape build, mobile will
+cost you a full second pass:
+
+- ✅ **`clamp(min, vw, max)` for every fontSize.** No raw `rem`, no raw `vw`.
+  Raw `rem` doesn't shrink for narrow viewports; raw `vw` has no upper
+  bound on huge ones.
+- ✅ **`min(vw, px)` for every fixed width.** Same reason.
+- ✅ **Center with `position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)`**
+  for hero elements. Percentage-based positioning means it stays centered
+  at any aspect ratio.
+- ✅ **`vh` for vertical padding when the layout is vertically stacked.**
+  Don't hard-code `top: "120px"`; use `top: "12vh"` or % values.
+- ✅ **No `whitespace-nowrap`** on multi-word text. Wrapping is the
+  feature that saves portrait.
+- ✅ **`maxWidth: min(60vw, 860px)`** on sub-copy and tagline blocks so
+  they wrap before they hit the screen edge.
+
+### What requires an explicit portrait branch
+
+Anything where the structure (not the size) of the layout differs:
+
+| Pattern | Branch required? |
+|---|---|
+| Centered headline that scales | No — `clamp + vw` handles it |
+| Stacked column of items | No — already flow-friendly |
+| Grid that's 4-up on desktop, 1-up on mobile | Yes, but usually CSS grid + `auto-fit` handles it without JS |
+| Side-by-side (title-left / image-right) | **Yes** — needs to become stacked (title-top / image-bottom) |
+| Diagonal / absolute-positioned compositions | Yes — recalculate positions per orientation |
+| Animation direction tied to layout (slide from left only makes sense in row layout) | Yes — pick the entry vector to match the new arrangement |
+
+In this video, only **Scene 3** hit that list. Everything else
+auto-survived.
+
+### Concrete cost summary
+
+| Effort | What it took |
+|---|---|
+| New code for mobile | ~15 lines: `useIsPortrait` hook (10), three ternaries in Scene 3 style objects (5) |
+| Refactored existing scenes | Zero. None changed. |
+| New render command | One line in `package.json` |
+| Re-render time | ~60 seconds (single screencast pass) |
+
+That's the bar. If a future video costs more than this to take mobile,
+something was built non-responsively earlier — go fix the cause, don't
+duplicate the scenes.
+
+### Deliverable rule
+
+A "make a video" request is **not done until both mp4s exist** —
+landscape and portrait. Don't ship one and call it complete; the second
+one is cheap and the user expects both.
+
+---
+
 ## 8. Scene catalog (current, in order)
 
 | # | Label | What | Approx duration |
