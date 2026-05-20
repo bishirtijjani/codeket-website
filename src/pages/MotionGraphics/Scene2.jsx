@@ -4,7 +4,7 @@ import { animate, wait, nextFrame, cancelAnims, NAVY, ORANGE } from "./animUtils
 const STATEMENTS = [
   "Software should feel obvious",
   "Setup should take days, not months",
-  "Real problems deserve real support",
+  "Real problems deserve real solutions",
 ];
 
 export default function Scene2({ playToken, onComplete }) {

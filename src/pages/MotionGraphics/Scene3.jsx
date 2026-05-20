@@ -7,21 +7,33 @@ import {
   AnalyticsChart,
 } from "./Scene3Mockups";
 
+// Per-service frame sizing — match the natural aspect of each piece of
+// content so nothing gets cropped. Widths are tuned so the widest variant
+// still leaves room for the 28vw text column on the left.
+const FRAMES = {
+  desktopWide: { width: "52vw", aspectRatio: "1587 / 772" }, // ims.gif native
+  desktop:     { width: "50vw", aspectRatio: "16 / 9"      },
+  panel:       { width: "32vw", aspectRatio: "1 / 1"       },
+  phone:       { width: "15vw", aspectRatio: "9 / 19"      },
+};
+
 const SERVICES = [
-  { label: "Inventory Systems",   imgSrc: "/images/ims.gif", Mockup: null,                tilt: -2.5 },
-  { label: "AI Automation",       imgSrc: null,              Mockup: AINetwork,           tilt:  2.5 },
-  { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5 },
-  { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5 },
-  { label: "Data Analytics",      imgSrc: null,              Mockup: AnalyticsChart,      tilt: -2.5 },
+  { label: "Inventory Systems",   imgSrc: "/images/ims.gif", Mockup: null,                tilt: -2.5, frame: FRAMES.desktopWide },
+  { label: "AI Automation",       imgSrc: null,              Mockup: AINetwork,           tilt:  2.5, frame: FRAMES.panel       },
+  { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5, frame: FRAMES.phone       },
+  { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5, frame: FRAMES.desktop     },
+  { label: "Data Analytics",      imgSrc: null,              Mockup: AnalyticsChart,      tilt: -2.5, frame: FRAMES.desktop     },
 ];
 
-// Timing constants (ms)
-const ENTER_MS     = 480;
-const HOLD_MS      = 1500;
-const EXIT_MS      = 360;
-// Next slide starts this many ms after the current one starts.
-// Setting it to (hold-start - 120ms) means ~120ms of cross-fade overlap.
-const START_OFFSET = 80 + ENTER_MS + HOLD_MS - 120; // 1940
+// Timing (ms) — slides are fully sequential with an 80 ms gap so the
+// previous title is fully gone before the next one fades in.
+const ENTER_MS     = 420;
+const HOLD_MS      = 1100;
+const EXIT_MS      = 320;
+const IMG_DELAY    = 80;
+const SLIDE_GAP    = 80;
+// Last frame the previous slide is on screen = IMG_DELAY + ENTER + HOLD + EXIT
+const START_OFFSET = IMG_DELAY + ENTER_MS + HOLD_MS + EXIT_MS + SLIDE_GAP; // 2000
 
 export default function Scene3({ playToken, onComplete }) {
   const textRefs  = useRef([]);
@@ -32,7 +44,6 @@ export default function Scene3({ playToken, onComplete }) {
     let cancelled = false;
 
     const run = async () => {
-      // Reset every element to its off-screen initial state
       SERVICES.forEach((s, i) => {
         const txt = textRefs.current[i];
         const img = imageRefs.current[i];
@@ -60,7 +71,6 @@ export default function Scene3({ playToken, onComplete }) {
         await wait(i * START_OFFSET);
         if (cancelled) return;
 
-        // Text slides in from left (non-blocking — fires in parallel with image entry)
         animate(
           txt,
           [
@@ -70,8 +80,7 @@ export default function Scene3({ playToken, onComplete }) {
           { duration: ENTER_MS, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
         );
 
-        // Image drops from below, 80 ms after text starts
-        await wait(80);
+        await wait(IMG_DELAY);
         if (cancelled) return;
         await animate(
           img,
@@ -86,18 +95,16 @@ export default function Scene3({ playToken, onComplete }) {
         await wait(HOLD_MS);
         if (cancelled) return;
 
-        // Text fades out (non-blocking)
         animate(
           txt,
           [{ opacity: 1 }, { opacity: 0 }],
           { duration: EXIT_MS, easing: "ease-in" },
         );
-        // Image exits upward
         await animate(
           img,
           [
-            { transform: `translateY(0) rotate(${s.tilt}deg)` },
-            { transform: `translateY(-110%) rotate(${s.tilt}deg)` },
+            { transform: `translateY(0) rotate(${s.tilt}deg)`, opacity: 1 },
+            { transform: `translateY(-110%) rotate(${s.tilt}deg)`, opacity: 0 },
           ],
           { duration: EXIT_MS, easing: "cubic-bezier(0.7, 0, 0.84, 0)" },
         );
@@ -127,16 +134,16 @@ export default function Scene3({ playToken, onComplete }) {
               inset: 0,
               display: "flex",
               alignItems: "center",
-              paddingLeft: "10vw",
-              paddingRight: "10vw",
-              gap: "20vw",
+              paddingLeft: "5vw",
+              paddingRight: "6vw",
+              gap: "5vw",
             }}
           >
-            {/* Bold label — left 30 vw */}
+            {/* Bold label — left column */}
             <div
               ref={(el) => (textRefs.current[i] = el)}
               style={{
-                width: "30vw",
+                width: "28vw",
                 flexShrink: 0,
                 opacity: 0,
                 willChange: "transform, opacity",
@@ -147,7 +154,7 @@ export default function Scene3({ playToken, onComplete }) {
                 style={{
                   color: NAVY,
                   fontWeight: 900,
-                  fontSize: "clamp(2rem, 3.8vw, 5.2rem)",
+                  fontSize: "clamp(1.9rem, 3.6vw, 4.8rem)",
                   letterSpacing: "-0.03em",
                   lineHeight: 1.05,
                 }}
@@ -156,37 +163,48 @@ export default function Scene3({ playToken, onComplete }) {
               </div>
             </div>
 
-            {/* Image / mockup — right 30 vw */}
+            {/* Image area — flex-centers the mockup at its natural aspect */}
             <div
-              ref={(el) => (imageRefs.current[i] = el)}
               style={{
-                width: "30vw",
-                height: "60vh",
-                flexShrink: 0,
-                borderRadius: "16px",
-                boxShadow:
-                  "0 24px 64px rgba(11,22,40,0.20), 0 4px 16px rgba(11,22,40,0.08)",
-                overflow: "hidden",
-                transform: `translateY(110%) rotate(${s.tilt}deg)`,
-                opacity: 0,
-                willChange: "transform, opacity",
-                backgroundColor: "#fff",
+                flex: 1,
+                height: "65vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: 0,
               }}
             >
-              {s.imgSrc ? (
-                <img
-                  src={s.imgSrc}
-                  alt={s.label}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "top center",
-                  }}
-                />
-              ) : Mockup ? (
-                <Mockup />
-              ) : null}
+              <div
+                ref={(el) => (imageRefs.current[i] = el)}
+                style={{
+                  ...s.frame,
+                  maxHeight: "65vh",
+                  maxWidth: "100%",
+                  borderRadius: "16px",
+                  boxShadow:
+                    "0 24px 64px rgba(11,22,40,0.20), 0 4px 16px rgba(11,22,40,0.08)",
+                  overflow: "hidden",
+                  transform: `translateY(110%) rotate(${s.tilt}deg)`,
+                  opacity: 0,
+                  willChange: "transform, opacity",
+                  backgroundColor: "#fff",
+                }}
+              >
+                {s.imgSrc ? (
+                  <img
+                    src={s.imgSrc}
+                    alt={s.label}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                ) : Mockup ? (
+                  <Mockup />
+                ) : null}
+              </div>
             </div>
           </div>
         );
