@@ -7,7 +7,7 @@ const URL = process.env.RENDER_URL || "http://localhost:5173/motion-graphics";
 const OUT = process.env.RENDER_OUT || "motion-graphics.mp4";
 const WIDTH = Number(process.env.RENDER_WIDTH || 1920);
 const HEIGHT = Number(process.env.RENDER_HEIGHT || 1080);
-const RECORD_SECONDS = Number(process.env.RENDER_DURATION || 55);
+const RECORD_SECONDS = Number(process.env.RENDER_DURATION || 60);
 const CHROME = process.env.PUPPETEER_EXECUTABLE_PATH
   || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 

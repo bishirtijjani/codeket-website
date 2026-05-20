@@ -3,7 +3,7 @@
   "\u0000/home/user/codeket-website/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/user/codeket-website/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/user/codeket-website/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-CT-6wMCa.js"
+    "/assets/client-DWl79Vkm.js"
   ],
   "\u0000/home/user/codeket-website/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000/home/user/codeket-website/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -357,7 +357,7 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-CT-6wMCa.js"
+    "/assets/client-DWl79Vkm.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
@@ -433,6 +433,7 @@
   "src/pages/MotionGraphics/Scene4.jsx": [],
   "src/pages/MotionGraphics/Scene5.jsx": [],
   "src/pages/MotionGraphics/Scene6.jsx": [],
+  "src/pages/MotionGraphics/Scene7.jsx": [],
   "src/pages/MotionGraphics/animUtils.js": [],
   "src/pages/MotionGraphics/index.jsx": [],
   "src/pages/Pricing/components/ClientLogos.jsx": [],

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { animate, wait, nextFrame, NAVY } from "./animUtils";
+import { animate, wait, nextFrame, useIsPortrait, NAVY } from "./animUtils";
 import {
   PhoneMockup,
   AINetwork,
@@ -7,41 +7,46 @@ import {
   AnalyticsChart,
 } from "./Scene3Mockups";
 
-// Per-service frame sizing — match the natural aspect of each piece of
-// content so nothing gets cropped. Widths are tuned so the widest variant
-// still leaves room for the 28vw text column on the left.
-const FRAMES = {
-  desktopWide: { width: "52vw", aspectRatio: "1587 / 772" }, // ims.gif native
+// Per-orientation frame sizing. Each service's frame matches the natural
+// aspect of its content so nothing gets cropped.
+const FRAMES_LANDSCAPE = {
+  desktopWide: { width: "52vw", aspectRatio: "1587 / 772" },
   desktop:     { width: "50vw", aspectRatio: "16 / 9"      },
   panel:       { width: "32vw", aspectRatio: "1 / 1"       },
   phone:       { width: "15vw", aspectRatio: "9 / 19"      },
 };
+const FRAMES_PORTRAIT = {
+  desktopWide: { width: "88vw", aspectRatio: "1587 / 772" },
+  desktop:     { width: "86vw", aspectRatio: "16 / 9"      },
+  panel:       { width: "70vw", aspectRatio: "1 / 1"       },
+  phone:       { width: "44vw", aspectRatio: "9 / 19"      },
+};
 
 const SERVICES = [
-  { label: "Inventory Systems",   imgSrc: "/images/ims.gif", Mockup: null,                tilt: -2.5, frame: FRAMES.desktopWide },
-  { label: "AI Automation",       imgSrc: null,              Mockup: AINetwork,           tilt:  2.5, frame: FRAMES.panel       },
-  { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5, frame: FRAMES.phone       },
-  { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5, frame: FRAMES.desktop     },
-  { label: "Data Analytics",      imgSrc: null,              Mockup: AnalyticsChart,      tilt: -2.5, frame: FRAMES.desktop     },
+  { label: "Inventory Systems",   imgSrc: "/images/ims.gif", Mockup: null,                tilt: -2.5, kind: "desktopWide" },
+  { label: "AI Automation",       imgSrc: null,              Mockup: AINetwork,           tilt:  2.5, kind: "panel"       },
+  { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5, kind: "phone"       },
+  { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5, kind: "desktop"     },
+  { label: "Data Analytics",      imgSrc: null,              Mockup: AnalyticsChart,      tilt: -2.5, kind: "desktop"     },
 ];
 
-// Timing (ms) — slides are fully sequential with an 80 ms gap so the
-// previous title is fully gone before the next one fades in.
-const ENTER_MS     = 420;
-const HOLD_MS      = 1100;
-const EXIT_MS      = 320;
-const IMG_DELAY    = 80;
-const SLIDE_GAP    = 80;
-// Last frame the previous slide is on screen = IMG_DELAY + ENTER + HOLD + EXIT
-const START_OFFSET = IMG_DELAY + ENTER_MS + HOLD_MS + EXIT_MS + SLIDE_GAP; // 2000
+const ENTER_MS    = 420;
+const HOLD_MS     = 1100;
+const EXIT_MS     = 320;
+const IMG_DELAY   = 80;
+const SLIDE_GAP   = 80;
+const START_OFFSET = IMG_DELAY + ENTER_MS + HOLD_MS + EXIT_MS + SLIDE_GAP;
 
 export default function Scene3({ playToken, onComplete }) {
-  const textRefs  = useRef([]);
-  const imageRefs = useRef([]);
+  const textRefs   = useRef([]);
+  const imageRefs  = useRef([]);
+  const isPortrait = useIsPortrait();
 
   useEffect(() => {
     if (!playToken) return;
     let cancelled = false;
+
+    const textOffscreen = isPortrait ? "translateY(-26px)" : "translateX(-40px)";
 
     const run = async () => {
       SERVICES.forEach((s, i) => {
@@ -50,7 +55,7 @@ export default function Scene3({ playToken, onComplete }) {
         if (txt) {
           txt.getAnimations().forEach((a) => a.cancel());
           txt.style.opacity = "0";
-          txt.style.transform = "translateX(-40px)";
+          txt.style.transform = textOffscreen;
         }
         if (img) {
           img.getAnimations().forEach((a) => a.cancel());
@@ -74,8 +79,8 @@ export default function Scene3({ playToken, onComplete }) {
         animate(
           txt,
           [
-            { opacity: 0, transform: "translateX(-40px)" },
-            { opacity: 1, transform: "translateX(0)" },
+            { opacity: 0, transform: textOffscreen },
+            { opacity: 1, transform: "translate(0, 0)" },
           ],
           { duration: ENTER_MS, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
         );
@@ -120,65 +125,96 @@ export default function Scene3({ playToken, onComplete }) {
     return () => {
       cancelled = true;
     };
-  }, [playToken, onComplete]);
+  }, [playToken, onComplete, isPortrait]);
+
+  const frames = isPortrait ? FRAMES_PORTRAIT : FRAMES_LANDSCAPE;
+
+  const slideStyle = isPortrait
+    ? {
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingLeft: "6vw",
+        paddingRight: "6vw",
+        paddingTop: "7vh",
+        paddingBottom: "7vh",
+        gap: "4vh",
+      }
+    : {
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        alignItems: "center",
+        paddingLeft: "5vw",
+        paddingRight: "6vw",
+        gap: "5vw",
+      };
+
+  const textWrapperStyle = isPortrait
+    ? {
+        width: "100%",
+        textAlign: "center",
+        flexShrink: 0,
+        opacity: 0,
+        willChange: "transform, opacity",
+      }
+    : {
+        width: "28vw",
+        flexShrink: 0,
+        opacity: 0,
+        willChange: "transform, opacity",
+      };
+
+  const labelStyle = {
+    color: NAVY,
+    fontWeight: 900,
+    fontSize: isPortrait
+      ? "clamp(2.2rem, 7.6vw, 5rem)"
+      : "clamp(1.9rem, 3.6vw, 4.8rem)",
+    letterSpacing: "-0.03em",
+    lineHeight: 1.05,
+  };
+
+  const imageAreaStyle = isPortrait
+    ? {
+        width: "100%",
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: 0,
+      }
+    : {
+        flex: 1,
+        height: "65vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minWidth: 0,
+      };
 
   return (
     <div className="absolute inset-0">
       {SERVICES.map((s, i) => {
         const Mockup = s.Mockup;
+        const frame  = frames[s.kind];
         return (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "5vw",
-              paddingRight: "6vw",
-              gap: "5vw",
-            }}
-          >
-            {/* Bold label — left column */}
-            <div
-              ref={(el) => (textRefs.current[i] = el)}
-              style={{
-                width: "28vw",
-                flexShrink: 0,
-                opacity: 0,
-                willChange: "transform, opacity",
-              }}
-            >
-              <div
-                className="font-display"
-                style={{
-                  color: NAVY,
-                  fontWeight: 900,
-                  fontSize: "clamp(1.9rem, 3.6vw, 4.8rem)",
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1.05,
-                }}
-              >
+          <div key={i} style={slideStyle}>
+            <div ref={(el) => (textRefs.current[i] = el)} style={textWrapperStyle}>
+              <div className="font-display" style={labelStyle}>
                 {s.label}
               </div>
             </div>
 
-            {/* Image area — flex-centers the mockup at its natural aspect */}
-            <div
-              style={{
-                flex: 1,
-                height: "65vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                minWidth: 0,
-              }}
-            >
+            <div style={imageAreaStyle}>
               <div
                 ref={(el) => (imageRefs.current[i] = el)}
                 style={{
-                  ...s.frame,
-                  maxHeight: "65vh",
+                  ...frame,
+                  maxHeight: isPortrait ? "62vh" : "65vh",
                   maxWidth: "100%",
                   borderRadius: "16px",
                   boxShadow:

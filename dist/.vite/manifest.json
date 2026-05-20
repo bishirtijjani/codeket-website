@@ -1,6 +1,6 @@
 {
-  "_client-CT-6wMCa.js": {
-    "file": "assets/client-CT-6wMCa.js",
+  "_client-DWl79Vkm.js": {
+    "file": "assets/client-DWl79Vkm.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-Ce5Azqlh.js",
+    "file": "assets/app-Co8rllDd.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-CT-6wMCa.js"
+      "_client-DWl79Vkm.js"
     ],
     "css": [
-      "assets/app-99qEunsE.css"
+      "assets/app-oeIeaeC2.css"
     ]
   }
 }

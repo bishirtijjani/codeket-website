@@ -6,14 +6,16 @@ import Scene3 from "./Scene3";
 import Scene4 from "./Scene4";
 import Scene5 from "./Scene5";
 import Scene6 from "./Scene6";
+import Scene7 from "./Scene7";
 
 const SCENES = [
   { n: 1, Component: Scene1, label: "Title" },
   { n: 2, Component: Scene2, label: "Belief" },
   { n: 3, Component: Scene3, label: "Products" },
   { n: 4, Component: Scene4, label: "Numbers" },
-  { n: 5, Component: Scene5, label: "Who" },
+  { n: 5, Component: Scene5, label: "Promise" },
   { n: 6, Component: Scene6, label: "Sign-off" },
+  { n: 7, Component: Scene7, label: "Visit" },
 ];
 
 const NAVY = "#0B1628";
@@ -40,7 +42,7 @@ export default function MotionGraphics() {
   }, []);
 
   const handleComplete = useCallback(() => {
-    if (chaining && sceneIndex < 6) {
+    if (chaining && sceneIndex < SCENES.length) {
       setSceneIndex((s) => s + 1);
       setPlayToken((t) => t + 1);
     } else {

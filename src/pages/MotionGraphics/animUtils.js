@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export const NAVY = "#0B1628";
 export const NAVY_DEEP = "#0F4C81";
 export const ORANGE = "#C2410C";
@@ -37,3 +39,16 @@ export const countUp = (
     };
     requestAnimationFrame(tick);
   });
+
+// True when viewport is taller than wide. Scenes use this to flip between
+// the landscape (1920×1080) and portrait (1080×1920) layouts. SSR-safe.
+export const useIsPortrait = () => {
+  const [isPortrait, setIsPortrait] = useState(false);
+  useEffect(() => {
+    const check = () => setIsPortrait(window.innerHeight > window.innerWidth);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isPortrait;
+};
