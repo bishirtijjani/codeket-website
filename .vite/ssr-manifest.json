@@ -3,7 +3,7 @@
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-uzOrbbKz.js"
+    "/assets/client-BrWsV-cG.js"
   ],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000/home/runner/work/codeket-website/codeket-website/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -201,7 +201,6 @@
   "node_modules/lucide-react/dist/esm/icons/graduation-cap.js": [],
   "node_modules/lucide-react/dist/esm/icons/landmark.js": [],
   "node_modules/lucide-react/dist/esm/icons/linkedin.js": [],
-  "node_modules/lucide-react/dist/esm/icons/message-circle.js": [],
   "node_modules/lucide-react/dist/esm/icons/message-square-text.js": [],
   "node_modules/lucide-react/dist/esm/icons/moon.js": [],
   "node_modules/lucide-react/dist/esm/icons/package.js": [],
@@ -355,7 +354,7 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-uzOrbbKz.js"
+    "/assets/client-BrWsV-cG.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
