@@ -51,7 +51,7 @@ const DemoSection = () => {
               <span className="font-semibold text-base-content">
                 {WHATSAPP_DEMO_NUMBER}
               </span>{" "}
-              a "Hi", try to break it. Demo data only.
+              the message <span className="font-mono text-base-content bg-base-200 px-1.5 py-0.5 rounded">join pot-sport</span>, then chat. Demo data only.
             </div>
           </div>
           <a
@@ -66,14 +66,15 @@ const DemoSection = () => {
           </a>
         </motion.div>
 
-        {/* Loom embed, 16:9, full container width */}
+        {/* Loom embed. Recording is portrait (phone screen), so container is
+            narrow + tall, centered, with the correct ~228% padding-bottom. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative w-full rounded-2xl overflow-hidden border border-base-300 bg-[#0B1628] shadow-xl"
-          style={{ paddingBottom: "56.25%" }}
+          className="relative w-full max-w-[360px] mx-auto rounded-2xl overflow-hidden border border-base-300 bg-[#0B1628] shadow-xl"
+          style={{ paddingBottom: "228.03%" }}
         >
           {loomIsPlaceholder ? (
             <button
@@ -90,7 +91,7 @@ const DemoSection = () => {
                     "radial-gradient(ellipse at center, rgba(234,88,12,0.35) 0%, transparent 60%)",
                 }}
               />
-              <div className="relative flex flex-col items-center text-white">
+              <div className="relative flex flex-col items-center text-white px-6 text-center">
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110"
                   style={{
@@ -101,7 +102,7 @@ const DemoSection = () => {
                   <Play className="w-8 h-8 ml-1 fill-white" />
                 </div>
                 <div className="mt-6 font-semibold text-lg">
-                  Watch the 90-second demo
+                  Watch the 45-second demo
                 </div>
                 <div className="text-sm text-white/50 mt-1">
                   Loom embed appears here once <code className="text-white/70">LOOM_URL</code> is set
@@ -113,6 +114,8 @@ const DemoSection = () => {
               src={LOOM_URL}
               title="WhatsApp AI Receptionist, full demo"
               frameBorder="0"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
               allowFullScreen
               className="absolute inset-0 w-full h-full"
             />

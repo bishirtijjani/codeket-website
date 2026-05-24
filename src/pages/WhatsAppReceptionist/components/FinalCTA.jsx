@@ -64,8 +64,7 @@ const FinalCTA = () => {
         </div>
 
         <p className="text-slate-500 text-xs mt-6">
-          Not ready to book? Text {WHATSAPP_DEMO_NUMBER} and try the demo bot
-          yourself, no email required.
+          Not ready to book? Text <span className="text-slate-300">{WHATSAPP_DEMO_NUMBER}</span> with <span className="font-mono text-slate-300">join pot-sport</span> and try the demo bot yourself, no email required.
         </p>
       </motion.div>
     </section>

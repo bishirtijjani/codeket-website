@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 /**
- * Lightweight modal that embeds a Loom video at 16:9.
+ * Lightweight modal that embeds a portrait Loom video (phone screen aspect).
  *
  * SSR-safe: useEffect (window.addEventListener) only runs client-side.
  */
@@ -32,7 +32,7 @@ const LoomModal = ({ open, onClose, url }) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-4xl"
+            className="relative w-full max-w-[380px]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -45,7 +45,7 @@ const LoomModal = ({ open, onClose, url }) => {
             </button>
             <div
               className="relative w-full overflow-hidden rounded-2xl bg-black shadow-2xl"
-              style={{ paddingBottom: "56.25%" }}
+              style={{ paddingBottom: "228.03%" }}
             >
               {/* If url is the placeholder, render a friendly fallback panel */}
               {url && url.startsWith("[") ? (
@@ -66,8 +66,10 @@ const LoomModal = ({ open, onClose, url }) => {
               ) : (
                 <iframe
                   src={url}
-                  title="WhatsApp AI Receptionist, 90-second demo"
+                  title="WhatsApp AI Receptionist, 45-second demo"
                   frameBorder="0"
+                  webkitallowfullscreen="true"
+                  mozallowfullscreen="true"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
                 />

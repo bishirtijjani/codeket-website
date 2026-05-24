@@ -2,15 +2,20 @@
 // Kept in its own module so the section components stay focused on layout.
 
 export const PRIMARY_CTA_LABEL = "Book a 15-min demo";
-export const SECONDARY_CTA_LABEL = "Watch 90-sec demo";
+export const SECONDARY_CTA_LABEL = "Watch 45-sec demo";
 
 // Replace these with real URLs / numbers before launch.
-export const CALENDLY_URL = "[CALENDLY_URL_PLACEHOLDER]";
-export const LOOM_URL = "[LOOM_URL_PLACEHOLDER]";
-export const WHATSAPP_DEMO_LINK = "[WHATSAPP_DEMO_LINK_PLACEHOLDER]";
-export const WHATSAPP_DEMO_NUMBER = "[WHATSAPP_DEMO_NUMBER]";
+export const CALENDLY_URL = "https://calendly.com/bishirtijjani247/30min";
+// Use the /embed/ URL (not /share/) — required for iframe embedding.
+// The /share/ URL renders fine in a browser but Loom blocks it inside iframes.
+export const LOOM_URL = "https://www.loom.com/embed/dd158bac0eb94a2393d74ce45e0b376c";
+// Twilio WhatsApp sandbox. The wa.me link pre-fills the join code so a tap
+// auto-registers the visitor to the sandbox and they can start chatting.
+// If they message manually, they need to send "join pot-sport" first.
+export const WHATSAPP_DEMO_LINK = "https://wa.me/14155238886?text=join%20pot-sport";
+export const WHATSAPP_DEMO_NUMBER = "+1 (415) 523-8886";
 // TODO: replace with Bishir's real LinkedIn URL
-export const BISHIR_LINKEDIN_URL = "[BISHIR_LINKEDIN_PLACEHOLDER]";
+export const BISHIR_LINKEDIN_URL = "https://linkedin.com/in/bishirtijjani";
 
 // Directional stats, phrased so they remain true without exact citations.
 export const PROBLEM_STATS = [
