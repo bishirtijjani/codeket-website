@@ -14,7 +14,6 @@ export const LOOM_URL = "https://www.loom.com/embed/dd158bac0eb94a2393d74ce45e0b
 // If they message manually, they need to send "join pot-sport" first.
 export const WHATSAPP_DEMO_LINK = "https://wa.me/14155238886?text=join%20pot-sport";
 export const WHATSAPP_DEMO_NUMBER = "+1 (415) 523-8886";
-// TODO: replace with Bishir's real LinkedIn URL
 export const BISHIR_LINKEDIN_URL = "https://linkedin.com/in/bishirtijjani";
 
 // Directional stats, phrased so they remain true without exact citations.
@@ -127,15 +126,6 @@ export const PRICING_PLANS = [
 
 export const TRUST_PILLARS = [
   {
-    title: "We've shipped 3 full SaaS products",
-    body: "Real production apps, real users, not just decks and demos.",
-    links: [
-      { label: "restaurant.codeket.com", href: "https://restaurant.codeket.com" },
-      { label: "school.codeket.com", href: "https://school.codeket.com" },
-      { label: "inventory.codeket.com", href: "https://inventory.codeket.com" },
-    ],
-  },
-  {
     title: "100% in-house team",
     body:
       "Nigeria-based engineering and ops. USD billing via Wise or Grey. No agencies, no offshore middlemen, no surprises.",
@@ -149,8 +139,7 @@ export const TRUST_PILLARS = [
     person: {
       name: "Bishir TM",
       role: "Founder, Codeket",
-      // TODO: replace with Bishir's real LinkedIn URL
-      linkedin: "[BISHIR_LINKEDIN_PLACEHOLDER]",
+      linkedin: BISHIR_LINKEDIN_URL,
     },
   },
 ];

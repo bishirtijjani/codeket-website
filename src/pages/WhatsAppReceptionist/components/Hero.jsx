@@ -70,38 +70,6 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Social proof band, proof of shipping ability, above the fold */}
-          <div className="pt-2 border-t border-base-300/60">
-            <div className="text-[11px] uppercase tracking-[0.18em] text-base-content/60 font-semibold mb-3">
-              Same team behind
-            </div>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {[
-                {
-                  label: "restaurant.codeket.com",
-                  href: "https://restaurant.codeket.com",
-                },
-                {
-                  label: "school.codeket.com",
-                  href: "https://school.codeket.com",
-                },
-                {
-                  label: "inventory.codeket.com",
-                  href: "https://inventory.codeket.com",
-                },
-              ].map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium text-base-content/70 hover:text-primary transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </div>
         </motion.div>
 
         {/* Right, WhatsApp conversation */}

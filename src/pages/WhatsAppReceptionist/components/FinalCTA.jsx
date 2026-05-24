@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { CALENDLY_URL, WHATSAPP_DEMO_LINK, WHATSAPP_DEMO_NUMBER } from "../data";
+import { ArrowRight } from "lucide-react";
+import { CALENDLY_URL } from "../data";
 
 const FinalCTA = () => {
   return (
@@ -39,33 +39,18 @@ const FinalCTA = () => {
           way.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-3 px-10 py-5 cursor-pointer text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
-            style={{
-              background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
-            }}
-          >
-            <span>Book the demo</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href={WHATSAPP_DEMO_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-white text-base font-semibold border border-white/15 hover:bg-white/5 transition-all"
-          >
-            <MessageCircle className="w-4 h-4" />
-            Or text the bot first
-          </a>
-        </div>
-
-        <p className="text-slate-500 text-xs mt-6">
-          Not ready to book? Text <span className="text-slate-300">{WHATSAPP_DEMO_NUMBER}</span> with <span className="font-mono text-slate-300">join pot-sport</span> and try the demo bot yourself, no email required.
-        </p>
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center justify-center gap-3 px-10 py-5 cursor-pointer text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+          style={{
+            background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
+          }}
+        >
+          <span>Book the demo</span>
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </a>
       </motion.div>
     </section>
   );
