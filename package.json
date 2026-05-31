@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-sitemap": "node sitemap-generator.js",
-    "postinstall": "node scripts/patch-react-router-dom.js"
+    "postinstall": "node scripts/patch-react-router-dom.js",
+    "render": "node scripts/render-motion-graphics.mjs",
+    "render:mobile": "RENDER_WIDTH=1080 RENDER_HEIGHT=1920 RENDER_OUT=motion-graphics-mobile.mp4 node scripts/render-motion-graphics.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -40,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "postcss": "^8.4.41",
+    "puppeteer-core": "^25.1.0",
     "tailwindcss": "^3.4.10",
     "vite": "^5.4.1"
   }
