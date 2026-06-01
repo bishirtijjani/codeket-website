@@ -7,7 +7,7 @@ export const ORANGE = "#C2410C"; // the accent
 export const ORANGE_LIGHT = "#EA580C"; // reserved
 export const NAVY_MUTED = "rgba(11, 22, 40, 0.55)"; // subdued small text
 
-// WhatsApp identity colours — used ONLY inside the chat mockup so the
+// WhatsApp identity colours used ONLY inside the chat mockup so the
 // scene reads instantly as "WhatsApp". All headline/brand type stays
 // navy + orange per the brand system.
 export const WHATSAPP = "#25D366";
@@ -24,7 +24,7 @@ export const animate = (el, keyframes, options = {}) => {
 
 export const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// double-rAF — wait for layout to settle after a style reset
+// double-rAF: wait for layout to settle after a style reset
 export const nextFrame = () =>
   new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 

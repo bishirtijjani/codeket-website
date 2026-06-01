@@ -9,7 +9,7 @@ import {
   EASE_ENTER,
 } from "./animUtils";
 
-// PROBLEM — three cycling beliefs, each closed with an orange period.
+// PROBLEM - three cycling beliefs, each closed with an orange period.
 const BEATS = [
   "Customers message at every hour",
   "Most won't wait for a reply",
@@ -52,7 +52,7 @@ export default function Scene2({ playToken, onComplete }) {
         if (cancelled) return;
 
         const isLast = i === BEATS.length - 1;
-        await wait(isLast ? 1900 : 1000);
+        await wait(isLast ? 2400 : 1800);
         if (cancelled) return;
 
         await animate(

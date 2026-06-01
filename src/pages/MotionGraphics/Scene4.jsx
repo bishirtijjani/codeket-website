@@ -17,10 +17,10 @@ import {
   useIsPortrait,
 } from "./animUtils";
 
-// CAPABILITIES — one live conversation that shows all three jobs at once.
+// CAPABILITIES - one live conversation that shows all three jobs at once.
 const MESSAGES = [
   { from: "in", text: "Hi! Are you open right now?" },
-  { from: "out", text: "Yes — we're open till 9 PM 😊", cap: 0 },
+  { from: "out", text: "Yes, we're open till 9 PM 😊", cap: 0 },
   { from: "in", text: "Any tables for 4 tonight?" },
   { from: "out", text: "We do! Shall I book it for 7:00 PM?", cap: 1 },
   { from: "in", text: "Yes please 🙏" },
@@ -109,9 +109,9 @@ export default function Scene4({ playToken, onComplete }) {
         if (MESSAGES[i].cap != null) {
           await setCaption(MESSAGES[i].cap);
           if (cancelled) return;
-          await wait(560);
+          await wait(780);
         } else {
-          await wait(560);
+          await wait(780);
         }
       }
       if (cancelled) return;
@@ -160,7 +160,9 @@ export default function Scene4({ playToken, onComplete }) {
         style={{
           textTransform: "uppercase",
           letterSpacing: "0.28em",
-          fontSize: "clamp(0.72rem, 1vw, 1.1rem)",
+          fontSize: isPortrait
+            ? "clamp(1.2rem, 3vw, 2rem)"
+            : "clamp(1.1rem, 1.5vw, 1.9rem)",
           fontWeight: 600,
           color: NAVY_MUTED,
           marginBottom: "clamp(0.6rem, 1.2vh, 1.1rem)",
@@ -176,8 +178,8 @@ export default function Scene4({ playToken, onComplete }) {
           lineHeight: 1.05,
           letterSpacing: "-0.025em",
           fontSize: isPortrait
-            ? "clamp(2rem, 6.4vw, 3.4rem)"
-            : "clamp(2rem, 3.6vw, 4.6rem)",
+            ? "clamp(2.6rem, 7.4vw, 4.4rem)"
+            : "clamp(2.4rem, 3.8vw, 4.8rem)",
         }}
       >
         <span ref={cap1Ref}>{CAPTIONS[0][0]}</span>
@@ -189,16 +191,23 @@ export default function Scene4({ playToken, onComplete }) {
   );
 
   // ── Phone with WhatsApp chat ──
+  // Inner sizes are em-based so they scale with the phone's own font-size
+  // (set below per orientation), which keeps the chat readable regardless of
+  // viewport - vw-based sizing made the text tiny in portrait.
   const phone = (
     <div
       ref={phoneRef}
       style={{
         opacity: 0,
-        width: isPortrait ? "min(74vw, 440px)" : "min(26vw, 420px)",
-        aspectRatio: "9 / 18.5",
+        width: isPortrait ? "min(82vw, 700px)" : "min(30vw, 540px)",
+        aspectRatio: isPortrait ? "9 / 15.5" : "9 / 17",
+        // Base font-size that the inner em units key off.
+        fontSize: isPortrait
+          ? "clamp(1.1rem, 3vw, 1.9rem)"
+          : "clamp(0.95rem, 1.5vw, 1.5rem)",
         background: "#0B1628",
-        borderRadius: "clamp(1.6rem, 2.4vw, 2.6rem)",
-        padding: "clamp(0.5rem, 0.8vw, 0.9rem)",
+        borderRadius: "2em",
+        padding: "0.55em",
         boxShadow: "0 30px 80px rgba(11,22,40,0.28)",
         flexShrink: 0,
       }}
@@ -207,7 +216,7 @@ export default function Scene4({ playToken, onComplete }) {
         style={{
           width: "100%",
           height: "100%",
-          borderRadius: "clamp(1.1rem, 1.8vw, 2rem)",
+          borderRadius: "1.5em",
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
@@ -222,14 +231,13 @@ export default function Scene4({ playToken, onComplete }) {
             display: "flex",
             alignItems: "center",
             gap: "0.6em",
-            padding:
-              "clamp(0.7rem, 1.1vw, 1.1rem) clamp(0.8rem, 1.2vw, 1.2rem)",
+            padding: "0.8em 0.9em",
           }}
         >
           <div
             style={{
-              width: "clamp(1.7rem, 2.4vw, 2.6rem)",
-              height: "clamp(1.7rem, 2.4vw, 2.6rem)",
+              width: "2.2em",
+              height: "2.2em",
               borderRadius: "50%",
               background: WHATSAPP,
               display: "flex",
@@ -237,30 +245,21 @@ export default function Scene4({ playToken, onComplete }) {
               justifyContent: "center",
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(0.8rem, 1.1vw, 1.2rem)",
+              fontSize: "1em",
               color: "#063",
+              flexShrink: 0,
             }}
           >
             B
           </div>
-          <div style={{ lineHeight: 1.1 }}>
+          <div style={{ lineHeight: 1.15 }}>
             <div
               className="font-display"
-              style={{
-                fontWeight: 700,
-                fontSize: "clamp(0.85rem, 1.15vw, 1.25rem)",
-              }}
+              style={{ fontWeight: 700, fontSize: "1.05em" }}
             >
               Bella Bistro
             </div>
-            <div
-              style={{
-                fontSize: "clamp(0.62rem, 0.85vw, 0.92rem)",
-                opacity: 0.85,
-              }}
-            >
-              online
-            </div>
+            <div style={{ fontSize: "0.78em", opacity: 0.85 }}>online</div>
           </div>
         </div>
 
@@ -271,8 +270,8 @@ export default function Scene4({ playToken, onComplete }) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
-            gap: "clamp(0.4rem, 0.8vh, 0.8rem)",
-            padding: "clamp(0.7rem, 1.2vw, 1.2rem)",
+            gap: "0.5em",
+            padding: "0.9em",
             overflow: "hidden",
           }}
         >
@@ -290,13 +289,13 @@ export default function Scene4({ playToken, onComplete }) {
                   background: m.from === "in" ? "#FFFFFF" : WHATSAPP_BUBBLE_OUT,
                   color: NAVY,
                   fontFamily: "'Roboto', ui-sans-serif, sans-serif",
-                  fontSize: "clamp(0.74rem, 1.05vw, 1.15rem)",
-                  lineHeight: 1.3,
-                  padding: "0.55em 0.8em",
+                  fontSize: "0.95em",
+                  lineHeight: 1.32,
+                  padding: "0.6em 0.85em",
                   borderRadius:
                     m.from === "in"
-                      ? "2px 12px 12px 12px"
-                      : "12px 2px 12px 12px",
+                      ? "0.3em 1em 1em 1em"
+                      : "1em 0.3em 1em 1em",
                   maxWidth: "82%",
                   boxShadow: "0 1px 2px rgba(11,22,40,0.10)",
                 }}

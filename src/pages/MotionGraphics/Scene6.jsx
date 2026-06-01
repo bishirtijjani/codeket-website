@@ -9,7 +9,7 @@ import {
   EASE_ENTER,
 } from "./animUtils";
 
-// PROMISE — three cycling beats, the last with the orange punchline.
+// PROMISE - three cycling beats, the last with the orange punchline.
 const BEATS = [
   [["You run your "], ["business."]],
   [["It runs the "], ["chats."]],
@@ -54,7 +54,7 @@ export default function Scene6({ playToken, onComplete }) {
         if (cancelled) return;
 
         const isLast = i === BEATS.length - 1;
-        await wait(isLast ? 2000 : 1000);
+        await wait(isLast ? 2400 : 1800);
         if (cancelled) return;
 
         await animate(

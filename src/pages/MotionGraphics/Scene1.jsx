@@ -13,7 +13,7 @@ import {
   EASE_EXIT,
 } from "./animUtils";
 
-// HOOK — an everyday WhatsApp message lands, then the line that frames it.
+// HOOK - an everyday WhatsApp message lands, then the line that frames it.
 export default function Scene1({ playToken, onComplete }) {
   const bubbleRef = useRef(null);
   const timeRef = useRef(null);
@@ -106,7 +106,7 @@ export default function Scene1({ playToken, onComplete }) {
     >
       <div
         style={{
-          width: "min(86vw, 680px)",
+          width: "min(90vw, 900px)",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
@@ -118,13 +118,13 @@ export default function Scene1({ playToken, onComplete }) {
             opacity: 0,
             background: "#FFFFFF",
             border: "1px solid #E8EBF0",
-            borderRadius: "4px 18px 18px 18px",
+            borderRadius: "6px 22px 22px 22px",
             padding:
-              "clamp(0.9rem, 1.5vw, 1.5rem) clamp(1.1rem, 2vw, 1.9rem)",
-            boxShadow: "0 10px 34px rgba(11,22,40,0.10)",
+              "clamp(1.3rem, 2.2vw, 2.2rem) clamp(1.6rem, 2.8vw, 2.8rem)",
+            boxShadow: "0 12px 40px rgba(11,22,40,0.12)",
             fontFamily: "'Roboto', ui-sans-serif, sans-serif",
             color: NAVY,
-            fontSize: "clamp(1rem, 1.8vw, 2.1rem)",
+            fontSize: "clamp(1.5rem, 2.9vw, 3.2rem)",
             lineHeight: 1.35,
             maxWidth: "100%",
           }}
@@ -136,10 +136,10 @@ export default function Scene1({ playToken, onComplete }) {
           style={{
             opacity: 0,
             fontFamily: "'Roboto', ui-sans-serif, sans-serif",
-            fontSize: "clamp(0.72rem, 1vw, 1.05rem)",
+            fontSize: "clamp(1rem, 1.5vw, 1.6rem)",
             color: NAVY_MUTED,
-            marginTop: "0.5rem",
-            marginLeft: "0.5rem",
+            marginTop: "0.7rem",
+            marginLeft: "0.6rem",
           }}
         >
           Delivered · 9:47 PM

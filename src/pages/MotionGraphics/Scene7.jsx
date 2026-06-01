@@ -10,7 +10,7 @@ import {
   EASE_ENTER,
 } from "./animUtils";
 
-// SIGN-OFF — the logo moment.
+// SIGN-OFF - the logo moment.
 export default function Scene7({ playToken, onComplete }) {
   const logoRef = useRef(null);
   const tagRef = useRef(null);
@@ -119,7 +119,7 @@ export default function Scene7({ playToken, onComplete }) {
           opacity: 0,
           textTransform: "uppercase",
           letterSpacing: "0.32em",
-          fontSize: "clamp(0.9rem, 1.15vw, 1.4rem)",
+          fontSize: "clamp(1.2rem, 1.7vw, 2rem)",
           color: NAVY_MUTED,
         }}
       >

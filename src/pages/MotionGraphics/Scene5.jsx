@@ -12,7 +12,7 @@ import {
   EASE_DROP,
 } from "./animUtils";
 
-// VALUE PROPS — four reasons, staggered in as a 2×2 grid.
+// VALUE PROPS - four reasons, staggered in as a 2x2 grid.
 const PROPS = [
   { Icon: Clock, headline: "Always On", sub: "Answers at 2 PM or 2 AM." },
   { Icon: Zap, headline: "Instant Replies", sub: "No one waits on hold." },
@@ -130,8 +130,8 @@ export default function Scene5({ playToken, onComplete }) {
               className="font-sans"
               style={{
                 color: NAVY_MUTED,
-                fontSize: "clamp(0.9rem, 1.3vw, 1.5rem)",
-                lineHeight: 1.35,
+                fontSize: "clamp(1.1rem, 1.5vw, 1.8rem)",
+                lineHeight: 1.4,
               }}
             >
               {sub}

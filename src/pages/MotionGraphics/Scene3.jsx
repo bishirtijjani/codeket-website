@@ -10,7 +10,7 @@ import {
   EASE_ENTER,
 } from "./animUtils";
 
-// SOLUTION — the product reveal.
+// SOLUTION - the product reveal.
 export default function Scene3({ playToken, onComplete }) {
   const labelRef = useRef(null);
   const titleRef = useRef(null);
@@ -97,7 +97,7 @@ export default function Scene3({ playToken, onComplete }) {
           opacity: 0,
           textTransform: "uppercase",
           letterSpacing: "0.3em",
-          fontSize: "clamp(0.8rem, 1.2vw, 1.4rem)",
+          fontSize: "clamp(1.3rem, 2vw, 2.4rem)",
           fontWeight: 600,
           color: NAVY_MUTED,
         }}

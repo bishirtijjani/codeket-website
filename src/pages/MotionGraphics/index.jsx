@@ -78,7 +78,14 @@ export default function MotionGraphics() {
         inset: 0,
         width: "100vw",
         height: "100vh",
-        background: "#FFFFFF",
+        // Soft off-white instead of stark white, with a faint navy dot grid
+        // for subtle texture. Kept very low-contrast so it never competes
+        // with the foreground type and mockups.
+        backgroundColor: "#F5F7FB",
+        backgroundImage:
+          "radial-gradient(rgba(11, 22, 40, 0.045) 1px, transparent 1.4px)",
+        backgroundSize: "30px 30px",
+        backgroundPosition: "center",
         overflow: "hidden",
         zIndex: 9999,
       }}

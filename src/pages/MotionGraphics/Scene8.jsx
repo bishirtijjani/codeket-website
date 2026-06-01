@@ -10,7 +10,7 @@ import {
   EASE_ENTER,
 } from "./animUtils";
 
-// VISIT — the call to action, held long.
+// VISIT - the call to action, held long.
 export default function Scene8({ playToken, onComplete }) {
   const urlRef = useRef(null);
   const ctaRef = useRef(null);
@@ -89,14 +89,15 @@ export default function Scene8({ playToken, onComplete }) {
           opacity: 0,
           color: NAVY,
           fontWeight: 900,
-          letterSpacing: "-0.03em",
-          lineHeight: 1,
-          fontSize: "clamp(2.4rem, 7vw, 8.4rem)",
+          letterSpacing: "-0.025em",
+          lineHeight: 1.05,
+          fontSize: "clamp(2rem, 5vw, 5.6rem)",
           textAlign: "center",
-          maxWidth: "min(92vw, 1500px)",
+          maxWidth: "min(94vw, 1600px)",
         }}
       >
-        www.codeket<span style={{ color: ORANGE }}>.com</span>
+        codeket.com<wbr />
+        <span style={{ color: ORANGE }}>/whatsapp-receptionist</span>
       </div>
       <div
         ref={ctaRef}
@@ -106,7 +107,7 @@ export default function Scene8({ playToken, onComplete }) {
           textTransform: "uppercase",
           letterSpacing: "0.32em",
           fontWeight: 600,
-          fontSize: "clamp(0.95rem, 1.4vw, 1.7rem)",
+          fontSize: "clamp(1.3rem, 2vw, 2.4rem)",
           color: NAVY_MUTED,
         }}
       >
