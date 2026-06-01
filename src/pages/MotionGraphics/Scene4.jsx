@@ -19,12 +19,12 @@ import {
 
 // CAPABILITIES - one live conversation that shows all three jobs at once.
 const MESSAGES = [
-  { from: "in", text: "Hi! Are you open right now?" },
-  { from: "out", text: "Yes, we're open till 9 PM 😊", cap: 0 },
-  { from: "in", text: "Any tables for 4 tonight?" },
-  { from: "out", text: "We do! Shall I book it for 7:00 PM?", cap: 1 },
+  { from: "in", text: "Hi! Do you have any facials this week?" },
+  { from: "out", text: "We do! Openings Thursday 😊", cap: 0 },
+  { from: "in", text: "How much is the glow facial?" },
+  { from: "out", text: "It's $120. Shall I book you Thu 2 PM?", cap: 1 },
   { from: "in", text: "Yes please 🙏" },
-  { from: "out", text: "Booked ✅ See you at 7!", cap: 2 },
+  { from: "out", text: "Booked ✅ See you Thursday!", cap: 2 },
 ];
 
 const CAPTIONS = [
@@ -250,14 +250,14 @@ export default function Scene4({ playToken, onComplete }) {
               flexShrink: 0,
             }}
           >
-            B
+            G
           </div>
           <div style={{ lineHeight: 1.15 }}>
             <div
               className="font-display"
               style={{ fontWeight: 700, fontSize: "1.05em" }}
             >
-              Bella Bistro
+              Glow Med Spa
             </div>
             <div style={{ fontSize: "0.78em", opacity: 0.85 }}>online</div>
           </div>
