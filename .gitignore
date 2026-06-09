@@ -10,6 +10,9 @@ lerna-debug.log*
 node_modules
 *.local
 
+# Build output (built inside Docker on the VPS, served from there)
+dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
