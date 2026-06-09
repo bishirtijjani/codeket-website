@@ -19,12 +19,6 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: "react-router-dom/server.js",
-        replacement: fileURLToPath(
-          new URL("./src/react-router-dom-server-shim.js", import.meta.url),
-        ),
-      },
-      {
         find: "framer-motion-original",
         replacement: framerMotionReal,
       },
