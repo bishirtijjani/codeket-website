@@ -59,11 +59,11 @@ const Pricing = () => {
             Pricing
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-base-content">
-            Two ways to get started.
+            Simple, transparent pricing.
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="max-w-xl">
           {PRICING_PLANS.map((plan, i) => (
             <motion.div
               key={plan.id}
@@ -77,18 +77,6 @@ const Pricing = () => {
                   : "border-base-300"
               }`}
             >
-              {plan.slots && (
-                <div
-                  className="absolute top-0 right-0 text-white text-xs font-bold py-1.5 px-4 rounded-bl-lg"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
-                  }}
-                >
-                  {plan.slots}
-                </div>
-              )}
-
               <div className="p-8 md:p-10 flex flex-col flex-1">
                 <h3 className="font-display text-2xl md:text-3xl font-extrabold text-base-content mb-1">
                   {plan.name}
@@ -130,9 +118,7 @@ const Pricing = () => {
 
                 <div className="space-y-3">
                   <p className="font-semibold text-base-content text-sm uppercase tracking-wider mb-3">
-                    {plan.id === "case-study"
-                      ? "What's included & required:"
-                      : "What's included:"}
+                    What's included:
                   </p>
                   {plan.features.map((f, idx) => (
                     <div key={idx} className="flex items-start">
