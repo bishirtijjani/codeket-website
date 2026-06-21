@@ -9,7 +9,6 @@ import DemoSection from "./components/DemoSection";
 import WhyCodeket from "./components/WhyCodeket";
 import Pricing from "./components/Pricing";
 import FAQ from "./components/FAQ";
-import FinalCTA from "./components/FinalCTA";
 import ContactForm from "./components/ContactForm";
 import { FAQS } from "./data";
 
@@ -95,7 +94,6 @@ const WhatsAppReceptionist = () => {
       <WhyCodeket />
       <Pricing />
       <FAQ />
-      <FinalCTA />
       <ContactForm />
     </div>
   );
