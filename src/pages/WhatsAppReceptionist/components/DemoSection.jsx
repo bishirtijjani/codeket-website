@@ -24,6 +24,10 @@ const DemoSection = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-base-content">
             See it answer, book, and follow up.
           </h2>
+          <p className="text-base-content/60 text-base md:text-lg mt-4">
+            This is a generic example. Book a 15-min call and we'll build
+            yours on your actual services, pricing, and FAQs.
+          </p>
         </motion.div>
 
         {/* Loom embed, portrait phone aspect, centered with max-width.

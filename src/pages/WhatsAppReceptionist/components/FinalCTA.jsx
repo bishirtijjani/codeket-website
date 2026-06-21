@@ -35,8 +35,9 @@ const FinalCTA = () => {
         </h2>
 
         <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Book a 15-minute demo. Walk away with a free inquiry-loss audit either
-          way.
+          Book a 15-minute demo. We'll build it on your actual services,
+          pricing, and FAQs, so you see exactly how it sounds on your
+          business.
         </p>
 
         <a

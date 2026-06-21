@@ -47,7 +47,7 @@ const Hero = () => {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-8">
+          <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <a
               href={CALENDLY_URL}
               target="_blank"
@@ -70,6 +70,9 @@ const Hero = () => {
             </button>
           </div>
 
+          <p className="text-base-content/50 text-sm">
+            We'll build it on your actual services, pricing, and FAQs, not a generic script.
+          </p>
         </motion.div>
 
         {/* Right, WhatsApp conversation */}
