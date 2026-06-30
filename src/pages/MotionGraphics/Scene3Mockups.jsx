@@ -359,7 +359,202 @@ export function EnterpriseDashboard() {
   );
 }
 
-// 4) Data Analytics — hero line chart ---------------------------------------
+// 5) Websites — landing page skeleton ---------------------------------------
+export function WebsiteMockup() {
+  const cards = [
+    { label: "Fast",        sub: "Core Web Vitals", accent: false },
+    { label: "Responsive",  sub: "Mobile-first",    accent: true  },
+    { label: "SEO Ready",   sub: "Built-in",        accent: false },
+  ];
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+      }}
+    >
+      {/* Nav bar */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "10px 18px",
+          borderBottom: "1px solid rgba(11,22,40,0.07)",
+          gap: "14px",
+          flexShrink: 0,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", marginRight: "auto" }}>
+          <div style={{ width: "14px", height: "14px", backgroundColor: ORANGE, borderRadius: "3px" }} />
+          <span
+            style={{
+              color: NAVY,
+              fontWeight: 800,
+              fontSize: "clamp(0.45rem, 0.8vw, 0.88rem)",
+              letterSpacing: "-0.01em",
+              fontFamily: "inherit",
+            }}
+          >
+            codeket
+          </span>
+        </div>
+        {["Home", "Services", "Work", "Contact"].map((l) => (
+          <span
+            key={l}
+            style={{
+              color: "rgba(11,22,40,0.45)",
+              fontSize: "clamp(0.3rem, 0.52vw, 0.6rem)",
+              fontWeight: 500,
+              fontFamily: "inherit",
+            }}
+          >
+            {l}
+          </span>
+        ))}
+        <div
+          style={{
+            backgroundColor: ORANGE,
+            color: "#fff",
+            fontSize: "clamp(0.28rem, 0.48vw, 0.55rem)",
+            fontWeight: 700,
+            padding: "4px 10px",
+            borderRadius: "999px",
+            fontFamily: "inherit",
+          }}
+        >
+          Get Started
+        </div>
+      </div>
+
+      {/* Hero */}
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          padding: "16px 22px 14px",
+          gap: "12px",
+          minHeight: 0,
+        }}
+      >
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              fontSize: "clamp(0.85rem, 1.65vw, 2rem)",
+              fontWeight: 900,
+              color: NAVY,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.05,
+              fontFamily: "inherit",
+            }}
+          >
+            Your business.
+            <br />
+            <span style={{ color: ORANGE }}>Online.</span>
+          </div>
+          <div
+            style={{
+              fontSize: "clamp(0.32rem, 0.56vw, 0.66rem)",
+              color: "rgba(11,22,40,0.52)",
+              marginTop: "8px",
+              fontFamily: "inherit",
+              lineHeight: 1.5,
+              maxWidth: "58%",
+            }}
+          >
+            Fast, modern websites built for growth. SEO-ready from day one.
+          </div>
+          <div style={{ display: "flex", gap: "7px", marginTop: "12px" }}>
+            <div
+              style={{
+                backgroundColor: NAVY,
+                color: "#fff",
+                fontSize: "clamp(0.27rem, 0.46vw, 0.54rem)",
+                fontWeight: 700,
+                padding: "5px 12px",
+                borderRadius: "999px",
+                fontFamily: "inherit",
+              }}
+            >
+              Start a project
+            </div>
+            <div
+              style={{
+                border: "1px solid rgba(11,22,40,0.18)",
+                color: NAVY,
+                fontSize: "clamp(0.27rem, 0.46vw, 0.54rem)",
+                fontWeight: 600,
+                padding: "5px 12px",
+                borderRadius: "999px",
+                fontFamily: "inherit",
+              }}
+            >
+              See our work
+            </div>
+          </div>
+        </div>
+
+        {/* Feature cards */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: "7px",
+            flexShrink: 0,
+          }}
+        >
+          {cards.map((c, i) => (
+            <div
+              key={i}
+              style={{
+                backgroundColor: c.accent ? NAVY : "#F8FAFC",
+                borderRadius: "7px",
+                padding: "9px 11px",
+                border: c.accent ? "none" : "1px solid rgba(11,22,40,0.06)",
+              }}
+            >
+              <div
+                style={{
+                  width: "12px",
+                  height: "4px",
+                  backgroundColor: c.accent ? ORANGE : "rgba(11,22,40,0.18)",
+                  borderRadius: "2px",
+                  marginBottom: "6px",
+                }}
+              />
+              <div
+                style={{
+                  fontSize: "clamp(0.32rem, 0.56vw, 0.66rem)",
+                  fontWeight: 700,
+                  color: c.accent ? "#fff" : NAVY,
+                  fontFamily: "inherit",
+                }}
+              >
+                {c.label}
+              </div>
+              <div
+                style={{
+                  fontSize: "clamp(0.27rem, 0.44vw, 0.52rem)",
+                  color: c.accent ? "rgba(255,255,255,0.55)" : "rgba(11,22,40,0.45)",
+                  fontFamily: "inherit",
+                  marginTop: "2px",
+                }}
+              >
+                {c.sub}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// 6) Data Analytics — hero line chart ---------------------------------------
 export function AnalyticsChart() {
   // Data points showing improving accuracy (SVG y is inverted)
   const points = [

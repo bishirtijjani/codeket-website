@@ -5,6 +5,7 @@ import {
   AINetwork,
   EnterpriseDashboard,
   AnalyticsChart,
+  WebsiteMockup,
 } from "./Scene3Mockups";
 
 // Per-orientation frame sizing. Each service's frame matches the natural
@@ -30,6 +31,7 @@ const SERVICES = [
   { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5, kind: "phone"       },
   { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5, kind: "desktop"     },
   { label: "Data Analytics",      imgSrc: null,              Mockup: AnalyticsChart,      tilt: -2.5, kind: "desktop"     },
+  { label: "Websites",            imgSrc: null,              Mockup: WebsiteMockup,        tilt:  2.5, kind: "desktop"     },
 ];
 
 const ENTER_MS    = 420;

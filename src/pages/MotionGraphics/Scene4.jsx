@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Zap, Headphones, Users, Sparkles } from "lucide-react";
+import { Zap, Headphones, Users } from "lucide-react";
 import { animate, wait, nextFrame, NAVY, ORANGE } from "./animUtils";
 
 const PROPS = [
@@ -17,11 +17,6 @@ const PROPS = [
     Icon: Users,
     headline: "Expert Dev Team",
     sub: "Skilled engineers, no outsourcing.",
-  },
-  {
-    Icon: Sparkles,
-    headline: "AI-Powered",
-    sub: "We build smarter because we build with AI.",
   },
 ];
 
