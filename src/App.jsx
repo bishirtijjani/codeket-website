@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NotFound from "./components/NotFound";
@@ -9,7 +9,7 @@ import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
 import Consultation from "./pages/Consultation";
 import Pricing from "./pages/Pricing";
-import WhatsAppReceptionist from "./pages/WhatsAppReceptionist";
+import AIReceptionist from "./pages/AIReceptionist";
 import TermsOfService from "./components/TermsOfService";
 // Files renamed from PrivacyPolicy/CookiePolicy so Brave Shields and other
 // tracker blockers don't block the .jsx asset URL (those filenames match
@@ -76,7 +76,12 @@ export const routes = [
       { path: "case-studies", element: <CaseStudies /> },
       { path: "consultation", element: <Consultation /> },
       { path: "pricing", element: <Pricing /> },
-      { path: "whatsapp-receptionist", element: <WhatsAppReceptionist /> },
+      { path: "ai-receptionist", element: <AIReceptionist /> },
+      // Old URL kept alive so existing links / shares don't 404.
+      {
+        path: "whatsapp-receptionist",
+        element: <Navigate to="/ai-receptionist" replace />,
+      },
       { path: "terms-of-service", element: <TermsOfService /> },
       { path: "privacy-policy", element: <LegalPrivacy /> },
       { path: "cookie-policy", element: <LegalCookies /> },

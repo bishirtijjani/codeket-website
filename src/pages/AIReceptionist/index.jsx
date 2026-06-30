@@ -13,10 +13,10 @@ import ContactForm from "./components/ContactForm";
 import { FAQS } from "./data";
 
 const PAGE_TITLE =
-  "WhatsApp AI Receptionist for Med Spas, Live in 14 Days | Codeket";
+  "AI Receptionist for Med Spas, Live in 14 Days | Codeket";
 const PAGE_DESCRIPTION =
-  "AI receptionist on WhatsApp for med spas. Answers every inquiry, books appointments, follows up, 24/7. Live in 14 days. Built by Codeket.";
-const PAGE_URL = "https://codeket.com/whatsapp-receptionist";
+  "AI receptionist for med spas on WhatsApp, Instagram, and more. Answers every inquiry, books appointments, follows up, 24/7. Live in 14 days. Built by Codeket.";
+const PAGE_URL = "https://codeket.com/ai-receptionist";
 const PAGE_OG_IMAGE = "https://codeket.com/preview-image.jpg";
 
 // JSON-LD structured data, helps Google, Bing, and LLM search surface the
@@ -25,7 +25,7 @@ const PAGE_OG_IMAGE = "https://codeket.com/preview-image.jpg";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "WhatsApp AI Receptionist for Med Spas",
+  name: "AI Receptionist for Med Spas",
   serviceType: "AI Customer Service Automation",
   provider: {
     "@type": "Organization",
@@ -55,7 +55,7 @@ const faqSchema = {
   })),
 };
 
-const WhatsAppReceptionist = () => {
+const AIReceptionist = () => {
   return (
     <div className="bg-base-100 text-base-content">
       <Helmet>
@@ -99,4 +99,4 @@ const WhatsAppReceptionist = () => {
   );
 };
 
-export default WhatsAppReceptionist;
+export default AIReceptionist;

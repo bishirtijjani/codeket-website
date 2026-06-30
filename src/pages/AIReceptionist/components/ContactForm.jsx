@@ -18,7 +18,7 @@ const ContactForm = () => {
     const payload = {
       name: form.name.value,
       email: form.email.value,
-      subject: "WhatsApp Receptionist Inquiry",
+      subject: "AI Receptionist Inquiry",
       message: `Spa: ${form.spaName.value}\n\n${form.message.value}`,
     };
 

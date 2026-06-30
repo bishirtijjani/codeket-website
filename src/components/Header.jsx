@@ -5,7 +5,7 @@ import { Sun, Moon } from "lucide-react";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/whatsapp-receptionist", label: "AI Automation", badge: "New" },
+  { to: "/ai-receptionist", label: "AI Automation", badge: "New" },
   { to: "/pricing", label: "Pricing" },
   { to: "/case-studies", label: "Case Studies" },
   { to: "/about", label: "About" },

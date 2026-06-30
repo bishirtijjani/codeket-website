@@ -65,7 +65,7 @@ const DemoSection = () => {
           ) : (
             <iframe
               src={LOOM_URL}
-              title="WhatsApp AI Receptionist demo"
+              title="AI Receptionist demo"
               frameBorder="0"
               webkitallowfullscreen="true"
               mozallowfullscreen="true"

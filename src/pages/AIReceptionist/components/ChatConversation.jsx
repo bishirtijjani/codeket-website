@@ -2,13 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * A WhatsApp conversation mockup, rendered in pure CSS.
+ * A messaging conversation mockup, rendered in pure CSS.
+ *
+ * Styled after a WhatsApp thread as one representative channel, the AI
+ * receptionist also runs on Instagram and other inboxes.
  *
  * Use this as the default visual in the hero. When the real screenshot
- * is ready, drop it in at /images/whatsapp-receptionist/demo-conversation.png
+ * is ready, drop it in at /images/ai-receptionist/demo-conversation.png
  * and replace this component's usage in Hero.jsx with a plain <img>.
  */
-const WhatsAppConversation = () => {
+const ChatConversation = () => {
   const messages = [
     { from: "client", text: "Hi, saw your lip filler post on IG. Do you have anything Saturday? I know it's last minute 🙈", time: "10:47 PM" },
     { from: "bot", text: "Hi Sarah 👋 Not too last minute at all, Dr. Marin has Saturday 11:30 AM and 3:15 PM open. Both 45-min slots. Want me to hold one?", time: "10:47 PM" },
@@ -145,4 +148,4 @@ const WhatsAppConversation = () => {
   );
 };
 
-export default WhatsAppConversation;
+export default ChatConversation;

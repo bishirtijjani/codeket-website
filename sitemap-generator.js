@@ -8,7 +8,7 @@ const paramsConfig = {
   "/pricing": {},
   "/case-studies": {},
   "/consultation": {},
-  "/whatsapp-receptionist": {},
+  "/ai-receptionist": {},
 };
 
 new Sitemap("https://codeket.com")

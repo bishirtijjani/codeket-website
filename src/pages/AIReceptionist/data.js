@@ -1,4 +1,4 @@
-// Data for the WhatsApp Receptionist landing page.
+// Data for the AI Receptionist landing page.
 // Kept in its own module so the section components stay focused on layout.
 
 export const PRIMARY_CTA_LABEL = "Book a 15-min demo";
@@ -129,9 +129,9 @@ export const FAQS = [
   },
   {
     id: 2,
-    question: "What if my staff already uses WhatsApp Business?",
+    question: "What if my staff already uses WhatsApp or Instagram DMs?",
     answer:
-      "The bot integrates with WhatsApp Business directly, your team and the bot coexist in the same inbox. Staff see every conversation, can jump in any time, and the bot quietly hands off whenever they take over.",
+      "The bot integrates with WhatsApp Business and Instagram directly, your team and the bot coexist in the same inbox. Staff see every conversation, can jump in any time, and the bot quietly hands off whenever they take over.",
   },
   {
     id: 3,

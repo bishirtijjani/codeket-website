@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
-import WhatsAppConversation from "./WhatsAppConversation";
+import ChatConversation from "./ChatConversation";
 import LoomModal from "./LoomModal";
 import { CALENDLY_URL, LOOM_URL } from "../data";
 
@@ -27,7 +27,7 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.05] tracking-tight text-base-content mb-6">
-            AI Receptionist on WhatsApp,{" "}
+            An AI Receptionist{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #C2410C 0%, #EA580C 100%)",
@@ -42,8 +42,8 @@ const Hero = () => {
 
           <p className="text-base-content/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
             Recover the bookings your front desk is missing after 6 PM. Answers
-            every inquiry, books appointments, follows up, 24/7. Live in 14
-            days.
+            every inquiry on WhatsApp, Instagram, and more, books appointments,
+            follows up, 24/7. Live in 14 days.
           </p>
 
           {/* CTAs */}
@@ -75,7 +75,7 @@ const Hero = () => {
           </p>
         </motion.div>
 
-        {/* Right, WhatsApp conversation */}
+        {/* Right, chat conversation */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -83,10 +83,10 @@ const Hero = () => {
           className="relative"
         >
           {/* CSS mockup. When the real screenshot is ready, replace with:
-              <img src="/images/whatsapp-receptionist/demo-conversation.png"
-                   alt="WhatsApp conversation with the Codeket AI receptionist"
+              <img src="/images/ai-receptionist/demo-conversation.png"
+                   alt="Chat conversation with the Codeket AI receptionist"
                    className="mx-auto w-full max-w-[360px]" /> */}
-          <WhatsAppConversation />
+          <ChatConversation />
         </motion.div>
       </div>
 
