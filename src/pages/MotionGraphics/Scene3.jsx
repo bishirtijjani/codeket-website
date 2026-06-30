@@ -14,16 +14,18 @@ const FRAMES_LANDSCAPE = {
   desktop:     { width: "50vw", aspectRatio: "16 / 9"      },
   panel:       { width: "32vw", aspectRatio: "1 / 1"       },
   phone:       { width: "15vw", aspectRatio: "9 / 19"      },
+  dashboard:   { width: "38vw", aspectRatio: "2000 / 1811" },
 };
 const FRAMES_PORTRAIT = {
   desktopWide: { width: "88vw", aspectRatio: "1587 / 772" },
   desktop:     { width: "86vw", aspectRatio: "16 / 9"      },
   panel:       { width: "70vw", aspectRatio: "1 / 1"       },
   phone:       { width: "44vw", aspectRatio: "9 / 19"      },
+  dashboard:   { width: "80vw", aspectRatio: "2000 / 1811" },
 };
 
 const SERVICES = [
-  { label: "Inventory Systems",   imgSrc: "/images/ims.gif", Mockup: null,                tilt: -2.5, kind: "desktopWide" },
+  { label: "Inventory Systems",   imgSrc: "/images/ims-restaurant.webp", Mockup: null,      tilt: -2.5, kind: "dashboard" },
   { label: "AI Automation",       imgSrc: null,              Mockup: AINetwork,           tilt:  2.5, kind: "panel"       },
   { label: "Mobile Apps",         imgSrc: null,              Mockup: PhoneMockup,         tilt: -2.5, kind: "phone"       },
   { label: "Enterprise Software", imgSrc: null,              Mockup: EnterpriseDashboard, tilt:  2.5, kind: "desktop"     },

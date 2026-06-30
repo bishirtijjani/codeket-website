@@ -17,8 +17,8 @@ const projects = [
       "12% overall revenue growth",
       "$4.2M in annual savings",
     ],
-    gifSrc: "./images/ims.gif",
-    staticSrc: "./images/1i.png",
+    gifSrc: "./images/ims-restaurant.webp",
+    staticSrc: "./images/ims-restaurant.webp",
   },
   {
     id: 2,

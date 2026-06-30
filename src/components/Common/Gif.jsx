@@ -10,7 +10,7 @@ const Gif = ({ gifSrc, staticSrc, alt = "GIF", className = "" }) => {
       className={className}
       onMouseEnter={() => setSrc(staticSrc)}
       onMouseLeave={() => setSrc(gifSrc)}
-      style={{ cursor: "pointer" }}
+      style={{ cursor: "pointer", objectFit: "cover" }}
     />
   );
 };
