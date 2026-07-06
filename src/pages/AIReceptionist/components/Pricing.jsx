@@ -63,7 +63,7 @@ const Pricing = () => {
           </h2>
         </motion.div>
 
-        <div className="max-w-xl">
+        <div className="max-w-4xl mx-auto">
           {PRICING_PLANS.map((plan, i) => (
             <motion.div
               key={plan.id}
@@ -71,13 +71,14 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`relative bg-base-100 rounded-2xl overflow-hidden border flex flex-col ${
+              className={`relative bg-base-100 rounded-2xl overflow-hidden border md:grid md:grid-cols-2 ${
                 plan.highlight
                   ? "border-primary shadow-md shadow-primary/10"
                   : "border-base-300"
               }`}
             >
-              <div className="p-8 md:p-10 flex flex-col flex-1">
+              {/* Left: identity, price, CTA */}
+              <div className="p-8 md:p-10 flex flex-col">
                 <h3 className="font-display text-2xl md:text-3xl font-extrabold text-base-content mb-1">
                   {plan.name}
                 </h3>
@@ -98,7 +99,7 @@ const Pricing = () => {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3.5 px-6 rounded-xl font-semibold mb-8 transition-all duration-300 flex items-center justify-center ${
+                  className={`w-full py-3.5 px-6 rounded-xl font-semibold mt-auto transition-all duration-300 flex items-center justify-center ${
                     plan.highlight
                       ? "text-white hover:-translate-y-0.5 hover:shadow-lg"
                       : "bg-primary text-white hover:bg-accent hover:shadow-md"
@@ -115,22 +116,23 @@ const Pricing = () => {
                   {plan.ctaLabel}
                   <FaArrowRight className="ml-2 w-3 h-3" />
                 </a>
+              </div>
 
-                <div className="space-y-3">
-                  <p className="font-semibold text-base-content text-sm uppercase tracking-wider mb-3">
-                    What's included:
-                  </p>
-                  {plan.features.map((f, idx) => (
-                    <div key={idx} className="flex items-start">
-                      <div className="text-success mt-1 mr-3 flex-shrink-0">
-                        <FaCheck className="w-3 h-3" />
-                      </div>
-                      <p className="text-base-content/80 text-sm leading-relaxed">
-                        {f}
-                      </p>
+              {/* Right: what's included */}
+              <div className="p-8 md:p-10 space-y-3 bg-base-200/40 border-t md:border-t-0 md:border-l border-base-300">
+                <p className="font-semibold text-base-content text-sm uppercase tracking-wider mb-3">
+                  What's included:
+                </p>
+                {plan.features.map((f, idx) => (
+                  <div key={idx} className="flex items-start">
+                    <div className="text-success mt-1 mr-3 flex-shrink-0">
+                      <FaCheck className="w-3 h-3" />
                     </div>
-                  ))}
-                </div>
+                    <p className="text-base-content/80 text-sm leading-relaxed">
+                      {f}
+                    </p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           ))}

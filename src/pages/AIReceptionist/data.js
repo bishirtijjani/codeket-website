@@ -103,9 +103,9 @@ export const PRICING_PLANS = [
 
 export const TRUST_PILLARS = [
   {
-    title: "100% in-house team",
+    title: "You own everything we build",
     body:
-      "Nigeria-based engineering and ops. USD billing via Wise or Grey. No agencies, no offshore middlemen, no surprises.",
+      "The bot, its prompts, your integrations, and every conversation are yours. No lock-in, no proprietary trap, cancel any time and keep what you paid for.",
     links: [],
   },
   {
@@ -118,6 +118,12 @@ export const TRUST_PILLARS = [
       role: "Founder, Codeket",
       linkedin: BISHIR_LINKEDIN_URL,
     },
+  },
+  {
+    title: "14 days or your setup back",
+    body:
+      "If your bot isn't live and handling real conversations within 14 days, we refund the setup fee. The risk is ours, not yours.",
+    links: [],
   },
 ];
 
@@ -147,12 +153,6 @@ export const FAQS = [
   },
   {
     id: 5,
-    question: "Where are you based?",
-    answer:
-      "Nigerian-founded studio serving clients globally. USD billing via Wise or Grey. Working hours overlap a normal US/UK/AU business day. Communication via Slack, email, or Zoom, whatever fits how you already work.",
-  },
-  {
-    id: 6,
     question: "Can I see it run on my own business?",
     answer:
       "Yes, book a 15-min demo and we'll set up a sandbox bot on your actual services, pricing, and FAQ data before you commit to anything.",
