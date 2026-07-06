@@ -44,7 +44,7 @@ export const FEATURES = [
   {
     title: "Books appointments directly",
     body:
-      "Integrates with Boulevard, Vagaro, Mindbody, and Calendly. The bot holds the slot, confirms with the client, and writes it straight to your calendar, no double-bookings.",
+      "Captures the booking, confirms with the client, and either writes it straight to your calendar or hands your team a ready-to-book slot with all the details — no double-bookings, no lost leads.",
   },
   {
     title: "Qualifies and escalates",
@@ -90,7 +90,7 @@ export const PRICING_PLANS = [
     features: [
       "14-day delivery, signed contract to live bot",
       "Trained on your services, prices, hours, and policies",
-      "Booking integration (Boulevard, Vagaro, Mindbody, or Calendly)",
+      "Booking capture + handoff on any system; direct calendar integration for Square, Acuity, Calendly (others quoted as an add-on)",
       "Human-handoff rules customised to your team",
       "Conversation analytics dashboard",
       "Monthly retainer covers monitoring + up to 4 hours of prompt/copy changes",
@@ -137,7 +137,7 @@ export const FAQS = [
     id: 3,
     question: "Which booking systems do you support?",
     answer:
-      "Boulevard, Vagaro, Mindbody, Aesthetic Record, Calendly, or anything with an API. If your system has a public API, we can integrate it inside the 14-day window.",
+      "Direct calendar integration is available today for Square, Acuity, and Calendly. For Boulevard, Vagaro, Mindbody, Zenoti, and Aesthetic Record we integrate where the platform's API allows — set up as a follow-on once access is approved. Everything else runs on smart capture + handoff, so no lead is lost whatever software you use.",
   },
   {
     id: 4,
