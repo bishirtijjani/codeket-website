@@ -3,10 +3,10 @@ import {
   NAVY,
   ORANGE,
   NAVY_MUTED,
-  WHATSAPP,
-  WHATSAPP_DEEP,
-  WHATSAPP_BG,
-  WHATSAPP_BUBBLE_OUT,
+  IG_GRADIENT,
+  IG_SEND,
+  IG_RECV,
+  IG_BG,
   animate,
   wait,
   nextFrame,
@@ -190,7 +190,7 @@ export default function Scene4({ playToken, onComplete }) {
     </div>
   );
 
-  // ── Phone with WhatsApp chat ──
+  // ── Phone with Instagram DM ──
   // Inner sizes are em-based so they scale with the phone's own font-size
   // (set below per orientation), which keeps the chat readable regardless of
   // viewport - vw-based sizing made the text tiny in portrait.
@@ -199,8 +199,8 @@ export default function Scene4({ playToken, onComplete }) {
       ref={phoneRef}
       style={{
         opacity: 0,
-        // Cap by height too (36vh -> ~62vh tall) so the phone also fits
-        // shorter portrait frames like Instagram's 4:5 feed, not just 9:16.
+        // Cap by height too so the phone also fits shorter portrait frames
+        // like Instagram's 4:5 feed, not just 9:16.
         width: isPortrait ? "min(82vw, 700px, 36vh)" : "min(30vw, 540px)",
         aspectRatio: isPortrait ? "9 / 15.5" : "9 / 17",
         // Base font-size that the inner em units key off.
@@ -222,46 +222,87 @@ export default function Scene4({ playToken, onComplete }) {
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
-          background: WHATSAPP_BG,
+          background: IG_BG,
         }}
       >
-        {/* header */}
+        {/* Instagram DM header */}
         <div
           style={{
-            background: WHATSAPP_DEEP,
-            color: "#fff",
+            color: NAVY,
             display: "flex",
             alignItems: "center",
             gap: "0.6em",
             padding: "0.8em 0.9em",
+            borderBottom: "1px solid #EFEFEF",
           }}
         >
+          {/* gradient-ringed avatar */}
           <div
             style={{
-              width: "2.2em",
-              height: "2.2em",
+              width: "2.3em",
+              height: "2.3em",
               borderRadius: "50%",
-              background: WHATSAPP,
+              background: IG_GRADIENT,
+              padding: "0.13em",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 800,
-              fontSize: "1em",
-              color: "#063",
               flexShrink: 0,
             }}
           >
-            G
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                background: "#fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                style={{
+                  width: "82%",
+                  height: "82%",
+                  borderRadius: "50%",
+                  background: IG_GRADIENT,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 800,
+                  fontSize: "0.85em",
+                  color: "#fff",
+                }}
+              >
+                G
+              </div>
+            </div>
           </div>
-          <div style={{ lineHeight: 1.15 }}>
+          <div style={{ lineHeight: 1.15, flex: 1 }}>
             <div
               className="font-display"
               style={{ fontWeight: 700, fontSize: "1.05em" }}
             >
-              Glow Med Spa
+              glow.medspa
             </div>
-            <div style={{ fontSize: "0.78em", opacity: 0.85 }}>online</div>
+            <div style={{ fontSize: "0.72em", color: NAVY_MUTED }}>
+              Active now
+            </div>
+          </div>
+          {/* IG DM header glyphs: phone / video / info */}
+          <div
+            style={{
+              display: "flex",
+              gap: "0.5em",
+              fontSize: "1.1em",
+              color: NAVY,
+              opacity: 0.75,
+            }}
+          >
+            <span>📞</span>
+            <span>📷</span>
           </div>
         </div>
 
@@ -272,7 +313,7 @@ export default function Scene4({ playToken, onComplete }) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
-            gap: "0.5em",
+            gap: "0.4em",
             padding: "0.9em",
             overflow: "hidden",
           }}
@@ -288,18 +329,17 @@ export default function Scene4({ playToken, onComplete }) {
             >
               <div
                 style={{
-                  background: m.from === "in" ? "#FFFFFF" : WHATSAPP_BUBBLE_OUT,
-                  color: NAVY,
+                  background: m.from === "in" ? IG_RECV : IG_SEND,
+                  color: m.from === "in" ? NAVY : "#fff",
                   fontFamily: "'Roboto', ui-sans-serif, sans-serif",
                   fontSize: "0.95em",
                   lineHeight: 1.32,
-                  padding: "0.6em 0.85em",
+                  padding: "0.55em 0.85em",
                   borderRadius:
                     m.from === "in"
-                      ? "0.3em 1em 1em 1em"
-                      : "1em 0.3em 1em 1em",
-                  maxWidth: "82%",
-                  boxShadow: "0 1px 2px rgba(11,22,40,0.10)",
+                      ? "1.2em 1.2em 1.2em 0.35em"
+                      : "1.2em 1.2em 0.35em 1.2em",
+                  maxWidth: "80%",
                 }}
               >
                 {m.text}

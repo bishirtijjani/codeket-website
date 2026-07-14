@@ -15,6 +15,16 @@ export const WHATSAPP_DEEP = "#075E54";
 export const WHATSAPP_BG = "#ECE5DD";
 export const WHATSAPP_BUBBLE_OUT = "#D9FDD3";
 
+// Instagram identity, used ONLY inside the DM mockup so the scene reads
+// instantly as Instagram. The brand gradient rings the avatar; the sent
+// bubble uses the recognisable purple->blue DM gradient.
+export const IG_GRADIENT =
+  "linear-gradient(135deg,#FEDA75 0%,#FA7E1E 22%,#D62976 52%,#962FBF 76%,#4F5BD5 100%)";
+export const IG_SEND =
+  "linear-gradient(135deg,#A033FF 0%,#5B51D8 55%,#3897F0 100%)";
+export const IG_RECV = "#EFEFEF"; // incoming DM bubble grey
+export const IG_BG = "#FFFFFF"; // DM thread background
+
 // ── Animation helpers ─────────────────────────────────────────
 export const animate = (el, keyframes, options = {}) => {
   if (!el) return Promise.resolve();

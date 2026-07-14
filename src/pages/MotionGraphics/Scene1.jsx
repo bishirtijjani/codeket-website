@@ -3,7 +3,6 @@ import {
   NAVY,
   ORANGE,
   NAVY_MUTED,
-  WHATSAPP,
   animate,
   wait,
   nextFrame,
@@ -13,7 +12,7 @@ import {
   EASE_EXIT,
 } from "./animUtils";
 
-// HOOK - an everyday WhatsApp message lands, then the line that frames it.
+// HOOK - an everyday DM lands, then the line that frames it.
 export default function Scene1({ playToken, onComplete }) {
   const bubbleRef = useRef(null);
   const timeRef = useRef(null);
@@ -129,7 +128,7 @@ export default function Scene1({ playToken, onComplete }) {
             maxWidth: "100%",
           }}
         >
-          Hi! 👋 Are you open right now?
+          Hi! 👋 Do you have any facials this week?
         </div>
         <div
           ref={timeRef}
@@ -142,7 +141,7 @@ export default function Scene1({ playToken, onComplete }) {
             marginLeft: "0.6rem",
           }}
         >
-          Delivered · 9:47 PM
+          Instagram · 9:47 PM
         </div>
       </div>
 

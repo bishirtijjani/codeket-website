@@ -118,7 +118,7 @@ export default function Scene3({ playToken, onComplete }) {
           maxWidth: "min(90vw, 1500px)",
         }}
       >
-        Your WhatsApp{" "}
+        Your{" "}
         <span style={{ color: ORANGE }}>AI&nbsp;receptionist</span>
         <span style={{ color: ORANGE }}>.</span>
       </div>

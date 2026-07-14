@@ -97,7 +97,7 @@ export default function Scene8({ playToken, onComplete }) {
         }}
       >
         codeket.com<wbr />
-        <span style={{ color: ORANGE }}>/whatsapp-receptionist</span>
+        <span style={{ color: ORANGE }}>/ai-receptionist</span>
       </div>
       <div
         ref={ctaRef}
