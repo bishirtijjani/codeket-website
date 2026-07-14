@@ -42,7 +42,7 @@ const Hero = () => {
 
           <p className="text-base-content/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
             Recover the bookings your front desk is missing after 6 PM. Answers
-            every inquiry on WhatsApp, Instagram, and more, books appointments,
+            every inquiry on Instagram, WhatsApp, and more, books appointments,
             follows up, 24/7. Live in 14 days.
           </p>
 
