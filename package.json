@@ -11,7 +11,8 @@
     "generate-sitemap": "node sitemap-generator.js",
     "postinstall": "node scripts/patch-react-router-dom.js",
     "render": "node scripts/render-motion-graphics.mjs",
-    "render:mobile": "RENDER_WIDTH=1080 RENDER_HEIGHT=1920 RENDER_OUT=motion-graphics-mobile.mp4 node scripts/render-motion-graphics.mjs"
+    "render:mobile": "RENDER_WIDTH=1080 RENDER_HEIGHT=1920 RENDER_OUT=motion-graphics-mobile.mp4 node scripts/render-motion-graphics.mjs",
+    "render:instagram": "RENDER_WIDTH=1080 RENDER_HEIGHT=1350 RENDER_OUT=motion-graphics-instagram.mp4 node scripts/render-motion-graphics.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

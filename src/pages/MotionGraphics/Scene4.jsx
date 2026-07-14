@@ -199,7 +199,9 @@ export default function Scene4({ playToken, onComplete }) {
       ref={phoneRef}
       style={{
         opacity: 0,
-        width: isPortrait ? "min(82vw, 700px)" : "min(30vw, 540px)",
+        // Cap by height too (36vh -> ~62vh tall) so the phone also fits
+        // shorter portrait frames like Instagram's 4:5 feed, not just 9:16.
+        width: isPortrait ? "min(82vw, 700px, 36vh)" : "min(30vw, 540px)",
         aspectRatio: isPortrait ? "9 / 15.5" : "9 / 17",
         // Base font-size that the inner em units key off.
         fontSize: isPortrait
